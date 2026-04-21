@@ -1,0 +1,13 @@
+{
+  "id": "0007-lean-anymodel-simplification",
+  "status": "planned",
+  "type": "refactor",
+  "priority": "P2",
+  "created": "2026-04-21T04:49:09.171Z",
+  "lastActivity": "2026-04-21T04:49:09.171Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {}
+}
