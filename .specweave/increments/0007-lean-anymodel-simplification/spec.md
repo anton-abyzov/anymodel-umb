@@ -1,13 +1,14 @@
 ---
 increment: 0007-lean-anymodel-simplification
-title: "Lean AnyModel — 1.12.0 simplification pass"
+title: "Lean AnyModel Phase 1 — 1.12.0"
 type: refactor
 priority: P2
-status: active
+status: ready-for-review
 created: 2026-04-21
 structure: user-stories
 test_mode: TDD
 coverage_target: 80
+scope_adjustment: "US-002 (native mode) + US-003 (optimizer extraction) deferred to 0008 — Phase 2"
 ---
 # Spec: Lean AnyModel — 1.12.0 Simplification Pass
 
@@ -44,10 +45,10 @@ Ship **anymodel@1.12.0** with:
 **So that** bugfixes apply to both with one change
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: New `providers/openai-local.mjs` exports `makeOpenAILocalProvider({ name, defaultPort, envVar, bearerStub, v0Probe })` — ~90 LOC
-- [ ] **AC-US1-02**: `providers/lmstudio.mjs` shrinks to ≤ 20 LOC (factory call with LMStudio config)
-- [ ] **AC-US1-03**: `providers/llamacpp.mjs` shrinks to ≤ 20 LOC (factory call with llama.cpp config)
-- [ ] **AC-US1-04**: All tests in `test/lmstudio.test.mjs` + `test/llamacpp.test.mjs` continue passing unchanged
+- [x] **AC-US1-01**: New `providers/openai-local.mjs` exports `makeOpenAILocalProvider({ name, defaultPort, envVar, bearerStub, v0Probe })` — ~90 LOC
+- [x] **AC-US1-02**: `providers/lmstudio.mjs` shrinks to ≤ 20 LOC (factory call with LMStudio config)
+- [x] **AC-US1-03**: `providers/llamacpp.mjs` shrinks to ≤ 20 LOC (factory call with llama.cpp config)
+- [x] **AC-US1-04**: All tests in `test/lmstudio.test.mjs` + `test/llamacpp.test.mjs` continue passing unchanged
 
 ### US-002: Native Anthropic mode for LMStudio 0.3+
 **Project**: anymodel
@@ -57,12 +58,12 @@ Ship **anymodel@1.12.0** with:
 **So that** I get lower latency and fewer moving parts
 
 **Acceptance Criteria**:
-- [ ] **AC-US2-01**: On proxy startup (after model probe), detect whether `POST /v1/messages` on LMStudio returns an Anthropic-shape body — set `provider.nativeAnthropic = true` when confirmed
-- [ ] **AC-US2-02**: When `nativeAnthropic === true`, skip `transformRequest` / `transformResponse` / `createStreamTranslator` — send body verbatim; optimization passes STILL RUN before the bypass
-- [ ] **AC-US2-03**: All 5 local optimization passes (auto-strict-MCP, tool-compression, system-condense, XML-strip, history-condense) still execute regardless of native mode
-- [ ] **AC-US2-04**: Env override `LMSTUDIO_NATIVE=0` forces the OpenAI translation path (escape hatch for compatibility)
-- [ ] **AC-US2-05**: Proxy banner includes "LMStudio native Anthropic mode" line when active
-- [ ] **AC-US2-06**: Bench S5 realistic payload (30 tools + 10K system prompt) in native mode is no slower than translation mode
+- [ ] **AC-US2-01** [DEFERRED to 0008]: On proxy startup (after model probe), detect whether `POST /v1/messages` on LMStudio returns an Anthropic-shape body — set `provider.nativeAnthropic = true` when confirmed
+- [ ] **AC-US2-02** [DEFERRED to 0008]: When `nativeAnthropic === true`, skip `transformRequest` / `transformResponse` / `createStreamTranslator` — send body verbatim; optimization passes STILL RUN before the bypass
+- [ ] **AC-US2-03** [DEFERRED to 0008]: All 5 local optimization passes (auto-strict-MCP, tool-compression, system-condense, XML-strip, history-condense) still execute regardless of native mode
+- [ ] **AC-US2-04** [DEFERRED to 0008]: Env override `LMSTUDIO_NATIVE=0` forces the OpenAI translation path (escape hatch for compatibility)
+- [ ] **AC-US2-05** [DEFERRED to 0008]: Proxy banner includes "LMStudio native Anthropic mode" line when active
+- [ ] **AC-US2-06** [DEFERRED to 0008]: Bench S5 realistic payload (30 tools + 10K system prompt) in native mode is no slower than translation mode
 
 ### US-003: Extract LocalOptimizer module
 **Project**: anymodel
@@ -72,11 +73,11 @@ Ship **anymodel@1.12.0** with:
 **So that** I can unit-test each optimization pass independently
 
 **Acceptance Criteria**:
-- [ ] **AC-US3-01**: `providers/local-optimizer.mjs` exports `optimizeForLocal(parsed, ctx) → { parsed, telemetry }` where `ctx` includes `providerName`, `numCtx`, env overrides
-- [ ] **AC-US3-02**: `handleMessages` in `proxy.mjs` calls the optimizer in exactly ONE place; no behavior change vs pre-extraction
-- [ ] **AC-US3-03**: New `test/local-optimizer.test.mjs` has direct unit tests for each pass: tool-compress, system-condense, XML-strip, history-condense, prefix-cache (Ollama-only)
-- [ ] **AC-US3-04**: Full pre-existing test suite (260+ tests) continues passing unchanged
-- [ ] **AC-US3-05**: LOC delta in `proxy.mjs`: ~−180 (block moved); LOC delta in new file: ~+200
+- [ ] **AC-US3-01** [DEFERRED to 0008]: `providers/local-optimizer.mjs` exports `optimizeForLocal(parsed, ctx) → { parsed, telemetry }` where `ctx` includes `providerName`, `numCtx`, env overrides
+- [ ] **AC-US3-02** [DEFERRED to 0008]: `handleMessages` in `proxy.mjs` calls the optimizer in exactly ONE place; no behavior change vs pre-extraction
+- [ ] **AC-US3-03** [DEFERRED to 0008]: New `test/local-optimizer.test.mjs` has direct unit tests for each pass: tool-compress, system-condense, XML-strip, history-condense, prefix-cache (Ollama-only)
+- [ ] **AC-US3-04** [DEFERRED to 0008]: Full pre-existing test suite (260+ tests) continues passing unchanged
+- [ ] **AC-US3-05** [DEFERRED to 0008]: LOC delta in `proxy.mjs`: ~−180 (block moved); LOC delta in new file: ~+200
 
 ### US-004: Remove `_unused` placeholder hack
 **Project**: anymodel
@@ -86,11 +87,11 @@ Ship **anymodel@1.12.0** with:
 **So that** real tools named `_unused` aren't corrupted and code simplifies
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: `sanitizeBody` in `proxy.mjs` uses `{ type: "object", additionalProperties: false }` for tool schemas with empty `properties`
-- [ ] **AC-US4-02**: Remove `_unused` / `_placeholder` stripping from: `sanitizeToolUseResponse` (proxy.mjs), response JSON parse path, streaming regex replace in proxy.mjs, response translators in `openai.mjs` and `ollama.mjs` — 4+ deletion sites
-- [ ] **AC-US4-03**: New regression test: tool named `_unused` with real schema survives a full request→response round-trip unchanged
-- [ ] **AC-US4-04**: Integration smoke: OpenAI (real), LMStudio (local), Ollama (local) all accept the new empty-schema form without errors
-- [ ] **AC-US4-05**: LOC delta: −35 total across the 5+ files
+- [x] **AC-US4-01**: `sanitizeBody` in `proxy.mjs` uses `{ type: "object", additionalProperties: false }` for tool schemas with empty `properties`
+- [x] **AC-US4-02**: Remove `_unused` / `_placeholder` stripping from: `sanitizeToolUseResponse` (proxy.mjs), response JSON parse path, streaming regex replace in proxy.mjs, response translators in `openai.mjs` and `ollama.mjs` — 4+ deletion sites
+- [x] **AC-US4-03**: New regression test: tool named `_unused` with real schema survives a full request→response round-trip unchanged
+- [x] **AC-US4-04**: Integration smoke: OpenAI (real), LMStudio (local), Ollama (local) all accept the new empty-schema form without errors
+- [x] **AC-US4-05**: LOC delta: −35 total across the 5+ files
 
 ### US-005: Prune FREE_MODELS allowlist
 **Project**: anymodel
@@ -100,11 +101,11 @@ Ship **anymodel@1.12.0** with:
 **So that** the tool doesn't go stale when OpenRouter's free tier changes
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: `isFreeTierModel(model)` in `proxy.mjs` returns `true` for any model ID ending in `:free`; remove the `FREE_MODELS` array in `cli.mjs`
-- [ ] **AC-US5-02**: Keep `openrouter/free` auto-router as the sole special-cased model (not just `:free`-suffixed)
-- [ ] **AC-US5-03**: `printHelp()` and README stop enumerating specific free models; describe the `:free` suffix convention instead
-- [ ] **AC-US5-04**: Existing tests covering `freeOnly` mode updated to not depend on specific hardcoded model names
-- [ ] **AC-US5-05**: LOC delta: −14 from cli.mjs
+- [x] **AC-US5-01**: `isFreeTierModel(model)` in `proxy.mjs` returns `true` for any model ID ending in `:free`; remove the `FREE_MODELS` array in `cli.mjs`
+- [x] **AC-US5-02**: Keep `openrouter/free` auto-router as the sole special-cased model (not just `:free`-suffixed)
+- [x] **AC-US5-03**: `printHelp()` and README stop enumerating specific free models; describe the `:free` suffix convention instead
+- [x] **AC-US5-04**: Existing tests covering `freeOnly` mode updated to not depend on specific hardcoded model names
+- [x] **AC-US5-05**: LOC delta: −14 from cli.mjs
 
 ### US-006: Fix `output_tokens=0` SSE bug
 **Project**: anymodel
@@ -114,10 +115,10 @@ Ship **anymodel@1.12.0** with:
 **So that** session budget tracking matches reality
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: AnyModel's OpenAI SSE→Anthropic SSE translator (`providers/openai.mjs::createStreamTranslator`) forwards `usage.output_tokens` in the final `message_delta` event when upstream emits usage data
-- [ ] **AC-US6-02**: Regression test: POST streaming request via proxy, parse SSE, assert final `message_delta` carries non-zero `output_tokens` when upstream provided `completion_tokens`
-- [ ] **AC-US6-03**: Non-streaming responses continue reporting correct usage (no regression)
-- [ ] **AC-US6-04**: Gracefully handles upstreams that omit usage (field remains 0 rather than throwing)
+- [x] **AC-US6-01**: AnyModel's OpenAI SSE→Anthropic SSE translator (`providers/openai.mjs::createStreamTranslator`) forwards `usage.output_tokens` in the final `message_delta` event when upstream emits usage data
+- [x] **AC-US6-02**: Regression test: POST streaming request via proxy, parse SSE, assert final `message_delta` carries non-zero `output_tokens` when upstream provided `completion_tokens`
+- [x] **AC-US6-03**: Non-streaming responses continue reporting correct usage (no regression)
+- [x] **AC-US6-04**: Gracefully handles upstreams that omit usage (field remains 0 rather than throwing)
 
 ## Non-goals
 
