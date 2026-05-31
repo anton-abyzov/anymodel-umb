@@ -1,0 +1,11 @@
+{
+  "id": "0009",
+  "name": "streaming-toolcall-recovery",
+  "title": "Streaming text-channel tool-call recovery + local capability cache",
+  "status": "complete",
+  "created": "2026-05-31",
+  "type": "feature",
+  "parent": "0008-anymodel-local-model-reliability",
+  "target": "repositories/antonoly/anymodel",
+  "baselineTests": 351
+}
