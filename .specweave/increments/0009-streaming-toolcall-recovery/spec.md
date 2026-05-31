@@ -43,7 +43,9 @@ channel, the proxy still surfaces a real `tool_use` block + `stop_reason:'tool_u
 ### US-2 — Local tool-capability cache covers lmstudio/llamacpp (P1.10)
 - [x] AC-US2-01 — `cacheToolResult(model, true/false)` is written for ALL local providers
   (success + no-tool-support paths), not just Ollama.
-- [x] AC-US2-02 — the `tool_choice` strip is generalized to all local providers.
+- [x] AC-US2-02 — the `tool_choice` strip stays **Ollama-only** (revised per 0009 review:
+  LM Studio / llama.cpp are OpenAI-compatible and honor `tool_choice`, so stripping it would
+  drop a forced selection — only the capability *cache* is generalized to all local providers).
 
 ### US-3 — Streaming usage parity (minor)
 - [x] AC-US3-01 — Ollama streaming `message_delta` carries `input_tokens` from
