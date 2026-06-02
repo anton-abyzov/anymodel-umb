@@ -1,0 +1,53 @@
+{
+  "version": "1.1",
+  "scope": "increment 0010-local-skill-fidelity (commit e7611e7 in repositories/antonoly/anymodel)",
+  "date": "2026-06-02",
+  "reviewers": ["logic", "security", "types", "silent-failures", "spec-compliance"],
+  "gateCheck": { "passed": true, "reason": null },
+  "summary": {
+    "total": 3,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1,
+    "info": 2
+  },
+  "validation": {
+    "performed": true,
+    "preValidation": { "critical": 0, "high": 0 },
+    "postValidation": { "critical": 0, "high": 0 },
+    "rejected": 0
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "low",
+      "validated": true,
+      "file": "providers/skill-catalog.mjs",
+      "line": 156,
+      "category": "spec-compliance",
+      "title": "projectSkills priority never wired through from buildFidelityAddition",
+      "description": "selectSkills supports a projectSkills[] param to prioritize project-local skills (AC-US4-01: 'sw:* + project skills first'), but buildFidelityAddition calls selectSkills without passing projectSkills, so it always defaults to []. Only sw:* prioritization is active. Acceptable: the proxy layer has no reliable project-membership signal for harvested skills, and sw:* (the workflow-critical tier) IS prioritized. AC-US4-01's core requirement (bounded index, sw:* first, names-only degradation) is met and tested. Documented here for future improvement, not blocking."
+    },
+    {
+      "id": "F-002",
+      "severity": "info",
+      "validated": true,
+      "file": "providers/skill-catalog.mjs",
+      "line": 96,
+      "category": "types",
+      "title": "selectSkills accepts fidelity param but does not use it",
+      "description": "selectSkills destructures `fidelity = 'balanced'` but never references it. The full-tier behavior (keep whenToUse, higher clamp) is handled entirely upstream in buildFidelityAddition via descChars/keepWhenToUse before harvesting. The param is dead. Harmless but slightly misleading API surface."
+    },
+    {
+      "id": "F-003",
+      "severity": "info",
+      "validated": true,
+      "file": "proxy.mjs",
+      "line": 661,
+      "category": "logic",
+      "title": "Prefix-cache gate widened to all local providers — verified response-path-safe",
+      "description": "The gate `if (provider.name === 'ollama')` was widened to `if (isLocal)`, so lmstudio/llamacpp now flow through getOrStore and receive a non-null prefixCacheResult passed to transformResponse (proxy.mjs:920) and createStreamTranslator (proxy.mjs:930). Verified safe: lmstudio/llamacpp delegate to openai-local.mjs, whose transformResponse:(body)=>translateResponse(body,...) and createStreamTranslator:()=>createStreamTranslator(...) structurally discard the extra arg. No null-deref or metrics path is exercised for these providers. Integration test 'prefix-cache now covers the LM Studio (MLX) path without breaking it' confirms a successful 200 + injected catalog. This is the highest-risk change in the increment and it is sound."
+    }
+  ]
+}

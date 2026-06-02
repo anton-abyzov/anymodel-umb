@@ -1,0 +1,18 @@
+{
+  "id": "0010-local-skill-fidelity",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-06-02T20:52:12.702Z",
+  "lastActivity": "2026-06-02T21:20:00.161Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "readyForReviewAt": "2026-06-02T21:18:50.826Z",
+  "approvedAt": "2026-06-02T21:20:00.161Z"
+}

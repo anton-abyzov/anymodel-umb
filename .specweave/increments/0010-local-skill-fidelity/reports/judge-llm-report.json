@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "increment": "0010-local-skill-fidelity",
+  "date": "2026-06-02",
+  "status": "WAIVED",
+  "reason": "externalModels not configured in .specweave/config.json and no ANTHROPIC_API_KEY in environment — independent LLM-as-judge validation cannot run. Waived per sw:done Step 5. Quality verified via code-review (PASS, 0 critical/high/medium), grill (READY, 0 blockers/criticals), and 430/430 test suite.",
+  "verdict": "WAIVED",
+  "model": null
+}
