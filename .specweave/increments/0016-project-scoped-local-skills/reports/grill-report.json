@@ -1,0 +1,50 @@
+{
+  "version": "1.1",
+  "incrementId": "0016-project-scoped-local-skills",
+  "timestamp": "2026-06-03T00:05:24Z",
+  "verdict": "PASS",
+  "shipReadiness": "READY",
+  "scope": "commit 7fd7daf in repositories/antonoly/anymodel (HEAD, clean tree). Files: providers/skill-catalog.mjs, proxy.mjs, test/skill-catalog.test.mjs, test/proxy-fidelity.test.mjs, test/context-budget-bench.mjs, LOCAL_SETUP.md (278 insertions across 6 files).",
+  "method": "Independent verification: read full implementation + tests, ran scoped suites (29/29) and full suite (475/475), built three independent harnesses to prove cacheability (prefix-hash equality), the project allow-filter, the 1500-char budget cap (worst-case 344 tok), full-tier regression, lean no-op, and the F-001 case-sensitivity edge. Did NOT rely on the implementer's report for any verdict.",
+  "summary": { "totalFindings": 1, "critical": 0, "high": 0, "medium": 0, "low": 1, "suppressed": 0 },
+  "testResults": {
+    "scopedSuites": { "tests": 29, "pass": 29, "fail": 0 },
+    "fullSuite": { "tests": 475, "pass": 475, "fail": 0 }
+  },
+  "acCompliance": {
+    "totalACs": 8,
+    "passed": 8,
+    "failed": 0,
+    "scopeCreep": [],
+    "results": [
+      { "acId": "AC-US1-01", "status": "pass", "evidence": "Independently reproduced: balanced+project scope keeps project skill (pptx) + workflow-core members present in catalog (sw:do/sw:done/sw:grill), drops all 33 irrelevant globals (nanobanana, deep-research, etc.). Allow-set = readProjectSkillNames ∪ WORKFLOW_CORE (skill-catalog.mjs:217-222). Filter only retains skills that ALSO appear in the harvested catalog — no phantom injection. Test skill-catalog.test.mjs:202." },
+      { "acId": "AC-US1-02", "status": "pass", "evidence": "full tier (scope=all) keeps every one of 33 global skills in my harness; verified fullHasAll=true. budgetChars path for full is Math.min(Math.max(ctxBudgetChars,4000),16000), query relevance preserved. Test skill-catalog.test.mjs:214, proxy-fidelity.test.mjs." },
+      { "acId": "AC-US1-03", "status": "pass", "evidence": "Structurally guaranteed, not just measured: project scope hard-codes budgetChars=1500 (skill-catalog.mjs:226-227) → index ≤375 tok ceiling. Worst case (10 long workflow-core skills) measured 344 tok < 500; typical (1 project skill) 37 tok. Full index measured 629 tok in my 33-skill harness." },
+      { "acId": "AC-US2-01", "status": "pass", "evidence": "Proved cacheability directly: two materially different user queries ('auth login bug fix' vs 'generate a poster image') produce byte-identical addition (sha256 prefix 48d40487fc9e == 48d40487fc9e). Project scope passes query='' (skill-catalog.mjs:234), so the block stays query-independent and KV-cacheable." },
+      { "acId": "AC-US3-01", "status": "pass", "evidence": "readProjectSkillNames memoized via _projectSkillMemo Map (skill-catalog.mjs:42-57); returns subdir names containing SKILL.md; returns [] (no throw) for missing dir, null dir, and per-entry stat errors (try/catch at line 50 + outer at 46-54). Test skill-catalog.test.mjs:183-195 confirms memo hit + []-on-missing." },
+      { "acId": "AC-US3-02", "status": "pass", "evidence": "proxy.mjs:526 projectDir = process.env.LOCAL_PROJECT_DIR || process.cwd(); scope derived at proxy.mjs:514-515 (LOCAL_SKILL_SCOPE override else project/all by tier). Gated behind isLocal && fidelity!=='lean'." },
+      { "acId": "AC-US4-01", "status": "pass", "evidence": "lean returns addition='' (verified empirically). git show --name-only 7fd7daf confirms cli.mjs and tool-compressor.mjs are NOT in the diff. Diff touches exactly the 6 spec'd files." },
+      { "acId": "AC-US4-02", "status": "pass", "evidence": "Full npm test suite green 475/475 (re-ran independently). Live ≥60% trigger eval is a manual model-dependent harness (skill-trigger-eval.mjs); not auto-asserted, but the index-content correctness it depends on is proven by the unit-level allow-filter tests." }
+    ]
+  },
+  "findings": [
+    {
+      "title": "priority() uses case-sensitive sw: test and project-skill match while allow-filter is case-insensitive",
+      "severity": "low",
+      "confidence": 72,
+      "category": "maintainability",
+      "file": "providers/skill-catalog.mjs:115-119 vs 220-221",
+      "issue": "The project-scope allow-filter lowercases both sides (line 220-221), but priority() ranks with case-SENSITIVE /^sw:/ and projectSkills.includes(name). An uppercase catalog entry (e.g. 'SW:DO') passes the allow-filter yet falls into the lower priority tier. I reproduced this: 'SW:DO' is kept by the filter (confirmed) but priority() would tier it below lowercase sw: entries.",
+      "suggestion": "Make priority()'s test /^sw:/i and compare projectSkills case-insensitively — or accept as immaterial.",
+      "impact": "Cosmetic ranking drift only. Never fires in practice: Claude Code skill names are always lowercase-namespaced (sw:do). No correctness, no cache, no budget impact. Both the allow-filter and the final name-sorted display order remain correct regardless. Independently confirmed harmless.",
+      "validated": true
+    }
+  ],
+  "infoNotes": [
+    "Memoization staleness by design: a skill added under .claude/skills mid-session needs a proxy restart to be picked up. Explicit trade for cacheability per AC-US3-01; proxy is a long-running per-project process. Not a defect.",
+    "Silent fs fallback by design: readProjectSkillNames swallows fs errors → []. Explicitly the AC-US3-01 best-effort no-throw contract; caller still injects workflow-core. Not a silent-failure defect.",
+    "Out-of-scope but worth flagging: duplicate increment 0015-project-scoped-local-skills exists as an unimplemented stub (status 'planned', no reports, smaller spec, same timestamp). 0016 is the real implemented one. 0015 should be abandoned/removed to avoid confusion — not a blocker for 0016."
+  ],
+  "securityNotes": "No new attack surface. readProjectSkillNames does read-only directory listing under an operator-controlled dir (LOCAL_PROJECT_DIR/cwd), not untrusted input — no path-traversal risk. LOCAL_SKILL_ALWAYS is split/trimmed and used only for in-memory name matching, never executed.",
+  "verdict_detail": "Ship as-is. All 8 ACs independently verified PASS (not taken on the implementer's word). Zero critical/high/medium. One LOW cosmetic finding (F-001) that provably never fires with real skill names. Diff scope, budget bounds, cacheability, and full-suite green all confirmed by re-execution."
+}

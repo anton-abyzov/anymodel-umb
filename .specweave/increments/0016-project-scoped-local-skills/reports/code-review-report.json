@@ -1,0 +1,89 @@
+{
+  "version": "1.1",
+  "scope": "increment 0016-project-scoped-local-skills (commit 7fd7daf in repositories/antonoly/anymodel)",
+  "date": "2026-06-02",
+  "reviewers": ["logic", "security", "silent-failures", "spec-compliance", "comments", "tests", "performance"],
+  "method": "orchestrator-direct (278-line self-contained JS diff fully loaded; specialized reviewer rubrics applied inline with empirical verification harnesses instead of subagent fan-out)",
+  "gateCheck": { "passed": true, "reason": null },
+  "filesReviewed": [
+    "providers/skill-catalog.mjs",
+    "proxy.mjs",
+    "test/skill-catalog.test.mjs",
+    "test/proxy-fidelity.test.mjs",
+    "test/context-budget-bench.mjs",
+    "LOCAL_SETUP.md"
+  ],
+  "testResults": {
+    "fullSuite": { "tests": 475, "pass": 475, "fail": 0 },
+    "scopedSuites": ["skill-catalog.test.mjs", "proxy-fidelity.test.mjs"],
+    "empiricalVerification": {
+      "fullTierByteIdenticalToPre0016": true,
+      "leanTierIdenticalToPre0016": true,
+      "balancedScopesCorrectly": true,
+      "projectScopeQueryIndependent": true,
+      "symlinkAndFileVsDirEdgeCasesHandled": true
+    }
+  },
+  "summary": {
+    "total": 3,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1,
+    "info": 2
+  },
+  "validation": {
+    "performed": true,
+    "preValidation": { "critical": 0, "high": 0 },
+    "postValidation": { "critical": 0, "high": 0 },
+    "rejected": 0
+  },
+  "acCompliance": [
+    { "ac": "AC-US1-01", "verdict": "PASS", "evidence": "buildFidelityAddition project-scope filter (skill-catalog.mjs:217-222); test skill-catalog.test.mjs:202 + proxy-fidelity.test.mjs:108" },
+    { "ac": "AC-US1-02", "verdict": "PASS", "evidence": "full tier byte-identical to pre-0016 verified empirically; proxy-fidelity.test.mjs:123, skill-catalog.test.mjs:214" },
+    { "ac": "AC-US1-03", "verdict": "PASS", "evidence": "context-budget-bench.mjs harness; LOCAL_SETUP.md records 2812 tok (full) -> 147 tok (project)" },
+    { "ac": "AC-US2-01", "verdict": "PASS", "evidence": "query='' in project scope (skill-catalog.mjs:234); test skill-catalog.test.mjs:220 + proxy-fidelity.test.mjs:148" },
+    { "ac": "AC-US3-01", "verdict": "PASS", "evidence": "readProjectSkillNames memoized + []-on-missing (skill-catalog.mjs:42-57); test skill-catalog.test.mjs:183" },
+    { "ac": "AC-US3-02", "verdict": "PASS", "evidence": "proxy.mjs:526 projectDir = LOCAL_PROJECT_DIR || process.cwd()" },
+    { "ac": "AC-US4-01", "verdict": "PASS", "evidence": "lean byte-identical verified; tool-compressor.mjs and cli.mjs not in diff (git show --stat)" },
+    { "ac": "AC-US4-02", "verdict": "PASS", "evidence": "full npm test suite green: 475/475" }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "LOW",
+      "category": "Case-sensitivity inconsistency",
+      "file": "providers/skill-catalog.mjs:220-221 vs 115-119",
+      "description": "The project-scope allow-filter lowercases both sides ([...projectSkills, ...always].map(s => s.toLowerCase()) and s.name.toLowerCase()), but priority() ranks with a case-SENSITIVE /^sw:/ test and case-sensitive projectSkills.includes(name). A catalog entry differing only in case (e.g. 'SW:DO') would pass the allow-filter yet rank in the lower priority tier and miss project-skill prioritization.",
+      "impact": "Cosmetic ranking drift only — never fires in practice because Claude Code skill names are always lowercase-namespaced (sw:do). No correctness or cache impact.",
+      "recommendation": "Optional: make priority()'s sw: test case-insensitive (/^sw:/i) and compare projectSkills case-insensitively for full consistency, or accept as immaterial.",
+      "validated": true
+    },
+    {
+      "id": "F-002",
+      "severity": "INFO",
+      "category": "Memoization staleness (by design)",
+      "file": "providers/skill-catalog.mjs:35-57",
+      "description": "_projectSkillMemo never clears in a running proxy (only the test hook _resetProjectSkillMemo does). A skill added under .claude/skills/ mid-session is not picked up until restart.",
+      "impact": "Intentional per spec AC-US3-01 ('one fs read per project dir, not per request') — staleness is the explicit trade for cacheability. Proxy is a long-running per-project process; restarting on skill changes is acceptable.",
+      "recommendation": "None required. Note kept for awareness; could add a TTL only if hot-reload is later desired.",
+      "validated": true
+    },
+    {
+      "id": "F-003",
+      "severity": "INFO",
+      "category": "Silent-by-design fallback",
+      "file": "providers/skill-catalog.mjs:46-54",
+      "description": "readProjectSkillNames swallows all fs errors and returns [] (per-entry statSync/existsSync wrapped in try/catch, outer try/catch around readdirSync).",
+      "impact": "Explicitly specified as best-effort no-throw behavior (AC-US3-01). Not a silent-failure defect: a missing/unreadable project dir legitimately means 'no project skills', and the caller still injects workflow-core. Matches the silent-failures rubric exclusion for intentional graceful degradation.",
+      "recommendation": "None. Behavior is documented and tested (skill-catalog.test.mjs:193).",
+      "validated": true
+    }
+  ],
+  "scopeCreep": [],
+  "securityNotes": "No injection/secrets/auth surface. readProjectSkillNames does fs reads under a caller-supplied dir (LOCAL_PROJECT_DIR/cwd) — operator-controlled, local, read-only directory listing; no path-traversal risk from untrusted input. LOCAL_SKILL_ALWAYS env is split/trimmed, used only for in-memory name matching, never executed. No findings.",
+  "recommendations": [
+    "Ship as-is. Zero critical/high/medium findings; all 8 ACs PASS with empirical verification.",
+    "Optional cleanup (F-001): make priority() case-insensitive for full consistency — non-blocking."
+  ]
+}

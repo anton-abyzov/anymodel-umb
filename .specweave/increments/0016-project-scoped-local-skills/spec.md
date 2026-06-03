@@ -1,10 +1,10 @@
 ---
 increment: 0016-project-scoped-local-skills
-title: "Project-scoped local skill index"
+title: Project-scoped local skill index
 type: feature
 priority: P1
-status: planned
-created: 2026-06-02
+status: completed
+created: 2026-06-02T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 80

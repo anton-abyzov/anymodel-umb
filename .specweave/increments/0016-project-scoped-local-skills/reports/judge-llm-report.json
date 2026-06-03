@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "increment": "0016-project-scoped-local-skills",
+  "date": "2026-06-02",
+  "verdict": "WAIVED",
+  "reason": "External model consent not granted (config.externalModels absent) and no ANTHROPIC_API_KEY available. Judge-LLM validation waived per sw:done Step 5.",
+  "model": null,
+  "summary": {
+    "approved": false,
+    "concerns": 0,
+    "rejected": false,
+    "waived": true
+  },
+  "findings": []
+}
