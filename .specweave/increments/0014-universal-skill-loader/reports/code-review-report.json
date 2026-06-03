@@ -1,0 +1,32 @@
+{
+  "increment": "0014",
+  "date": "2026-06-02",
+  "scope": "providers/skill-bridge.mjs + cli.mjs wiring + test/skill-bridge.test.mjs",
+  "method": "skill-bridge-review workflow, 18 agents — 3 finder angles (correctness, security/cross-platform, integration-claim verification) x 8 candidates + per-finding adversarial verification",
+  "summary": "15 confirmed findings. 8 fixed in code, 4 documented as known limitations, 2 are INFO confirming the core mechanism works, 1 plausible deferred.",
+  "mechanism_confirmed": [
+    "INFO: `--add-dir <bridge>` makes the bundled loader scan `<bridge>/.claude/skills` (traced cli.js: addDir -> additionalDirectoriesForClaudeMd -> skill scan). Bridge design correct.",
+    "INFO: the bundled per-dir scanner follows symlinked `<name>` entries (isSymbolicLink branch) and reads SKILL.md through the link — so symlinked foreign skills ARE discovered."
+  ],
+  "fixed": [
+    { "id": "SB-01", "severity": "high", "title": "Silent symlink-failure drops", "fix": "materializeSkillBridge records skipped:[{name,code}] instead of swallowing; setupSkillBridge logs 'N could not be linked' and 'found but none linked' (covers Windows EPERM)." },
+    { "id": "SB-02", "severity": "high", "title": "Symlink-following with no containment (arbitrary-dir grant)", "fix": "discoverForeignSkills uses lstatSync; a symlinked entry whose realpath escapes the scanned root is skipped (prevents `.codex/skills/x -> ~/.ssh` exposure)." },
+    { "id": "SB-03", "severity": "medium", "title": "Case-only-different names collide silently on case-insensitive FS", "fix": "planSkillBridge de-dups on name.toLowerCase(); the loser becomes a LOGGED shadow instead of a swallowed EEXIST." },
+    { "id": "SB-04", "severity": "medium", "title": "Orphaned temp dir when all symlinks fail", "fix": "materializeSkillBridge rmSync's the temp dir and returns bridgeDir:null when linked.length===0." },
+    { "id": "SB-05", "severity": "medium", "title": "Relative ANYMODEL_SKILL_ROOTS → broken symlink reported as success", "fix": "resolveForeignSkillRoots resolves relative entries to absolute against cwd." },
+    { "id": "SB-06", "severity": "medium", "title": "Whole bridge no-ops on Windows (symlink privilege)", "fix": "LINK_TYPE = win32 ? 'junction' : 'dir' (junctions need no privilege); residual failures now surface via skipped." },
+    { "id": "SB-07", "severity": "low", "title": "Cleanup misses spawn 'error' / SIGTERM", "fix": "Added clientChild.on('error') + process SIGTERM cleanup at both spawn sites." },
+    { "id": "SB-08", "severity": "low", "title": "Root de-dup uses raw strings, not realpath", "fix": "discoverForeignSkills canonicalizes each root with realpathSync before the seen-set check." }
+  ],
+  "documented_limitations": [
+    { "id": "SB-09", "severity": "low", "title": "Bridge bypasses the client's gitignore skip for foreign skills", "status": "documented", "note": "The client skips gitignored skill dirs (e.g. node_modules). The bridge does not replicate git check-ignore. Acceptable: foreign roots (.agents/.codex/.gemini) are user-curated skill dirs, not dependency trees. Noted in spec limitations." },
+    { "id": "SB-10", "severity": "low", "title": "planSkillBridge dedups by name; client dedups by realpath", "status": "documented", "note": "If two roots symlink the same physical skill dir, the bridge links it once by name and the client's realpath dedup absorbs the rest. No functional bug." },
+    { "id": "SB-11", "severity": "low", "title": "Enterprise policy may suppress bridged skills", "status": "documented", "note": "An enterprise strictPluginOnlyCustomization / restricted allowedSettingSources policy can suppress --add-dir skills; AnyModel cannot override it. Noted as a limitation." },
+    { "id": "SB-12", "severity": "low", "title": "$HOME-scope foreign skills loaded with no per-project opt-in", "status": "documented", "note": "Consistent with Claude Code's own user-scope (~/.claude/skills) behavior. ANYMODEL_SKILL_ROOTS allows override; contributing roots are visible via the discovery log. Kept by design." }
+  ],
+  "verification": {
+    "skill_bridge_tests": "12/12 pass (incl. containment, case-collision, relative-root, all-fail skipped+cleanup, real-symlink integration, cli glue)",
+    "full_suite": "461/461 pass, 0 fail",
+    "parse": "node --check skill-bridge.mjs + cli.mjs OK"
+  }
+}

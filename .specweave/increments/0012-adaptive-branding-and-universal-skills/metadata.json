@@ -1,0 +1,16 @@
+{
+  "id": "0012",
+  "name": "adaptive-branding-and-universal-skills",
+  "title": "Adaptive branding patch layer + universal SKILL.md loader",
+  "status": "complete",
+  "created": "2026-06-02",
+  "type": "feature",
+  "target": "repositories/antonoly/anymodel",
+  "adr": "0003-adaptive-branding-and-universal-skill-loader",
+  "baselineTests": 430,
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-06-02",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

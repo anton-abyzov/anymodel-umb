@@ -1,0 +1,12 @@
+{
+  "id": "0014",
+  "name": "universal-skill-loader",
+  "title": "Universal multi-ecosystem SKILL.md loader (launch-time bridge)",
+  "status": "complete",
+  "created": "2026-06-02",
+  "type": "feature",
+  "target": "repositories/antonoly/anymodel",
+  "adr": "0003-adaptive-branding-and-universal-skill-loader",
+  "parent": "0012-adaptive-branding-and-universal-skills",
+  "baselineTests": 444
+}

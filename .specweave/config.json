@@ -1,11 +1,103 @@
 {
-  "version": "2.0",
-  "project": {
-    "name": "anymodel-umb",
-    "version": "0.1.0"
+  "version": "3.0",
+  "language": "en",
+  "translation": {
+    "enabled": false,
+    "languages": [
+      "en"
+    ],
+    "primary": "en",
+    "method": "auto",
+    "preserveFrameworkTerms": true,
+    "scope": {
+      "incrementSpecs": false,
+      "livingDocs": false,
+      "externalSync": false
+    },
+    "keepEnglishOriginals": false
   },
   "adapters": {
     "default": "claude"
+  },
+  "repository": {
+    "provider": "github",
+    "organization": "antonoly"
+  },
+  "issueTracker": {
+    "provider": "none"
+  },
+  "testing": {
+    "defaultTestMode": "TDD",
+    "defaultCoverageTarget": 80,
+    "coverageTargets": {
+      "unit": 80,
+      "integration": 70,
+      "e2e": 100
+    },
+    "playwright": {
+      "preferCli": true
+    }
+  },
+  "limits": {
+    "maxActiveIncrements": 3,
+    "hardCap": 5,
+    "allowEmergencyInterrupt": true,
+    "typeBehaviors": {
+      "canInterrupt": [
+        "hotfix",
+        "bug"
+      ],
+      "autoAbandonDays": {
+        "experiment": 14
+      }
+    },
+    "staleness": {
+      "paused": 7,
+      "active": 30
+    }
+  },
+  "deduplication": {
+    "enabled": true,
+    "windowMs": 1000,
+    "maxCacheSize": 1000,
+    "debug": false,
+    "cleanupIntervalMs": 60000
+  },
+  "archiving": {
+    "keepLast": 5,
+    "autoArchive": false,
+    "autoArchiveThreshold": 10,
+    "archiveAfterDays": 60,
+    "preserveActive": true,
+    "archiveCompleted": false,
+    "archivePatterns": [],
+    "preserveList": []
+  },
+  "livingDocs": {
+    "copyBasedSync": {
+      "enabled": true,
+      "autoGenerate": true
+    },
+    "threeLayerSync": {
+      "enabled": true,
+      "autoSync": true
+    }
+  },
+  "apiDocs": {
+    "enabled": false,
+    "openApiPath": "openapi.yaml",
+    "autoGenerateOpenApi": true,
+    "generatePostman": true,
+    "postmanPath": "postman-collection.json",
+    "postmanEnvPath": "postman-environment.json",
+    "generateOn": "on-increment-done",
+    "watchPatterns": [
+      "**/routes/**",
+      "**/controllers/**",
+      "**/api/**",
+      "**/endpoints/**"
+    ],
+    "baseUrl": "http://localhost:3000"
   },
   "hooks": {
     "post_task_completion": {
@@ -13,13 +105,97 @@
       "external_tracker_sync": true
     },
     "post_increment_planning": {
-      "auto_create_github_issue": true
+      "auto_create_github_issue": true,
+      "sync_living_docs": true
     },
     "post_increment_done": {
       "sync_living_docs": true,
       "sync_to_github_project": true,
       "close_github_issue": true
     }
+  },
+  "sync": {
+    "enabled": false,
+    "direction": "bidirectional",
+    "autoSync": false,
+    "includeStatus": true,
+    "autoApplyLabels": true
+  },
+  "statusLine": {
+    "enabled": true,
+    "maxCacheAge": 30000,
+    "progressBarWidth": 8,
+    "maxNameLength": 30
+  },
+  "pluginAutoLoad": {
+    "enabled": true,
+    "suggestOnly": true
+  },
+  "incrementAssist": {
+    "enabled": true,
+    "suggestNewIncrement": true,
+    "suggestReopen": true,
+    "confidenceThreshold": 0.7,
+    "mandatory": true
+  },
+  "planning": {
+    "deepInterview": {
+      "enabled": false,
+      "minQuestions": 5,
+      "categories": [
+        "architecture",
+        "integrations",
+        "ui-ux",
+        "performance",
+        "security",
+        "edge-cases"
+      ]
+    },
+    "incrementInterview": {
+      "enabled": true,
+      "minQuestions": 3
+    }
+  },
+  "cicd": {
+    "pushStrategy": "direct",
+    "git": {
+      "branchPrefix": "sw/",
+      "targetBranch": "main",
+      "deleteOnMerge": true,
+      "includeExternalKey": false
+    },
+    "autoFix": {
+      "enabled": true,
+      "maxRetries": 1,
+      "allowedBranches": [
+        "develop",
+        "main"
+      ]
+    }
+  },
+  "contextBudget": {
+    "level": "full",
+    "autoAdapt": true
+  },
+  "quality": {
+    "thinkingBudget": "xhigh",
+    "grillConfidenceThreshold": 50,
+    "tokenBudgets": {
+      "pm.interview": 1500,
+      "brainstorm.idea": 1800
+    }
+  },
+  "cache": {
+    "staticContextFiles": [
+      "CLAUDE.md",
+      ".specweave/config.json",
+      ".specweave/increments/<active>/spec.md",
+      ".specweave/increments/<active>/rubric.md"
+    ]
+  },
+  "project": {
+    "name": "anymodel-umb",
+    "version": "0.1.0"
   },
   "auto": {
     "enabled": true,
@@ -47,16 +223,6 @@
       ]
     }
   },
-  "language": "en",
-  "testing": {
-    "defaultTestMode": "TDD",
-    "defaultCoverageTarget": 80,
-    "coverageTargets": {
-      "unit": 80,
-      "integration": 70,
-      "e2e": 100
-    }
-  },
   "qualityGates": {
     "preset": "standard",
     "enforcement": {
@@ -66,39 +232,11 @@
       "coverageRequired": false
     }
   },
-  "planning": {
-    "deepInterview": {
-      "enabled": false
-    },
-    "incrementInterview": {
-      "enabled": true,
-      "minQuestions": 3
-    }
-  },
-  "translation": {
-    "enabled": false
-  },
-  "umbrella": {
-    "enabled": true,
-    "childRepos": [
-      {
-        "name": "claude-code",
-        "path": "repositories/antonoly/claude-code",
-        "url": "https://github.com/antonoly/claude-code.git"
-      },
-      {
-        "name": "anymodel",
-        "path": "repositories/antonoly/anymodel",
-        "url": "https://github.com/antonoly/anymodel.git"
-      }
-    ]
-  },
-  "repository": {
-    "organization": "antonoly",
-    "provider": "github"
-  },
   "workspace": {
     "name": "anymodel-umb",
-    "repos": ["repositories/antonoly/claude-code", "repositories/antonoly/anymodel"]
+    "repos": [
+      "repositories/antonoly/claude-code",
+      "repositories/antonoly/anymodel"
+    ]
   }
 }

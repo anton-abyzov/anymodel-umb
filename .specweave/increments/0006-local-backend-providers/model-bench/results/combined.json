@@ -1,0 +1,162 @@
+[
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S1-simple",
+    "ttft_ms": 2543,
+    "tok_s": 9.3,
+    "bytes": 72,
+    "tool_calls": 0
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S2-tool-call",
+    "ttft_ms": 667,
+    "tok_s": 2.9,
+    "bytes": 0,
+    "tool_calls": 1
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S3-multi-tool-plan",
+    "ttft_ms": 4913,
+    "tok_s": 0.8,
+    "bytes": 0,
+    "tool_calls": 2
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S4-spec-structured",
+    "ttft_ms": 9505,
+    "tok_s": 16.6,
+    "bytes": 756,
+    "tool_calls": 0
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S5-complex-webapp",
+    "ttft_ms": 6849,
+    "tok_s": 66.7,
+    "bytes": 8879,
+    "tool_calls": 0
+  },
+  {
+    "model": "mlx-community/gemma-4-26b-a4b-it",
+    "scenario": "S1-simple",
+    "ttft_ms": 395,
+    "tok_s": 47.7,
+    "bytes": 84,
+    "tool_calls": 0
+  },
+  {
+    "model": "mlx-community/gemma-4-26b-a4b-it",
+    "scenario": "S2-tool-call",
+    "ttft_ms": 447,
+    "tok_s": 4.1,
+    "bytes": 0,
+    "tool_calls": 1
+  },
+  {
+    "model": "mlx-community/gemma-4-26b-a4b-it",
+    "scenario": "S3-multi-tool-plan",
+    "ttft_ms": 485,
+    "tok_s": 3.5,
+    "bytes": 0,
+    "tool_calls": 1
+  },
+  {
+    "model": "mlx-community/gemma-4-26b-a4b-it",
+    "scenario": "S4-spec-structured",
+    "ttft_ms": 324,
+    "tok_s": 99.3,
+    "bytes": 1434,
+    "tool_calls": 0
+  },
+  {
+    "model": "mlx-community/gemma-4-26b-a4b-it",
+    "scenario": "S5-complex-webapp",
+    "ttft_ms": 460,
+    "tok_s": 93.1,
+    "bytes": 9298,
+    "tool_calls": 0
+  },
+  {
+    "model": "google/gemma-4-31b",
+    "scenario": "S1-simple",
+    "ttft_ms": 14884,
+    "tok_s": 1.5,
+    "bytes": 72,
+    "tool_calls": 0
+  },
+  {
+    "model": "google/gemma-4-31b",
+    "scenario": "S2-tool-call",
+    "ttft_ms": 7023,
+    "tok_s": 0.3,
+    "bytes": 0,
+    "tool_calls": 1
+  },
+  {
+    "model": "google/gemma-4-31b",
+    "scenario": "S3-multi-tool-plan",
+    "ttft_ms": 46531,
+    "tok_s": 0.1,
+    "bytes": 0,
+    "tool_calls": 2
+  },
+  {
+    "model": "google/gemma-4-31b",
+    "scenario": "S4-spec-structured",
+    "ttft_ms": 34770,
+    "tok_s": 4.8,
+    "bytes": 1378,
+    "tool_calls": 0
+  },
+  {
+    "model": "google/gemma-4-31b",
+    "scenario": "S5-complex-webapp",
+    "ttft_ms": 56307,
+    "tok_s": 7.8,
+    "bytes": 10014,
+    "tool_calls": 0
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S1-simple",
+    "ttft_ms": 144,
+    "tok_s": 63.7,
+    "bytes": 72,
+    "tool_calls": 0
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S2-tool-call",
+    "ttft_ms": 214,
+    "tok_s": 4.3,
+    "bytes": 0,
+    "tool_calls": 1
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S3-multi-tool-plan",
+    "ttft_ms": 203,
+    "tok_s": 8.4,
+    "bytes": 1,
+    "tool_calls": 2
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S4-spec-structured",
+    "ttft_ms": 295,
+    "tok_s": 88.5,
+    "bytes": 1364,
+    "tool_calls": 0
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S5-complex-webapp",
+    "ttft_ms": 286,
+    "tok_s": 87.2,
+    "bytes": 10797,
+    "tool_calls": 0
+  }
+]

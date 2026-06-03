@@ -1,0 +1,15 @@
+{
+  "model": "qwen/qwen3-coder-30b",
+  "test": "S4-spec",
+  "totalMs": 6754,
+  "contentLen": 962,
+  "reasoningLen": 0,
+  "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 232,
+    "total_tokens": 313,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    }
+  }
+}

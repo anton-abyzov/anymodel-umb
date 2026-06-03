@@ -1,0 +1,15 @@
+{
+  "model": "mlx-community/gemma-4-26b-a4b-it",
+  "test": "S5-webapp",
+  "totalMs": 24274,
+  "contentLen": 9102,
+  "reasoningLen": 0,
+  "usage": {
+    "prompt_tokens": 129,
+    "completion_tokens": 2526,
+    "total_tokens": 2655,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    }
+  }
+}

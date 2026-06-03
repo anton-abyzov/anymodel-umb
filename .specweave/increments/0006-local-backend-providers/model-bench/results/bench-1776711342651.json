@@ -1,0 +1,109 @@
+[
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S1-simple",
+    "ttft_ms": 2402,
+    "total_ms": 2641,
+    "toks": 26,
+    "toks_per_sec": "9.8",
+    "text_preview": "```python\ndef reverse_words(s):\n    return \" \".join(s.split()[::-1])\n```",
+    "text_len": 72,
+    "tool_calls": [],
+    "validation": {
+      "hasDef": true,
+      "usesSplit": true,
+      "usesJoin": true,
+      "usesReversed": true
+    }
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S2-tool-call",
+    "ttft_ms": 793,
+    "total_ms": 817,
+    "toks": 2,
+    "toks_per_sec": "2.4",
+    "text_preview": "",
+    "text_len": 0,
+    "tool_calls": [
+      {
+        "name": "get_weather",
+        "args_preview": "{\"city\":\"Tokyo\"}"
+      }
+    ],
+    "validation": {
+      "gotToolCall": true,
+      "correctName": true,
+      "hasCity": true,
+      "cityIsTokyo": true,
+      "validJSON": true
+    }
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S3-multi-tool-plan",
+    "ttft_ms": 5594,
+    "total_ms": 5795,
+    "toks": 4,
+    "toks_per_sec": "0.7",
+    "text_preview": "",
+    "text_len": 0,
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args_preview": "{\"path\":\"/tmp/readme.md\"}"
+      },
+      {
+        "name": "grep",
+        "args_preview": "{\"pattern\":\"TODO\"}"
+      }
+    ],
+    "validation": {
+      "callCount": 2,
+      "hasReadFile": true,
+      "hasGrep": true,
+      "hasWriteFile": false,
+      "allThree": false
+    }
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S4-spec-structured",
+    "ttft_ms": 7888,
+    "total_ms": 11792,
+    "toks": 339,
+    "toks_per_sec": "28.7",
+    "text_preview": "# Feature Spec: Web Calculator with History\n\n**Status:** Draft  \n**Owner:** Product Manager  \n**Description:** A lightweight, browser-based utility designed for quick mathematical computations and a persistent record of recent operations to prevent manual re-calculation.\n\n---\n\n### US-001: Basic Arithmetic Operations\n**As a** user,  \n**I want to** perform fundamental mathematical calculations via a",
+    "text_len": 1363,
+    "tool_calls": [],
+    "validation": {
+      "hasUS001": true,
+      "hasUS002": true,
+      "hasAC": true,
+      "hasCheckboxes": true,
+      "markdownStructure": true
+    }
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S5-complex-webapp",
+    "ttft_ms": 8388,
+    "total_ms": 36436,
+    "toks": 2357,
+    "toks_per_sec": "64.7",
+    "text_preview": "```html\n<!DOCTYPE html>\n<html lang=\"clear\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>ProCalc - Senior Engineer Edition</title>\n    <style>\n        :root {\n            --bg-color: #0f172a;\n            --card-bg: #1e293b;\n            --text-main: #f8fafc;\n            --text-dim: #94a3b8;\n            --accent: #38bdf8;\n   ",
+    "text_len": 8431,
+    "tool_calls": [],
+    "validation": {
+      "hasHTML": true,
+      "hasStyle": true,
+      "hasScript": true,
+      "hasButtons": true,
+      "hasGrid": true,
+      "hasCSSVars": true,
+      "hasKeyboardHandler": false,
+      "hasHistoryPanel": true,
+      "approxCompleteness": 8431
+    }
+  }
+]

@@ -24,6 +24,11 @@ Or sync a specific increment:
 sw:sync-docs 0001
 ```
 
+## Active Features
+
+- [FS-010: Local skill-fidelity: restore skill auto-trigger on local models](FS-010/FEATURE.md)
+- [FS-016: Project-scoped local skill index](FS-016/FEATURE.md)
+
 ---
 
 Last updated: 2026-04-02

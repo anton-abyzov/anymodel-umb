@@ -1,0 +1,71 @@
+{
+  "increment": "0011",
+  "date": "2026-06-02",
+  "scope": "repositories/antonoly/anymodel: scripts/brand-patch.mjs, scripts/brand-patches.json, test/brand-patch.test.mjs (cli.js = generated string-data)",
+  "method": "code-review skill, high effort — 3 parallel finder angles (applier correctness, manifest/adaptive-expr safety, test coverage) + verification",
+  "summary": "5 confirmed findings (1 high-severity, converged by 3 agents), all FIXED. 2 informational (no defect).",
+  "findings": [
+    {
+      "id": "CR-01",
+      "severity": "high",
+      "file": "scripts/brand-patch.mjs",
+      "summary": "Drift-masking when `to` is a substring of `from` (model-updated-opus/sonnet): an upstream version bump (Opus 4.6 -> 4.7) makes the exact `from` miss while `toPresent` stays true, so the idempotency branch silently skips it and ships unbranded text.",
+      "status": "fixed",
+      "resolution": "Added VENDOR_DENYLIST anti-regression sweep (version-tolerant regexes, verified 0 matches in branded bundle) that runs in apply AND check mode and flags residual vendor phrases the exact anchor misses. New test 'vendor denylist catches a version-bumped string the exact anchor misses' proves it."
+    },
+    {
+      "id": "CR-02",
+      "severity": "high",
+      "file": "scripts/brand-patch.mjs",
+      "summary": "Partial-apply-on-drift wrote a half-branded bundle: non-check mode persisted patches 1..N-1 even when patch N drifted, making the 'Refusing to corrupt the bundle' message false.",
+      "status": "fixed",
+      "resolution": "Apply mode is now ATOMIC: `if (drift.length) return` before any write. Any patch-drift or denylist hit leaves the bundle untouched."
+    },
+    {
+      "id": "CR-03",
+      "severity": "medium",
+      "file": "scripts/brand-patch.mjs",
+      "summary": "`--check` mode never ran `node --check`, so the verify-only CI gate confirmed branding coverage but not bundle parseability — contradicting the header's parse-safety claim.",
+      "status": "fixed",
+      "resolution": "check mode now runs `node --check` on the bundle and reports a parse failure as drift. The live-bundle test exercises this path."
+    },
+    {
+      "id": "CR-04",
+      "severity": "medium",
+      "file": "test/brand-patch.test.mjs",
+      "summary": "Empty/short manifest would make the whole suite (incl. live-bundle gate) pass vacuously.",
+      "status": "fixed",
+      "resolution": "Added 'manifest is non-trivially populated' test asserting BRAND_PATCHES.length >= 40."
+    },
+    {
+      "id": "CR-05",
+      "severity": "medium",
+      "file": "test/brand-patch.test.mjs",
+      "summary": "Parse-safety guarantee (node --check + throw-on-unparseable) had zero automated coverage; manifest fixtures are invalid JS by design.",
+      "status": "fixed",
+      "resolution": "Added `opts.patches` override and a test 'apply mode keeps a valid bundle valid, and throws on an unparseable result' covering both the success and the throw path with valid JS fixtures."
+    },
+    {
+      "id": "CR-06",
+      "severity": "info",
+      "file": "cli.mjs",
+      "summary": "ANYMODEL_MODEL is injected only on the proxy path; on `anymodel claude` direct launch it is undefined, so adaptive strings render the 'anymodel' fallback rather than a model name.",
+      "status": "by-design",
+      "resolution": "Correct behavior — the direct path has no selected backend model. The `||\"anymodel\"` fallback (and the one ternary entry) handle undefined safely; no crash."
+    },
+    {
+      "id": "CR-07",
+      "severity": "info",
+      "file": "test/brand-patch.test.mjs",
+      "summary": "The `out.includes(p.to)` assertion is weak for substring-`to` entries (the `to` is already a substring of the pristine `from`).",
+      "status": "mitigated",
+      "resolution": "The sibling `out.includes(p.from) === false` assertion is the real guard; CR-01's denylist + CR-04's floor add the substantive coverage."
+    }
+  ],
+  "verification": {
+    "brand_patch_tests": "7/7 pass (incl. denylist, atomic, parse-safety, floor, live-bundle gate)",
+    "full_suite": "444/444 pass, 0 fail",
+    "bundle": "node --check OK; --version -> '1.14.1 (anymodel)'",
+    "idempotency": "re-run = no-op; --check = clean (61 applied, denylist clean, parses)"
+  }
+}

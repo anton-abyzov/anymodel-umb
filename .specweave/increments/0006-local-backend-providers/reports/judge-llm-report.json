@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "incrementId": "0006-local-backend-providers",
+  "date": "2026-04-20",
+  "status": "WAIVED",
+  "reason": "No externalModels consent configured in .specweave/config.json and no ANTHROPIC_API_KEY env var set. Judge-LLM validation cannot run without explicit user consent per SpecWeave external-model policy.",
+  "waived": true,
+  "summary": "Judge-LLM independent validation was skipped. The implementation passed: (1) inline code-review with 0 critical/high/medium findings, (2) grill interrogation with SHIP_IT recommendation and zero blockers, (3) 239/239 test suite pass, (4) full AC coverage (18/18 ACs checked). Closure proceeds based on these gates.",
+  "recommendations": [
+    "To enable judge-llm on future increments, set ANTHROPIC_API_KEY or configure externalModels consent in .specweave/config.json."
+  ]
+}

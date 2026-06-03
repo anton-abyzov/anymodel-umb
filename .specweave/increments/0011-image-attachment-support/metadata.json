@@ -1,0 +1,17 @@
+{
+  "id": "0011-image-attachment-support",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-06-02T22:00:00.000Z",
+  "lastActivity": "2026-06-02T22:00:00.000Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  },
+  "release": "1.15.0"
+}

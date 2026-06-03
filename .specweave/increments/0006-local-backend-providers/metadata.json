@@ -1,0 +1,16 @@
+{
+  "id": "0006-local-backend-providers",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-04-20T00:00:00.000Z",
+  "lastActivity": "2026-04-20T18:33:48.768Z",
+  "testMode": "TDD",
+  "coverageTarget": 0,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "brainstorm": ".specweave/docs/brainstorms/2026-04-20-lmstudio-llamacpp-providers.md",
+  "readyForReviewAt": "2026-04-20T18:33:13.689Z",
+  "approvedAt": "2026-04-20T18:33:48.768Z"
+}

@@ -1,0 +1,15 @@
+{
+  "model": "google/gemma-4-26b-a4b",
+  "test": "S5-webapp",
+  "totalMs": 35311,
+  "contentLen": 8281,
+  "reasoningLen": 2541,
+  "usage": {
+    "prompt_tokens": 127,
+    "completion_tokens": 3072,
+    "total_tokens": 3199,
+    "completion_tokens_details": {
+      "reasoning_tokens": 708
+    }
+  }
+}

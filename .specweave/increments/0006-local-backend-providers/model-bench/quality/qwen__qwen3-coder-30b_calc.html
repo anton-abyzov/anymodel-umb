@@ -1,0 +1,400 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calculator</title>
+    <style>
+        :root {
+            --bg-primary: #1e1e1e;
+            --bg-secondary: #2d2d2d;
+            --bg-tertiary: #3a3a3a;
+            --accent-primary: #4caf50;
+            --accent-secondary: #ff9800;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .display-section {
+            background-color: var(--bg-tertiary);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .history-section {
+            background-color: var(--bg-tertiary);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .display {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            overflow: hidden;
+            word-break: break-all;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .expression {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            min-height: 30px;
+            margin-bottom: 5px;
+        }
+
+        .result {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            min-height: 40px;
+        }
+
+        .history-title {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius);
+            padding: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .history-expression {
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        button {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .operator {
+            background-color: var(--accent-secondary);
+            font-weight: bold;
+        }
+
+        .operator:hover {
+            background-color: #e68a00;
+        }
+
+        .equals {
+            background-color: var(--accent-primary);
+            grid-column: span 2;
+        }
+
+        .equals:hover {
+            background-color: #45a049;
+        }
+
+        .clear {
+            background-color: #f44336;
+        }
+
+        .clear:hover {
+            background-color: #d32f2f;
+        }
+
+        .decimal {
+            background-color: var(--bg-tertiary);
+        }
+
+        .decimal:hover {
+            background-color: var(--bg-primary);
+        }
+
+        @media (max-width: 400px) {
+            button {
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="display-section">
+            <div class="display">
+                <div class="expression" id="expression"></div>
+                <div class="result" id="result">0</div>
+            </div>
+        </div>
+        
+        <div class="history-section">
+            <div class="history-title">History</div>
+            <div class="history-list" id="history"></div>
+        </div>
+        
+        <div class="calculator-grid">
+            <button class="clear" data-value="C">C</button>
+            <button class="operator" data-value="/">/</button>
+            <button class="operator" data-value="*">*</button>
+            <button class="operator" data-value="-">-</button>
+            
+            <button data-value="7">7</button>
+            <button data-value="8">8</button>
+            <button data-value="9">9</button>
+            <button class="operator" data-value="+">+</button>
+            
+            <button data-value="4">4</button>
+            <button data-value="5">5</button>
+            <button data-value="6">6</button>
+            <button class="operator" data-value=".">.</button>
+            
+            <button data-value="1">1</button>
+            <button data-value="2">2</button>
+            <button data-value="3">3</button>
+            <button class="equals" data-value="=">=</button>
+            
+            <button data-value="0">0</button>
+            <button class="decimal" data-value=".">.</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const expressionDisplay = document.getElementById('expression');
+            const resultDisplay = document.getElementById('result');
+            const historyList = document.getElementById('history');
+            const buttons = document.querySelectorAll('button');
+            
+            // Calculator state
+            let currentInput = '';
+            let previousInput = '';
+            let operation = null;
+            let shouldResetInput = false;
+            let history = [];
+            
+            // Update display
+            function updateDisplay() {
+                expressionDisplay.textContent = previousInput + (operation ? ' ' + operation : '');
+                resultDisplay.textContent = currentInput || '0';
+            }
+            
+            // Add to history
+            function addToHistory(expression, result) {
+                history.unshift({ expression, result });
+                if (history.length > 5) {
+                    history.pop();
+                }
+                updateHistory();
+            }
+            
+            // Update history display
+            function updateHistory() {
+                historyList.innerHTML = '';
+                history.forEach(item => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item';
+                    historyItem.innerHTML = `
+                        <div class="history-expression">${item.expression}</div>
+                        <div>= ${item.result}</div>
+                    `;
+                    historyList.appendChild(historyItem);
+                });
+            }
+            
+            // Handle button clicks
+            function handleButtonClick(value) {
+                if (value === 'C') {
+                    currentInput = '';
+                    previousInput = '';
+                    operation = null;
+                    shouldResetInput = false;
+                } else if (value === '=') {
+                    if (operation && previousInput) {
+                        const result = calculate(previousInput, currentInput, operation);
+                        addToHistory(`${previousInput} ${operation} ${currentInput}`, result);
+                        currentInput = result;
+                        operation = null;
+                        previousInput = '';
+                        shouldResetInput = true;
+                    }
+                } else if (['+', '-', '*', '/'].includes(value)) {
+                    if (currentInput) {
+                        if (previousInput && operation) {
+                            const result = calculate(previousInput, currentInput, operation);
+                            previousInput = result;
+                        } else {
+                            previousInput = currentInput;
+                        }
+                        operation = value;
+                        shouldResetInput = true;
+                    }
+                } else if (value === '.') {
+                    if (!currentInput.includes('.')) {
+                        currentInput += '.';
+                    }
+                } else {
+                    // Number input
+                    if (shouldResetInput) {
+                        currentInput = value;
+                        shouldResetInput = false;
+                    } else {
+                        currentInput += value;
+                    }
+                }
+                
+                updateDisplay();
+            }
+            
+            // Perform calculation
+            function calculate(a, b, op) {
+                const numA = parseFloat(a);
+                const numB = parseFloat(b);
+                
+                switch (op) {
+                    case '+':
+                        return (numA + numB).toString();
+                    case '-':
+                        return (numA - numB).toString();
+                    case '*':
+                        return (numA * numB).toString();
+                    case '/':
+                        if (numB === 0) return 'Error';
+                        return (numA / numB).toString();
+                    default:
+                        return b;
+                }
+            }
+            
+            // Handle keyboard input
+            function handleKeyboardInput(event) {
+                const key = event.key;
+                
+                // Handle numeric keys and operators
+                if (/[0-9+\-*/.]/.test(key)) {
+                    event.preventDefault();
+                    
+                    // Map * to multiplication symbol
+                    let value = key;
+                    if (key === '*') {
+                        value = '*';
+                    }
+                    
+                    // Map / to division symbol
+                    if (key === '/') {
+                        value = '/';
+                    }
+                    
+                    // Map Enter to =
+                    if (key === 'Enter') {
+                        value = '=';
+                    }
+                    
+                    // Map Escape to C
+                    if (key === 'Escape') {
+                        value = 'C';
+                    }
+                    
+                    // Find and click matching button
+                    const button = Array.from(buttons).find(btn => btn.dataset.value === value);
+                    if (button) {
+                        button.click();
+                    }
+                }
+            }
+            
+            // Add event listeners
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    handleButtonClick(button.dataset.value);
+                });
+            });
+            
+            document.addEventListener('keydown', handleKeyboardInput);
+            
+            // Initialize display
+            updateDisplay();
+        });
+    </script>
+</body>
+</html>
+```

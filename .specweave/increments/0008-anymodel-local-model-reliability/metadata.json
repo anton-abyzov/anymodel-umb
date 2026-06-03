@@ -1,10 +1,22 @@
 {
-  "id": "0008",
+  "id": "0008-anymodel-local-model-reliability",
   "title": "anymodel-local-model-reliability",
   "status": "active",
-  "createdAt": "2026-05-30T00:00:00.000Z",
-  "updatedAt": "2026-05-30T00:00:00.000Z",
   "type": "bug",
   "branch": "main",
-  "tags": ["proxy", "local-models", "qwen3-coder", "lmstudio", "tool-calling", "streaming"]
+  "tags": [
+    "proxy",
+    "local-models",
+    "qwen3-coder",
+    "lmstudio",
+    "tool-calling",
+    "streaming"
+  ],
+  "created": "2026-05-30T00:00:00.000Z",
+  "updated": "2026-05-30T00:00:00.000Z",
+  "externalLinks": {},
+  "priority": "medium",
+  "lastActivity": "2026-05-30T00:00:00.000Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

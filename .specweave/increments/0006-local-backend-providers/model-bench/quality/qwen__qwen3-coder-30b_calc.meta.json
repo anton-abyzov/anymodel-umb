@@ -1,0 +1,15 @@
+{
+  "model": "qwen/qwen3-coder-30b",
+  "test": "S5-webapp",
+  "totalMs": 23857,
+  "contentLen": 12662,
+  "reasoningLen": 0,
+  "usage": {
+    "prompt_tokens": 122,
+    "completion_tokens": 2460,
+    "total_tokens": 2582,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    }
+  }
+}

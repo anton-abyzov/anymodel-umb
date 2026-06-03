@@ -1,0 +1,15 @@
+{
+  "model": "google/gemma-4-26b-a4b",
+  "test": "S4-spec",
+  "totalMs": 11446,
+  "contentLen": 1523,
+  "reasoningLen": 2327,
+  "usage": {
+    "prompt_tokens": 87,
+    "completion_tokens": 1013,
+    "total_tokens": 1100,
+    "completion_tokens_details": {
+      "reasoning_tokens": 629
+    }
+  }
+}

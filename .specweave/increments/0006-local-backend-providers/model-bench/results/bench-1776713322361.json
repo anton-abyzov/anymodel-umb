@@ -1,0 +1,109 @@
+[
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S1-simple",
+    "ttft_ms": 144,
+    "total_ms": 314,
+    "toks": 20,
+    "toks_per_sec": "63.7",
+    "text_preview": "```python\ndef reverse_words(s):\n    return ' '.join(s.split()[::-1])\n```",
+    "text_len": 72,
+    "tool_calls": [],
+    "validation": {
+      "hasDef": true,
+      "usesSplit": true,
+      "usesJoin": true,
+      "usesReversed": true
+    }
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S2-tool-call",
+    "ttft_ms": 214,
+    "total_ms": 462,
+    "toks": 2,
+    "toks_per_sec": "4.3",
+    "text_preview": "",
+    "text_len": 0,
+    "tool_calls": [
+      {
+        "name": "get_weather",
+        "args_preview": "{\"city\":\"Tokyo\",\"units\":\"celsius\"}"
+      }
+    ],
+    "validation": {
+      "gotToolCall": true,
+      "correctName": true,
+      "hasCity": true,
+      "cityIsTokyo": true,
+      "validJSON": true
+    }
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S3-multi-tool-plan",
+    "ttft_ms": 203,
+    "total_ms": 593,
+    "toks": 5,
+    "toks_per_sec": "8.4",
+    "text_preview": "\n",
+    "text_len": 1,
+    "tool_calls": [
+      {
+        "name": "read_file",
+        "args_preview": "{\"path\":\"/tmp/readme.md\"}"
+      },
+      {
+        "name": "grep",
+        "args_preview": "{\"pattern\":\"TODO\"}"
+      }
+    ],
+    "validation": {
+      "callCount": 2,
+      "hasReadFile": true,
+      "hasGrep": true,
+      "hasWriteFile": false,
+      "allThree": false
+    }
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S4-spec-structured",
+    "ttft_ms": 295,
+    "total_ms": 3423,
+    "toks": 303,
+    "toks_per_sec": "88.5",
+    "text_preview": "### US-001: Basic Calculator Functionality\n\nAs a user, I want to perform basic arithmetic operations so that I can calculate simple math problems.\n\n#### AC-US1-001: Addition Operation\nGiven the calculator is open and I have entered two numbers, when I click the \"+\" button, then the sum of both numbers should be displayed.\n\n#### AC-US1-002: Subtraction Operation\nGiven the calculator is open and I h",
+    "text_len": 1364,
+    "tool_calls": [],
+    "validation": {
+      "hasUS001": true,
+      "hasUS002": true,
+      "hasAC": false,
+      "hasCheckboxes": false,
+      "markdownStructure": true
+    }
+  },
+  {
+    "model": "qwen/qwen3-coder-30b",
+    "scenario": "S5-complex-webapp",
+    "ttft_ms": 286,
+    "total_ms": 25098,
+    "toks": 2188,
+    "toks_per_sec": "87.2",
+    "text_preview": "```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Web Calculator</title>\n    <style>\n        :root {\n            --bg-primary: #1e1e1e;\n            --bg-secondary: #2d2d2d;\n            --bg-tertiary: #3a3a3a;\n            --accent-primary: #4caf50;\n            --accent-secondary: #ff9800;\n",
+    "text_len": 10797,
+    "tool_calls": [],
+    "validation": {
+      "hasHTML": true,
+      "hasStyle": true,
+      "hasScript": true,
+      "hasButtons": true,
+      "hasGrid": true,
+      "hasCSSVars": true,
+      "hasKeyboardHandler": true,
+      "hasHistoryPanel": true,
+      "approxCompleteness": 10797
+    }
+  }
+]

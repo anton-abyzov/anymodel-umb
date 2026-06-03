@@ -7,6 +7,13 @@
       "techStack": [],
       "keywords": [],
       "created": "2026-04-02T06:02:32.993Z"
+    },
+    "anymodel": {
+      "id": "anymodel",
+      "name": "AnyModel",
+      "techStack": ["javascript", "nodejs"],
+      "keywords": ["proxy", "llm", "openrouter", "ollama"],
+      "created": "2026-04-08T14:30:00.000Z"
     }
   },
   "defaultProject": "anymodel-umb",

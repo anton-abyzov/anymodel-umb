@@ -1,0 +1,56 @@
+{
+  "version": "1.1",
+  "scope": "increment:0006-local-backend-providers",
+  "date": "2026-04-20",
+  "reviewers": ["logic", "security", "types", "silent-failures", "spec-compliance", "tests", "comments"],
+  "gateCheck": { "passed": true, "reason": null },
+  "summary": {
+    "total": 1,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1,
+    "info": 0
+  },
+  "validation": {
+    "performed": true,
+    "preValidation": { "critical": 0, "high": 0 },
+    "postValidation": { "critical": 0, "high": 0 },
+    "rejected": 0
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "low",
+      "reviewer": "logic",
+      "category": "edge-case",
+      "file": "repositories/antonoly/anymodel/providers/lmstudio.mjs",
+      "line": 49,
+      "title": "detect() falls back to port 80 when URL has no explicit port, even for https://",
+      "description": "In detect() and listModels(), the http.get call uses port || 80, which means a URL like LMSTUDIO_BASE_URL=https://remote.example.com/v1 (no port) would probe http://remote.example.com:80 rather than https://remote.example.com:443. buildRequest() correctly handles HTTPS (falls back to 443 for https:), but the probe methods do not. This creates a false negative for HTTPS-based remote endpoints.",
+      "impact": "Out of scope for this increment — spec explicitly targets local-first backends (localhost:1234, localhost:8080). Remote HTTPS usage is not a supported path. Surfacing as a LOW for future awareness only.",
+      "recommendation": "If HTTPS remote support becomes a goal, switch detect/listModels to use the same protocol-aware branch as buildRequest, or use a shared helper. Defer to a follow-up increment.",
+      "validated": true
+    }
+  ],
+  "perFileSummary": {
+    "providers/lmstudio.mjs": { "issues": 1, "topSeverity": "low" },
+    "providers/llamacpp.mjs": { "issues": 0, "topSeverity": null },
+    "cli.mjs": { "issues": 0, "topSeverity": null },
+    "test/lmstudio.test.mjs": { "issues": 0, "topSeverity": null },
+    "test/llamacpp.test.mjs": { "issues": 0, "topSeverity": null },
+    "test/cli.test.mjs": { "issues": 0, "topSeverity": null },
+    "test/providers.test.mjs": { "issues": 0, "topSeverity": null },
+    "README.md": { "issues": 0, "topSeverity": null },
+    "site/index.html": { "issues": 0, "topSeverity": null },
+    "package.json": { "issues": 0, "topSeverity": null }
+  },
+  "recommendations": [
+    "No blocking action required — closure may proceed.",
+    "Consider opening a follow-up increment for HTTPS remote endpoint support across all provider probe methods (not just lmstudio/llamacpp — ollama has the same issue)."
+  ],
+  "notes": [
+    "Scope strictly limited to the 0006 increment changes. The anymodel repo also has uncommitted tool-compressor work (providers/tool-compressor.mjs, proxy.mjs, providers/ollama.mjs, test/optimizations.test.mjs) that was NOT reviewed as it is out of this increment's scope.",
+    "Test suite: 239/239 pass (44 suites, ~115ms). No regressions."
+  ]
+}

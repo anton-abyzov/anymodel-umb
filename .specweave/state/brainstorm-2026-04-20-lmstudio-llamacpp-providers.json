@@ -1,0 +1,23 @@
+{
+  "topic": "Should AnyModel add dedicated LMStudio and llama.cpp providers?",
+  "depth": "deep",
+  "lenses": ["ux-discoverability", "technical-differentiation", "product-marketing", "maintenance-cost", "contrarian", "model-portability"],
+  "startedAt": "2026-04-20T00:00:00Z",
+  "completedAt": "2026-04-20T00:00:00Z",
+  "phase": "complete",
+  "approaches": [
+    {"id": "A", "name": "Status Quo (OpenAI provider only)", "score": 2},
+    {"id": "B", "name": "Thin Aliases (Discoverability Wrappers)", "score": 7},
+    {"id": "C", "name": "Full Dedicated Providers (Ollama-style)", "score": 6},
+    {"id": "D", "name": "Hybrid — Aliases Now, Knobs Later", "score": 10},
+    {"id": "E", "name": "Unified Local Meta-Provider", "score": 3},
+    {"id": "F", "name": "Docs Only", "score": 2}
+  ],
+  "selectedApproach": {
+    "id": "D",
+    "name": "Hybrid — Aliases Now, Knobs Later",
+    "rationale": "Matches technical reality (LMStudio/llama-server don't have Ollama's think:false trap), delivers marketing surface + discoverability with <200 LOC, preserves optionality for backend-specific knobs (e.g., llama.cpp cache_prompt) via a documented promotion path, and keeps model portability perfect."
+  },
+  "handedOffTo": null,
+  "brainstormDoc": ".specweave/docs/brainstorms/2026-04-20-lmstudio-llamacpp-providers.md"
+}

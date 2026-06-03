@@ -1,13 +1,17 @@
 {
   "id": "0003-ollama-tool-support",
-  "status": "planned",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-04-06T22:35:57.321Z",
-  "lastActivity": "2026-04-06T22:35:57.321Z",
+  "lastActivity": "2026-04-24T00:00:00.000Z",
   "testMode": "TDD",
   "coverageTarget": 80,
   "feature_id": null,
   "epic_id": null,
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-04-24T00:00:00.000Z",
+  "approvedAt": "2026-04-24T00:00:00.000Z",
+  "shippedIn": "anymodel@1.12.0",
+  "closureNotes": "Capability-aware Ollama tool passthrough shipped in v1.12.0 (proxy.mjs:266-310, providers/ollama-tools.mjs, providers/tool-compressor.mjs). Verified live on 2026-04-24: qwen3:8b via AnyModel proxy returns proper tool_use blocks with stop_reason='tool_use'. Regression guarded by test/ollama-tool-passthrough.test.mjs. KB (SKILL.md, KNOWLEDGE-BASE.md) updated to remove stale 'strips all 86 tools' claim."
 }

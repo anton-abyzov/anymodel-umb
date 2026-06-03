@@ -1,0 +1,27 @@
+[
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S1-simple",
+    "error": "fetch failed"
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S2-tool-call",
+    "error": "fetch failed"
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S3-multi-tool-plan",
+    "error": "fetch failed"
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S4-spec-structured",
+    "error": "fetch failed"
+  },
+  {
+    "model": "google/gemma-4-26b-a4b",
+    "scenario": "S5-complex-webapp",
+    "error": "fetch failed"
+  }
+]

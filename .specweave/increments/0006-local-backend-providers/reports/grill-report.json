@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "incrementId": "0006-local-backend-providers",
+  "date": "2026-04-20",
+  "shipReadiness": "READY",
+  "interrogations": [
+    {
+      "question": "Why do the new providers not appear in proxy.mjs's ollama-specific branches? Is that a bug?",
+      "answer": "Intentional and correct. Spec's non-goal #3 states: 'NO changes to proxy.mjs — new providers use name !== ollama so they fall through to the OpenAI code path.' The Ollama branches in proxy.mjs handle Ollama-specific quirks (think:false, num_predict mapping, etc.) that LMStudio and llama.cpp don't have — they speak OpenAI-compatible protocol natively. Fall-through is the correct architectural choice.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "The Bearer tokens 'lm-studio' and 'no-key' are hardcoded. Security issue?",
+      "answer": "No. Neither LMStudio nor llama-server validate the token — they just require the Authorization header to be present with a non-empty Bearer value (a protocol quirk from OpenAI SDK clients that always attach one). The placeholder tokens are documented in code comments. No secret is exposed because no secret exists. Setting a real key would provide zero additional security.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "detectProvider probes three servers sequentially — is that too slow on cold start?",
+      "answer": "Each probe has a 1s timeout. Worst case: no local backends running = 3s. This only matters when detectProvider() is invoked (i.e. when no API key set AND no explicit provider chosen). For 99% of users who set OPENROUTER_API_KEY or pass `proxy ollama`, zero probes happen. The 3s cost is acceptable for the zero-config discovery path.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "Could the two provider files be merged into a factory to eliminate duplication?",
+      "answer": "Technically yes — extract a factory `makeOpenAICompatibleProvider({ name, defaultUrl, envVar, authToken })`. But the codebase convention is one-file-per-provider (ollama.mjs, openai.mjs, openrouter.mjs are all independent). Introducing a factory would break that pattern for marginal benefit (~70 lines saved). Each provider file is declarative and self-documenting; a factory would add indirection without clarity. The duplication is architectural, not accidental.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "Tests rely on ports 59999/59998 being unused. What if they're actually in use on someone's machine?",
+      "answer": "Technically a test flakiness risk, but 59999/59998 are in the ephemeral/dynamic port range and extremely unlikely to collide with anything well-known. The mock server tests use port 0 (OS-assigned) which is best practice. The no-server tests are the only ones with fixed ports. Worst case: one test fails on the edge case of someone pre-binding those exact ports. Acceptable trade-off vs. more complex negative-test setup.",
+      "verdict": "PASS (minor observation)"
+    },
+    {
+      "question": "Does the new code introduce any regression risk to existing Ollama flows?",
+      "answer": "No. The only modified file outside the new providers is cli.mjs, and the changes are purely additive: new entries in PROVIDERS array, new branches in parseArgs, new priority steps in detectProvider (after ollama), and a new block in startProxyOnly gated on `providerName === 'lmstudio' || providerName === 'llamacpp'`. Ollama code path is untouched. Test suite shows 239/239 pass with no regression — pre-existing Ollama/OpenAI/OpenRouter tests unchanged.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "AC-US1-04 says auto-pick first available model. What if the /v1/models response is malformed?",
+      "answer": "listModels() wraps JSON.parse in try/catch returning []. Empty list triggers a clear error message in startProxyOnly: 'No models available from {provider} at {base}' with a hint to check LMSTUDIO_BASE_URL/LLAMACPP_BASE_URL or load a model. Failure path is graceful and actionable.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "Documentation (README + site) claims 'GGUF portability' — is that accurate?",
+      "answer": "Yes. GGUF is a standardized weight format. The same .gguf file loads in Ollama (via `ollama create` from Modelfile pointing to GGUF), LMStudio (direct GGUF import), and llama.cpp (`llama-server -m model.gguf`). This is a well-established fact in the local-LLM ecosystem. README callout is accurate.",
+      "verdict": "PASS"
+    },
+    {
+      "question": "Any missed edge cases in the spec that should block closure?",
+      "answer": "Reviewed all 18 ACs against code + tests. Every AC has corresponding test coverage or observable behavior. No scope creep beyond spec. Non-goals (no cache_prompt, no duplicated translator, no proxy.mjs changes) respected. Brainstorm promotion path documented for future knob additions.",
+      "verdict": "PASS"
+    }
+  ],
+  "criticals": [],
+  "highs": [],
+  "blockers": [],
+  "observations": [
+    "Code quality is senior-engineer level: appropriately sized files, clear comments, consistent patterns with existing providers.",
+    "Test coverage is thorough — real HTTP mock servers (not stubs), both positive and negative paths, interface parity tests.",
+    "Documentation updates are comprehensive across README, site/index.html, and package.json keywords — discoverability goal met.",
+    "One LOW finding (HTTPS probe fallback) was surfaced in code-review and is explicitly out of scope — correctly deferred."
+  ],
+  "recommendation": "SHIP IT. No blockers, no criticals, no highs. Single LOW finding is out of scope and can be addressed in a follow-up increment if HTTPS remote support becomes a priority."
+}
