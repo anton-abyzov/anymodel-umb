@@ -38,9 +38,9 @@ skill state, dropping screenshots, mis-parsing tool calls, or dead-ending on a r
 **So that** the model can keep triggering SpecWeave/project skills across a long task instead of looping or hedging
 
 **Acceptance Criteria**:
-- [ ] **AC-US1-01**: When a turn-2+ request arrives with no `<system-reminder>` skill catalog, the proxy re-injects the catalog harvested and cached on turn 1 (per-session, stable key).
-- [ ] **AC-US1-02**: `buildBehavioralCore` no longer emits the dangling "available skills listed below" reference when no catalog is available for that turn.
-- [ ] **AC-US1-03**: On the first request, if the incoming request contains a Skill tool + skill catalog but re-injection is absent or disabled (the 1.14.1 trim-without-restore state), the proxy logs a single explicit WARNING naming the condition and the fix.
+- [x] **AC-US1-01**: When a turn-2+ request arrives with no `<system-reminder>` skill catalog, the proxy re-injects the catalog harvested and cached on turn 1 (per-session, stable key).
+- [x] **AC-US1-02**: `buildBehavioralCore` no longer emits the dangling "available skills listed below" reference when no catalog is available for that turn.
+- [x] **AC-US1-03**: On the first request, if the incoming request contains a Skill tool + skill catalog but re-injection is absent or disabled (the 1.14.1 trim-without-restore state), the proxy logs a single explicit WARNING naming the condition and the fix.
 
 ### US-002: 80B text-channel tool calls are recovered
 **Project**: anymodel
@@ -74,8 +74,8 @@ skill state, dropping screenshots, mis-parsing tool calls, or dead-ending on a r
 **So that** a prose capability-disclaimer doesn't dead-end the loop
 
 **Acceptance Criteria**:
-- [ ] **AC-US4-01**: When `LOCAL_REFUSAL_RETRY=on`, a local-provider response that is a capability-disclaimer refusal with `stop_reason:end_turn` AND tools were attached triggers exactly one re-issue with an injected "you have tools; do not disclaim, call a tool" system line.
-- [ ] **AC-US4-02**: Default (`off`) preserves current behavior; the retry never fires more than once per turn; non-local providers are untouched.
+- [x] **AC-US4-01**: When `LOCAL_REFUSAL_RETRY=on`, a local-provider response that is a capability-disclaimer refusal with `stop_reason:end_turn` AND tools were attached triggers exactly one re-issue with an injected "you have tools; do not disclaim, call a tool" system line.
+- [x] **AC-US4-02**: Default (`off`) preserves current behavior; the retry never fires more than once per turn; non-local providers are untouched.
 
 ### US-005: Plan state survives history condensing
 **Project**: anymodel
@@ -85,9 +85,9 @@ skill state, dropping screenshots, mis-parsing tool calls, or dead-ending on a r
 **So that** the model doesn't re-enter plan mode repeatedly and loop
 
 **Acceptance Criteria**:
-- [ ] **AC-US5-01**: The condenser never drops the turn that established plan mode nor the most recent `ExitPlanMode`-relevant assistant turn.
-- [ ] **AC-US5-02**: Dropped middle turns are replaced with a short structured summary, not the empty `[Earlier conversation condensed]` filler.
-- [ ] **AC-US5-03**: A scripted 10-turn task regression gate: turn-2+ skill-trigger rate ≥ 60% and plan-mode re-entry count ≤ 1.
+- [x] **AC-US5-01**: The condenser never drops the turn that established plan mode nor the most recent `ExitPlanMode`-relevant assistant turn.
+- [x] **AC-US5-02**: Dropped middle turns are replaced with a short structured summary, not the empty `[Earlier conversation condensed]` filler.
+- [x] **AC-US5-03**: A scripted 10-turn task regression gate: turn-2+ skill-trigger rate ≥ 60% and plan-mode re-entry count ≤ 1.
 
 ### US-006: A local-agentic profile relaxes over-constrained hooks
 **Project**: anymodel
@@ -97,8 +97,8 @@ skill state, dropping screenshots, mis-parsing tool calls, or dead-ending on a r
 **So that** the model isn't commanded to do things that are structurally impossible under `--strict-mcp-config`
 
 **Acceptance Criteria**:
-- [ ] **AC-US6-01**: A preset/flag (and `LOCAL_SETUP.md` docs) lets local sessions disable mandatory plan-mode and blocking SKILL-FIRST language, and surfaces guidance to prefer `--full-mcp` when the project depends on the Skill tool.
-- [ ] **AC-US6-02**: Default behavior is unchanged unless the preset/flag is opted into.
+- [x] **AC-US6-01**: A preset/flag (and `LOCAL_SETUP.md` docs) lets local sessions disable mandatory plan-mode and blocking SKILL-FIRST language, and surfaces guidance to prefer `--full-mcp` when the project depends on the Skill tool.
+- [x] **AC-US6-02**: Default behavior is unchanged unless the preset/flag is opted into.
 
 ## Out of scope
 - Publishing 1.15.0 to npm (release task, tracked separately; requires OTP).

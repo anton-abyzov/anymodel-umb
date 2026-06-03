@@ -20,7 +20,7 @@
 - Given a document block → When translated → Then `[document omitted]` marker present; `is_error` prefix still applied when set.
 
 ### T-003: Session-scoped skill-catalog cache + turn-2+ re-injection
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-01, AC-US1-02 | **Status**: [x] completed
 **Files**: `providers/skill-catalog.mjs` (`harvestSkillCatalog` ~52, `buildBehavioralCore` ~186-192), `proxy.mjs`, `test/skill-catalog.test.mjs`
 **Test Plan**:
 - Given turn 1 with a `<system-reminder>` catalog then turn 2 without one (same session signature) → When processed → Then turn 2's upstream system re-injects the cached catalog.
@@ -28,34 +28,34 @@
 - Given many distinct sessions → Then the cache stays bounded (TTL/size cap, no unbounded growth).
 
 ### T-004: Trim-without-restore startup self-check warning
-**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [ ] pending
+**User Story**: US-001 | **Satisfies ACs**: AC-US1-03 | **Status**: [x] completed
 **Files**: `proxy.mjs`, `test/skill-catalog.test.mjs`
 **Test Plan**:
 - Given a first request that contains a Skill tool + skill catalog while re-injection is disabled/absent → When processed → Then exactly one `console.warn` fires naming the condition + fix.
 - Given re-injection active → Then no warning.
 
 ### T-005: Opt-in local refusal-recovery retry
-**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [ ] pending
+**User Story**: US-004 | **Satisfies ACs**: AC-US4-01, AC-US4-02 | **Status**: [x] completed
 **Files**: `proxy.mjs` / `providers/openai.mjs`, new `test/local-refusal-retry.test.mjs`
 **Test Plan**:
 - Given `LOCAL_REFUSAL_RETRY=on`, a local response matching capability-disclaimer markers + `stop_reason:end_turn` + tools attached → When handled → Then exactly one re-issue with the injected "use your tools" system line.
 - Given the flag unset → Then no retry (current behavior). Given a cloud provider → Then never retries. Retry cap = 1/turn enforced.
 
 ### T-006: Plan-state-aware history condenser
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-01, AC-US5-02 | **Status**: [x] completed
 **Files**: `proxy.mjs` (~580-588), new `test/multiturn-plan-state.test.mjs`
 **Test Plan**:
 - Given a conversation exceeding `MAX_MSG_CHARS` where turn 1 established plan mode → When condensed → Then the plan-mode turn and the latest `ExitPlanMode`-relevant assistant turn are retained.
 - Given dropped middle turns → Then a one-line structured summary (count + tool names) replaces the empty `[Earlier conversation condensed]` filler.
 
 ### T-007: Multi-turn regression gate (skill-trigger + plan re-entry)
-**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [ ] pending
+**User Story**: US-005 | **Satisfies ACs**: AC-US5-03 | **Status**: [x] completed
 **Files**: new `test/multiturn-plan-state.test.mjs` (scripted 10-turn harness)
 **Test Plan**:
 - Given a scripted 10-turn agentic task replayed through the proxy → When measured → Then turn-2+ skill-trigger rate ≥ 60% AND plan-mode re-entry count ≤ 1.
 
 ### T-008: Local-agentic preset + LOCAL_SETUP.md docs
-**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02 | **Status**: [ ] pending
+**User Story**: US-006 | **Satisfies ACs**: AC-US6-01, AC-US6-02 | **Status**: [x] completed
 **Files**: `cli.mjs` (~446), `LOCAL_SETUP.md`, `test/cli.test.mjs`
 **Test Plan**:
 - Given `--local-agentic` (or documented env profile) → When launched for a local provider → Then guidance to relax mandatory plan-mode / blocking SKILL-FIRST and prefer `--full-mcp` is surfaced; default unchanged without the flag.
