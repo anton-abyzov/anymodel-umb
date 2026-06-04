@@ -1,0 +1,16 @@
+{
+  "id": "0017-claude-code-surface-audit",
+  "status": "completed",
+  "type": "refactor",
+  "priority": "P1",
+  "created": "2026-06-04T04:46:37.572Z",
+  "lastActivity": "2026-06-04T04:46:37.572Z",
+  "testMode": "TDD",
+  "coverageTarget": 80,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {},
+  "planning": {
+    "parallel": false
+  }
+}
