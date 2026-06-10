@@ -1,0 +1,111 @@
+{
+  "label": "pilot",
+  "model": "qwen3-coder:30b",
+  "date": "2026-06-10T20:40:55.057Z",
+  "results": [
+    {
+      "arm": "anymodel",
+      "task": "write-file",
+      "rep": 1,
+      "success": false,
+      "wallMs": 10697,
+      "timedOut": false,
+      "exitCode": 0,
+      "turns": 1,
+      "toolCallCount": 0,
+      "toolNames": [],
+      "bashCalls": 0,
+      "editCalls": 0,
+      "readCalls": 0,
+      "skillInvoked": false,
+      "tokens": {
+        "input": 4193,
+        "output": 35,
+        "cache_read": 0
+      },
+      "proxyEvents": {
+        "fidelity": 1,
+        "recovered": 0,
+        "retries": 0,
+        "requests": 1
+      },
+      "errorClass": "zero-tool-execution",
+      "workspace": "/tmp/bench-runs/pilot/anymodel/write-file/rep1"
+    },
+    {
+      "arm": "opencode",
+      "task": "write-file",
+      "rep": 1,
+      "success": true,
+      "wallMs": 106821,
+      "timedOut": false,
+      "exitCode": 0,
+      "turns": null,
+      "toolCallCount": 1,
+      "toolNames": [
+        "Write"
+      ],
+      "bashCalls": 0,
+      "editCalls": 1,
+      "readCalls": 0,
+      "skillInvoked": false,
+      "tokens": null,
+      "proxyEvents": null,
+      "errorClass": null,
+      "workspace": "/tmp/bench-runs/pilot/opencode/write-file/rep1"
+    },
+    {
+      "arm": "anymodel",
+      "task": "edit-json",
+      "rep": 1,
+      "success": false,
+      "wallMs": 4950,
+      "timedOut": false,
+      "exitCode": 1,
+      "turns": 2,
+      "toolCallCount": 1,
+      "toolNames": [
+        "Read"
+      ],
+      "bashCalls": 0,
+      "editCalls": 0,
+      "readCalls": 1,
+      "skillInvoked": false,
+      "tokens": {
+        "input": 4204,
+        "output": 71,
+        "cache_read": 2866
+      },
+      "proxyEvents": {
+        "fidelity": 3,
+        "recovered": 0,
+        "retries": 0,
+        "requests": 3
+      },
+      "errorClass": "wrong-artifact",
+      "workspace": "/tmp/bench-runs/pilot/anymodel/edit-json/rep1"
+    },
+    {
+      "arm": "opencode",
+      "task": "edit-json",
+      "rep": 1,
+      "success": true,
+      "wallMs": 118667,
+      "timedOut": false,
+      "exitCode": 0,
+      "turns": null,
+      "toolCallCount": 1,
+      "toolNames": [
+        "Edit"
+      ],
+      "bashCalls": 0,
+      "editCalls": 1,
+      "readCalls": 0,
+      "skillInvoked": false,
+      "tokens": null,
+      "proxyEvents": null,
+      "errorClass": null,
+      "workspace": "/tmp/bench-runs/pilot/opencode/edit-json/rep1"
+    }
+  ]
+}

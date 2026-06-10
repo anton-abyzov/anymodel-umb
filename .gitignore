@@ -30,6 +30,9 @@ yarn-error.log*
 .temp/
 tmp/
 
+# Nested repos — each repositories/{org}/{repo} is its own git repo, never umbrella content
+repositories/
+
 # SpecWeave
 .specweave/cache/
 .specweave/increments/*/logs/
