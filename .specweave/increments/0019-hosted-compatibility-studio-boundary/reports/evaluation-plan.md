@@ -1,0 +1,13 @@
+# Hosted evaluation preregistration — 2026-10-09
+
+Purpose: decide which hosted compatibility paths work, and whether bounded hosted alternatives earn real code tasks. No local inference. No parity or universal speed claim.
+
+Task set: three independently scored repairs based on actual AnyModel 1.17 source: preserve explicit dictionary tool schemas, enforce worker gateway authentication, and preserve supported reasoning/output-budget parameters. Each uses a frozen public-source scratch repository, hidden acceptance tests owned by the evaluator, and a fresh agent session. A task passes only if its target behavior tests pass, forbidden paths remain unchanged, the agent exits successfully, and no timeout occurs. Preserve artifact-pass vs clean-agent-completion separately.
+
+Arms: native Codex frontier baseline in an ephemeral workspace; existing OpenCode runtime with an explicit OpenRouter frontier model; same runtime with explicit hosted Qwen coding model. On the frontier OpenCode arm compare identical harness/model/provider direct versus the repaired AnyModel native wire route. Pin exact requested/observed model and versions. One repetition per cell is a smoke/pilot, not a ranking. A model capability gap cannot be inferred from one task alone.
+
+Budget: no more than three coding tasks per arm, six minutes and six agent steps per task where harness controls permit, bounded output tokens and at most $5 total hosted API spend. Stop on missing required capabilities or unavailable model; no silent substitutions. Hosted key stays in process environment and official provider requests, never fixtures/logs. No OAuth copies. Native Codex uses existing authorized account with --ignore-user-config, --ephemeral and workspace-write sandbox; it cannot modify other worktrees. OpenCode uses isolated state/config, external plugins disabled, restrictive permissions, and only the scratch repository.
+
+Evidence: record route, model, runtime version, task/source/test hash, start/end, final status, test count/results, tool errors, token/cost receipt (unknown if absent), diff, retry/repair/intervention count. Independent reviewer re-scores saved artifacts. Keep different cache/subscription billing contexts explicit; do not infer causal speed or savings.
+
+Release gate: all ten audited regressions plus complete guarded offline suite pass; actual hosted Messages and native OpenAI-wire tool loops succeed without masked errors or incorrect stop reasons. Any unsupported feature stays explicit. If pilot fails, report the actual compatibility boundary and choose the working native route as default.

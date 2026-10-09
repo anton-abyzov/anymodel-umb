@@ -1,0 +1,13 @@
+{
+  "action": "SIGTERM to exact owned OpenCode child at permanent declared request limit",
+  "pid": 36278,
+  "parentPid": 35832,
+  "at": "2026-10-09T09:03:06Z",
+  "providerReceipts": 6,
+  "requestLimit": 6,
+  "log": "state/data/opencode/log/2026-10-09T085829.log",
+  "logSha256": "1dcccb6ffbf1fa94d66c02973ad88a384299c2f5a575cf22da4d55d908ccce3b",
+  "modelRepairInterventions": 0,
+  "administrativeStops": 1,
+  "classification": "resource-censored; clean completion remains false"
+}

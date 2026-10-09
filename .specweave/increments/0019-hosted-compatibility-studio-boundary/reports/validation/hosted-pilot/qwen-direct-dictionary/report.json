@@ -1,0 +1,280 @@
+{
+  "arm": "qwen-direct",
+  "task": "dictionary",
+  "requestedModel": "qwen/qwen3-coder-next",
+  "observedModels": [
+    "qwen/qwen3-coder-next"
+  ],
+  "runtime": {
+    "path": "/Users/antonabyzov/.opencode/bin/opencode",
+    "version": "1.14.33"
+  },
+  "sourceRevision": "f50f9ac15a0517fb8b1e9aa79a944f7542195b5b",
+  "fixtureHash": "0a5f1412c06b3f3d5f036bef093f2119ef9bae674438ed2dc0dfba40ffa1e7af",
+  "testHash": "3785d4824c9750b9629948846d8e2961ff1a41eea6e3fbb20fb1b5975e3400b2",
+  "startedAt": "2026-10-09T08:58:28.633Z",
+  "finishedAt": "2026-10-09T09:03:06.344Z",
+  "ms": 277651,
+  "exitCode": null,
+  "signal": "SIGTERM",
+  "timedOut": false,
+  "interrupted": false,
+  "outputOverflow": false,
+  "spawnError": null,
+  "completionEvent": false,
+  "cleanCompletion": false,
+  "artifactPassed": true,
+  "scoring": {
+    "checks": [
+      {
+        "name": "root",
+        "passed": true
+      },
+      {
+        "name": "no-properties",
+        "passed": true
+      },
+      {
+        "name": "nested",
+        "passed": true
+      },
+      {
+        "name": "array",
+        "passed": true
+      },
+      {
+        "name": "alternative",
+        "passed": true
+      },
+      {
+        "name": "closed",
+        "passed": true
+      },
+      {
+        "name": "named-parameter-preserved",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "passedCount": 7,
+    "total": 7,
+    "scorerExitCode": 0,
+    "testHash": "3785d4824c9750b9629948846d8e2961ff1a41eea6e3fbb20fb1b5975e3400b2",
+    "artifactPassed": true
+  },
+  "forbiddenChanges": [],
+  "toolOrRuntimeErrors": [],
+  "runtimeErrorCount": 0,
+  "toolErrorCount": 0,
+  "toolErrorRecoveryObserved": false,
+  "providerRequests": [
+    {
+      "reservation": 30,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 725,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 605,
+        "completion_tokens": 9,
+        "total_tokens": 614,
+        "cost": 0.0000798,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0000798,
+          "upstream_inference_prompt_cost": 0.0000726,
+          "upstream_inference_completions_cost": 0.0000072
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0000798
+    },
+    {
+      "reservation": 31,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 1580,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 2340,
+        "completion_tokens": 74,
+        "total_tokens": 2414,
+        "cost": 0.00034,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00034,
+          "upstream_inference_prompt_cost": 0.0002808,
+          "upstream_inference_completions_cost": 0.0000592
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00034
+    },
+    {
+      "reservation": 32,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 10517,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 3991,
+        "completion_tokens": 699,
+        "total_tokens": 4690,
+        "cost": 0.00092932,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00092932,
+          "upstream_inference_prompt_cost": 0.00037012,
+          "upstream_inference_completions_cost": 0.0005592
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00092932
+    },
+    {
+      "reservation": 33,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 4234,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 4706,
+        "completion_tokens": 267,
+        "total_tokens": 4973,
+        "cost": 0.00077832,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00077832,
+          "upstream_inference_prompt_cost": 0.00056472,
+          "upstream_inference_completions_cost": 0.0002136
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00077832
+    },
+    {
+      "reservation": 34,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 6235,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 4989,
+        "completion_tokens": 360,
+        "total_tokens": 5349,
+        "cost": 0.00066908,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 4352,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00066908,
+          "upstream_inference_prompt_cost": 0.00038108,
+          "upstream_inference_completions_cost": 0.000288
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00066908
+    },
+    {
+      "reservation": 35,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 1784,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 5365,
+        "completion_tokens": 74,
+        "total_tokens": 5439,
+        "cost": 0.0004582,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 4896,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0004582,
+          "upstream_inference_prompt_cost": 0.000399,
+          "upstream_inference_completions_cost": 0.0000592
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0004582
+    }
+  ],
+  "knownApiCostUsd": 0.00325472,
+  "billing": "OpenRouter API; absent provider cost is unknown; conservative shared reservations are not actual spend",
+  "interventions": 0,
+  "repetitions": 1,
+  "passed": false,
+  "limitations": [
+    "Three repair fixtures, one repetition per cell; not a quality ranking, parity proof, Studio session, or speed/cost benchmark.",
+    "Resume, long-context pressure and multi-agent Studio workflows are untested.",
+    "OpenCode has six steps, six provider requests, 2048 output tokens/request; shell/external access denied."
+  ]
+}

@@ -1,0 +1,66 @@
+diff --git a/target.mjs b/target.mjs
+index e97c48d..65963d8 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -6,10 +6,10 @@ export const DEFAULT_FREE_MODEL = 'nvidia/nemotron-3-super-120b-a12b:free';
+ 
+ export function checkAuth(headers, token) {
+   if (!token) return true;
+-  const auth = headers.authorization || headers['x-api-key'] || '';
+-  // Exact token match (x-api-key or Bearer prefix)
+-  if (auth === `Bearer ${token}` || auth === token) return true;
+-  return false;
++  const authorization = typeof headers.get === 'function' ? headers.get('authorization') : headers.authorization;
++  const apiKey = typeof headers.get === 'function' ? headers.get('x-api-key') : headers['x-api-key'];
++  // Check independently so the other header can carry a caller's BYOK key.
++  return authorization === `Bearer ${token}` || apiKey === token;
+ }
+ 
+ export function isFreeTierModel(modelId, freeOnly) {
+@@ -131,10 +131,21 @@ export async function handleRequest(request, env) {
+     }), { headers: { 'content-type': 'application/json' } });
+   }
+ 
++  // Authenticate before any route can make an upstream request.
++  const headers = Object.fromEntries(request.headers.entries());
++  if (!checkAuth(headers, token)) {
++    return new Response(JSON.stringify({
++      error: { type: 'auth_error', message: 'Valid gateway credentials required.' }
++    }), { status: 401, headers: { 'content-type': 'application/json' } });
++  }
++
+   // Passthrough non-message requests to api.anthropic.com (auth, bootstrap, feature flags)
+   if (!url.pathname.startsWith('/v1/messages')) {
+     const anthropicUrl = `https://api.anthropic.com${url.pathname}${url.search}`;
+     const passthroughHeaders = new Headers(request.headers);
++    // Gateway credentials are local secrets, not upstream credentials.
++    if (token && headers.authorization === `Bearer ${token}`) passthroughHeaders.delete('authorization');
++    if (token && headers['x-api-key'] === token) passthroughHeaders.delete('x-api-key');
+     passthroughHeaders.set('host', 'api.anthropic.com');
+     passthroughHeaders.delete('cf-connecting-ip');
+     passthroughHeaders.delete('cf-ray');
+@@ -156,10 +167,11 @@ export async function handleRequest(request, env) {
+     }
+   }
+ 
+-  // BYOK: Use the user's key from the request header, fall back to server key
+-  const headers = Object.fromEntries(request.headers.entries());
+-  const userKey = headers['x-api-key'] || headers['authorization']?.replace('Bearer ', '') || '';
+-  const effectiveKey = (userKey && userKey.startsWith('sk-or-')) ? userKey : apiKey;
++  // BYOK may occupy either header; never mistake the gateway token for BYOK.
++  const userKey = [headers['x-api-key'], headers.authorization?.replace(/^Bearer /, '')]
++    .find(key => key && key !== token && key.startsWith('sk-or-'));
++  // Only an authenticated, configured gateway can spend the server-funded key.
++  const effectiveKey = userKey || (token ? apiKey : '');
+ 
+   if (!effectiveKey) {
+     return new Response(JSON.stringify({
+@@ -202,7 +214,7 @@ export async function handleRequest(request, env) {
+   sanitizeBody(body);
+   const payload = JSON.stringify(body);
+ 
+-  // Forward to OpenRouter with retries (using user's key or server fallback)
++  // Forward to OpenRouter with retries (BYOK or authenticated server key)
+   const orReq = buildOpenRouterRequest(url.pathname, effectiveKey);
+ 
+   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {

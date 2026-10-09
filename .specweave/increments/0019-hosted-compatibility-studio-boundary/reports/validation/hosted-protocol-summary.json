@@ -1,0 +1,137 @@
+{
+  "sourceSha": "6a356766b6089209d786269a1af8ae269b343054",
+  "at": "2026-10-09T08:44:40.364Z",
+  "scope": "Synthetic hosted protocol/tool/stream smoke; no native-agent or repository-acceptance claim",
+  "node": "v22.20.0",
+  "spendCapUsd": 0.25,
+  "maxProviderCalls": 12,
+  "providerCalls": 10,
+  "reservedCostUpperBoundUsd": 0.10253775999999999,
+  "costScope": "Reservations include every actual upstream attempt, including proxy retries and invalid-key calls. Actual billed cost is known only where provider usage.cost is present.",
+  "observedCostUsd": 0.0015114000000000002,
+  "callsWithoutCostReceipt": [
+    "invalid-key-messages",
+    "invalid-key-chat"
+  ],
+  "rows": [
+    {
+      "label": "gpt-chat-tool",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "observedModel": "openai/gpt-6.1-sol",
+      "status": 200,
+      "stopReason": "tool_calls",
+      "ok": true,
+      "responseSha256": "d6d459dbc69346ef5330821225822bee4b0e5e643beb60d3ff78cdc582347183",
+      "toolCount": 1
+    },
+    {
+      "label": "gpt-chat-result",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "observedModel": "openai/gpt-6.1-sol",
+      "status": 200,
+      "stopReason": "stop",
+      "ok": true,
+      "responseSha256": "fb10fef90138a991980c7b5444cedd93b43f27d5a80e3269b9a5bedc88e54320",
+      "toolCount": 0
+    },
+    {
+      "label": "gpt-messages-tool",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "observedModel": "openai/gpt-6.1-sol",
+      "status": 200,
+      "stopReason": "tool_use",
+      "ok": true,
+      "responseSha256": "5437e74ba09666850ad3075bfb2dbe6771cd059c18d306258d3632ce0dc61f88",
+      "toolCount": 1
+    },
+    {
+      "label": "gpt-messages-result",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "observedModel": "openai/gpt-6.1-sol",
+      "status": 200,
+      "stopReason": "end_turn",
+      "ok": true,
+      "responseSha256": "c4a11585170832dbfdc6573413a8283633b896c5a8fd602378d0cb2949f17f9d",
+      "toolCount": 0
+    },
+    {
+      "label": "qwen-chat-tool",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "observedModel": "qwen/qwen3-coder-next",
+      "status": 200,
+      "stopReason": "tool_calls",
+      "ok": true,
+      "responseSha256": "5c2159d1c2a3164a6424f06380bded1930de692a034e93258ce82d3cbf002777",
+      "toolCount": 1
+    },
+    {
+      "label": "qwen-chat-result",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "observedModel": "qwen/qwen3-coder-next",
+      "status": 200,
+      "stopReason": "stop",
+      "ok": true,
+      "responseSha256": "fce53104c0a3f00cfdaa005dc523e42011fdc3afff1716c9bf4a916cf35e9b19",
+      "toolCount": 0
+    },
+    {
+      "label": "qwen-messages-tool",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "observedModel": "qwen/qwen3-coder-next",
+      "status": 200,
+      "stopReason": "end_turn",
+      "ok": false,
+      "responseSha256": "9d031ccfee6e08629f6c497a611ce21992823b8bcd2a24b2aa79d956c328ca7e",
+      "toolCount": 1,
+      "error": "Tool response must stop with tool_use, observed end_turn",
+      "classification": "reproduced on direct provider; upstream protocol compatibility boundary"
+    },
+    {
+      "label": "qwen-messages-direct-control",
+      "route": "direct",
+      "wire": "/v1/messages",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "observedModel": "qwen/qwen3-coder-next",
+      "status": 200,
+      "stopReason": "end_turn",
+      "ok": false,
+      "responseSha256": "78de8b009f1eae4bcb6f0fe19faedd73e578beaf454d9a78b0f9b0236dc3ab08",
+      "toolCount": 1,
+      "error": "Tool response must stop with tool_use, observed end_turn"
+    },
+    {
+      "label": "invalid-key-messages",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "status": 401,
+      "stopReason": null,
+      "ok": true,
+      "responseSha256": "ce155be00a6ad8151c65112b75a2d24dfd2f528e90d7a6c8dc5886c13e53ef67"
+    },
+    {
+      "label": "invalid-key-chat",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "status": 401,
+      "stopReason": null,
+      "ok": true,
+      "responseSha256": "a5c01dc568ef16f02c4e04e7a2919ffe2cbd02224b4c2ba8f5d053a5f5c0297d"
+    }
+  ]
+}

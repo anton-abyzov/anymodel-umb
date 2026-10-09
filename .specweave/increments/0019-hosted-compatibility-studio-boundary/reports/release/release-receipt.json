@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "at": "2026-10-09T09:18:35.991Z",
+  "node": "v22.20.0",
+  "name": "anymodel",
+  "version": "2.0.0",
+  "gitHead": "7a8b470c8525550de7f3bf0420a310d8f6b9d0b2",
+  "integrity": "sha512-NgYWvRYvaHYOhEMaGqVhrGDJW5dHUv/9wpkhfJ/xUvLpDpIqFndXXiKyYnMuOCTAkp+2yjQxA/uQU/QEK3zOXQ==",
+  "tarballBytes": 86719,
+  "legacyBundleAbsent": true,
+  "catalogPresent": true,
+  "isolatedPackageDir": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/anymodel-published-2-AlJIX6/verification/isolated/package",
+  "checks": [
+    {
+      "args": [
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "2.0.0\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--help"
+      ],
+      "exitCode": 0,
+      "stdout": "\n\u001b[35mAnyModel\u001b[0m — optional API compatibility adapter\n\nUse your maintained native coding agent directly when its provider already works.\nSpecWeave Studio keeps native frontier sessions, plans and approvals; it does not\nrequire AnyModel. An API model listing is not native subscription entitlement.\n\n\u001b[1mDiscover hosted models (public catalog; no API key or inference):\u001b[0m\n  anymodel models [--search text] [--free] [--tools] [--json]\n  anymodel check <model-id|preset> [--free] [--tools] [--json]\n\n\u001b[1mOnly when you need an adapter:\u001b[0m\n  anymodel proxy openrouter --model <explicit-model-id>\n  anymodel proxy openai --model <explicit-model-id>\n  anymodel [--port 9090] [--token <proxy-token>] -- <client args>\n  anymodel claude                     Run your installed client directly\n\n\u001b[1mPresets are legacy aliases, never automatic upgrades:\u001b[0m\n  gpt        openai/gpt-5.4\n  codex      openai/gpt-5.3-codex\n  gemini     google/gemini-3.1-flash-lite-preview\n  deepseek   deepseek/deepseek-r1-0528\n  mistral    mistralai/devstral-2512\n  gemma      google/gemma-4-31b-it\n  qwen       qwen/qwen3-coder:free\n  nemotron   nvidia/nemotron-3-super-120b-a12b:free\n  llama      meta-llama/llama-3.3-70b-instruct:free\nOpenRouter startup verifies the exact ID against its live public catalog.\nMissing aliases fail; former free models are never replaced with paid models.\nUse anymodel models --free for currently listed zero-priced entries.\n\n\u001b[1mProxy options:\u001b[0m\n  --model, -m     Explicit model ID\n  --port, -p      Port (default: 9090)\n  --host         Bind address (default: 127.0.0.1); LAN needs --token\n  --token, -t    Proxy access token (client and server must match)\n  --free-only    Require a free-tier model; catalog pricing checked on startup\n  --rpm          Request limit per minute (default: 60)\n  --help, -h     Show help\n  --version, -v  Show installed package version\n\n\u001b[1mClient and provider configuration:\u001b[0m\n  Install and maintain Claude Code separately, or set ANYMODEL_CLIENT to an\n  explicit client path you are authorized to use. No bundled client is selected.\n  OPENROUTER_API_KEY   OpenRouter API billing, separate from subscriptions\n  OPENROUTER_MODEL     Explicit default model ID\n  OPENAI_API_KEY       OpenAI-compatible provider API key\n  OPENAI_BASE_URL      OpenAI-compatible endpoint\n  ANYMODEL_TOKEN      Token used when connecting to your proxy\n  PROXY_PORT          Proxy port\n\nExisting local providers remain explicit options: ollama, lmstudio, llamacpp.\nTheir legacy --full-mcp, --local-fidelity and --local-agentic settings remain.\nNo local model is contacted by models/check. See LOCAL_SETUP.md for legacy setup.\n\nDocs and 2.0 migration: https://anymodel.dev\n\n",
+      "stderr": ""
+    }
+  ],
+  "limitations": [
+    "Verified extracted registry artifact and isolated CLI behavior; public deployment and npm global installation are separate receipts."
+  ]
+}

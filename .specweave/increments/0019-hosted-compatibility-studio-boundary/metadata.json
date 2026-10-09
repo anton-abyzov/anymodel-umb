@@ -1,0 +1,15 @@
+{
+  "id": "0019-hosted-compatibility-studio-boundary",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-09T08:14:27.644Z",
+  "updated": "2026-10-09T09:21:15.562Z",
+  "lastActivity": "2026-10-09T09:21:15.562Z",
+  "title": "AnyModel hosted compatibility and Studio boundary",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-09T09:21:15.561Z",
+  "approvedAt": "2026-10-09T09:21:15.562Z"
+}

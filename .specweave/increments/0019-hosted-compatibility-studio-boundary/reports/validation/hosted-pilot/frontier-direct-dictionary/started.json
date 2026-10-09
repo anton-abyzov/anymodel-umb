@@ -1,0 +1,10 @@
+{
+  "arm": "frontier-direct",
+  "task": "dictionary",
+  "requestedModel": "openai/gpt-6.1-sol",
+  "runtime": "1.14.33",
+  "sourceRevision": "91b1611dc85d098059a8babb24713061c1ef5804",
+  "fixtureHash": "0a5f1412c06b3f3d5f036bef093f2119ef9bae674438ed2dc0dfba40ffa1e7af",
+  "startedAt": "2026-10-09T08:55:23.946Z",
+  "status": "started; completion unknown until report.json"
+}

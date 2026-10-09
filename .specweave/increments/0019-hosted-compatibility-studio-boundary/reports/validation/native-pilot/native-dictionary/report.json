@@ -1,0 +1,91 @@
+{
+  "arm": "native",
+  "task": "dictionary",
+  "requestedModel": "gpt-6.1-sol",
+  "observedModels": [],
+  "runtime": {
+    "path": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/codex",
+    "version": "codex-cli 0.161.0"
+  },
+  "sourceRevision": "91b1611dc85d098059a8babb24713061c1ef5804",
+  "fixtureHash": "0a5f1412c06b3f3d5f036bef093f2119ef9bae674438ed2dc0dfba40ffa1e7af",
+  "testHash": "3785d4824c9750b9629948846d8e2961ff1a41eea6e3fbb20fb1b5975e3400b2",
+  "startedAt": "2026-10-09T08:50:47.493Z",
+  "finishedAt": "2026-10-09T08:51:59.529Z",
+  "ms": 71968,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "interrupted": false,
+  "outputOverflow": false,
+  "spawnError": null,
+  "completionEvent": true,
+  "cleanCompletion": true,
+  "artifactPassed": true,
+  "scoring": {
+    "checks": [
+      {
+        "name": "root",
+        "passed": true
+      },
+      {
+        "name": "no-properties",
+        "passed": true
+      },
+      {
+        "name": "nested",
+        "passed": true
+      },
+      {
+        "name": "array",
+        "passed": true
+      },
+      {
+        "name": "alternative",
+        "passed": true
+      },
+      {
+        "name": "closed",
+        "passed": true
+      },
+      {
+        "name": "named-parameter-preserved",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "passedCount": 7,
+    "total": 7,
+    "scorerExitCode": 0,
+    "testHash": "3785d4824c9750b9629948846d8e2961ff1a41eea6e3fbb20fb1b5975e3400b2",
+    "artifactPassed": true
+  },
+  "forbiddenChanges": [],
+  "toolOrRuntimeErrors": [
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_5",
+        "type": "command_execution",
+        "command": "/bin/zsh -lc \"node --input-type=module <<'JS'\nimport assert from 'node:assert/strict';\nimport { sanitizeBody, INTERNAL_EFFORT_FIELD } from './target.mjs';\nconst dictionaries = [\n  { type: 'object', additionalProperties: true },\n  { type: 'object', properties: {}, additionalProperties: { type: 'string' } },\n  { type: 'object', properties: {}, patternProperties: { '\"'^x'\"': { type: 'number' } } },\n  { type: 'object', additionalProperties: false, patternProperties: { '\"'^x'\"': { type: 'string' } } },\n];\nfor (const dictionary of dictionaries) {\n  for (const wrap of [d => d, d => ({ type: 'object', properties: { data: d } }), d => ({ type: 'array', items: d }), ...['anyOf', 'oneOf', 'allOf'].map(key => d => ({ type: 'object', [key]: [d] })), d => ({ type: 'array', items: [d] })]) {\n    const schema = wrap(structuredClone(dictionary));\n    const before = structuredClone(schema);\n    sanitizeBody({ tools: [{ input_schema: schema }] });\n    // Alternative containers retain legacy normalization; the dictionary itself stays unchanged.\n    const inner = schema.anyOf?.[0] || schema.oneOf?.[0] || schema.allOf?.[0] || schema.properties?.data || (Array.isArray(schema.items) ? schema.items[0] : schema.items) || schema;\n    assert.deepEqual(inner, dictionary);\n  }\n}\nconst named = { type: 'object', properties: { name: { type: 'string' } }, required: ['name'], additionalProperties: false };\nassert.deepEqual(sanitizeBody({ tools: [{ input_schema: structuredClone(named) }] }).tools[0].input_schema, named);\nconst closed = sanitizeBody({ tools: [{ input_schema: { type: 'object', properties: {}, additionalProperties: false } }] }).tools[0].input_schema;\nassert.equal(closed.additionalProperties, false);\nassert.deepEqual(sanitizeBody({ tools: [{}] }).tools[0].input_schema, { type: 'object', properties: {}, additionalProperties: false });\nconst body = sanitizeBody({ betas: [], metadata: {}, max_tokens: 1, output_config: { effort: 'high' }, tool_choice: 'auto', tools: [{ strict: true }] });\nassert.equal(body.max_tokens, 16);\nassert.equal(body[INTERNAL_EFFORT_FIELD], 'high');\nassert.equal(Object.keys(body).includes(INTERNAL_EFFORT_FIELD), false);\nassert.deepEqual(body.tool_choice, { type: 'auto' });\nassert.equal('strict' in body.tools[0], false);\nconsole.log('Dictionary, nesting, closed-object, named-property, and unrelated behavior checks passed.');\nJS\"",
+        "aggregated_output": "node:internal/modules/run_main:123\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  {\n    additionalProperties: false,\n    properties: {},\n+   required: [],\n    type: 'object'\n  }\n\n    at file:///Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/native-dictionary-1791535846284/workspace/[eval1]:23:8\n    at ModuleJob.run (node:internal/modules/esm/module_job:345:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:272:26)\n    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:268:20)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: {\n    type: 'object',\n    properties: {},\n    additionalProperties: false,\n    required: []\n  },\n  expected: { type: 'object', properties: {}, additionalProperties: false },\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n\nNode.js v22.20.0\n",
+        "exit_code": 1,
+        "status": "failed"
+      }
+    }
+  ],
+  "runtimeErrorCount": 0,
+  "toolErrorCount": 1,
+  "toolErrorRecoveryObserved": true,
+  "providerRequests": [],
+  "knownApiCostUsd": null,
+  "billing": "existing native subscription/authentication; monetary cost unavailable",
+  "interventions": 0,
+  "repetitions": 1,
+  "passed": true,
+  "limitations": [
+    "Three repair fixtures, one repetition per cell; not a quality ranking, parity proof, Studio session, or speed/cost benchmark.",
+    "Resume, long-context pressure and multi-agent Studio workflows are untested.",
+    "Native Codex CLI has six-minute timeout; no enforced six-step or API output-token limit."
+  ]
+}

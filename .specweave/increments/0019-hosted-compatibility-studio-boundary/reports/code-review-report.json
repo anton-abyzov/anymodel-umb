@@ -1,0 +1,183 @@
+{
+  "version": "1.1",
+  "scope": "AnyModel 2.0 release source, evaluation guard and saved hosted protocol evidence",
+  "date": "2026-10-09",
+  "reviewers": [
+    "independent logic",
+    "independent security",
+    "silent failures",
+    "test verification"
+  ],
+  "sourceHead": "b7ae0b5dedb970bc1e7101121f1b8cbc60b81fe0",
+  "gateCheck": {
+    "passed": true,
+    "reason": "FREE_ONLY bypass repaired and independently reproduced as403 with zero upstream calls;48 targeted tests pass."
+  },
+  "summary": {
+    "total": 0,
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+  },
+  "validation": {
+    "performed": true,
+    "preValidation": {
+      "critical": 0,
+      "high": 1
+    },
+    "postValidation": {
+      "critical": 0,
+      "high": 0
+    },
+    "rejected": 0
+  },
+  "findings": [],
+  "resolvedDuringReview": [
+    "Top-level Anthropic fallbacks bypassed original model-list denylist; rejected by strict allowed fields.",
+    "Top-level preset could inject remote routing or server tools; rejected.",
+    "Conservative billing now includes cache read/write and context-tier maxima.",
+    "Remote document, input_file, video and prior-item content rejected."
+  ],
+  "codeReviewHistory": {
+    "originalDefects": 10,
+    "originalDefectsResolved": 10,
+    "additionalT06StreamDefectsResolved": 2,
+    "runtimeVerificationSource": "6a356766b6089209d786269a1af8ae269b343054",
+    "priorIndependentOfflineTests": 612,
+    "priorIndependentCoverage": {
+      "lines": 87.29,
+      "branches": 82.94,
+      "functions": 84.73
+    },
+    "priorEvidence": "/tmp/anymodel-release-review-6a35676-20261009/report.json"
+  },
+  "gate": {
+    "implementationCommit": "0d52eb0",
+    "independentTests": 13,
+    "mockAdversarialCases": 9,
+    "allPassed": true,
+    "evidence": [
+      "gate-tests-opencode.tap",
+      "gate-validation-opencode.json"
+    ],
+    "sharedCapUsd": 4.75,
+    "noPaidCallsByReviewer": true
+  },
+  "hostedSmoke": {
+    "providerRequests": 10,
+    "successfulExpectedChecks": 8,
+    "failedChecks": 2,
+    "classification": "Both failures are the same Qwen Messages stop-reason incompatibility, once through AnyModel and once directly.",
+    "responseReportedCostUsd": 0.0015114,
+    "conservativeReservedUsd": 0.10253776,
+    "costUnknownFor": [
+      "invalid-key-messages",
+      "invalid-key-chat"
+    ],
+    "responseHashChecks": 10,
+    "allResponseHashesMatch": true,
+    "allRawProtocolStopsMatch": true,
+    "evidence": "hosted-independent-validation.json"
+  },
+  "pilot": {
+    "status": "complete; all12 native and hosted artifacts independently rescored",
+    "native": {
+      "accepted": 3,
+      "artifactCorrect": 3,
+      "total": 3,
+      "monetaryCost": "unknown",
+      "evidence": "../implementation-pilot/independent-rescore-native.json"
+    },
+    "frontierDirect": {
+      "accepted": 3,
+      "artifactCorrect": 3,
+      "total": 3,
+      "evidence": "../implementation-pilot/independent-rescore-frontier-direct.json"
+    },
+    "frontierProxy": {
+      "accepted": 2,
+      "artifactCorrect": 3,
+      "total": 3,
+      "censored": 1,
+      "reason": "Conservative shared reservation cap stopped finalization",
+      "evidence": "../implementation-pilot/independent-rescore-frontier-proxy.json"
+    },
+    "qwenDirect": {
+      "accepted": 0,
+      "artifactCorrect": 1,
+      "cleanCompletion": 1,
+      "total": 3,
+      "requestCensored": 2,
+      "cleanArtifactFailure": 1,
+      "detail": "Dictionary7/7 artifact but no clean finish at six-request cap; auth5/10 after clean finish (undefined effectiveKey and route-auth failure); reasoning10/14 at six-request cap.",
+      "evidence": "pilot-final-rescore.json"
+    },
+    "reportedHostedCostUsd": 0.24970722,
+    "upstreamResponseReceipts": 47,
+    "reservedUsd": 4.6895928,
+    "capUsd": 4.75,
+    "hostedAccepted": 5,
+    "hostedArtifactCorrect": 7,
+    "hostedCells": 9,
+    "allHashesScoresAndCompletionsMatch": true,
+    "allPortableCopiesMatch": true,
+    "independentEvidence": [
+      "pilot-final-rescore.json",
+      "portable-pilot-validation.json"
+    ],
+    "interpretation": "Censored cells cannot establish relative model or proxy quality. One completed Qwen security repair failed hidden checks; no broad ranking follows from three tiny tasks. Keep frontier-native Studio default; optional cheaper delegates need task-specific verification and escalation."
+  },
+  "releaseReceipts": {
+    "status": "publication, deployment and installed-artifact receipts owned by coordinator; not inferred from source review"
+  },
+  "constraints": {
+    "sourceReadOnly": true,
+    "localModelsUsed": false,
+    "browserAutomationUsed": false,
+    "specweaveInstalled": "3.0.6",
+    "specweaveRegistry": "3.0.6",
+    "ownersPreserved": true
+  },
+  "primarySources": [
+    "https://openrouter.ai/docs/guides/routing/model-fallbacks",
+    "https://openrouter.ai/docs/guides/features/presets",
+    "https://openrouter.ai/docs/guides/features/service-tiers",
+    "https://openrouter.ai/docs/api_reference/responses/overview",
+    "https://github.com/OpenRouterTeam/docs/blob/main/guides/routing/provider-selection.mdx"
+  ],
+  "resolvedFindings": [
+    {
+      "id": "FREE-ONLY-BYPASS",
+      "severity": "HIGH",
+      "file": "worker/handler.mjs",
+      "line": 241,
+      "description": "Free-only checks only primary model and forwards paid model fallbacks, preset injection, plugins and server-paid tools.",
+      "impact": "An authenticated client can charge the server-funded key despite FREE_ONLY=true; matching proxy free-only paths also validate only primary model.",
+      "validated": true,
+      "evidence": "free-only-policy-repro.json",
+      "recommendation": "Reject alternate routing, preset and paid-service options while free-only; enforce shared policy across worker, proxy Messages and cloud wire.",
+      "status": "resolved",
+      "fixCommit": "0179971f72177c62800c951a3ae08202b186b21f",
+      "validationEvidence": [
+        "free-only-policy-fixed.json",
+        "free-policy-tests-final.tap"
+      ]
+    }
+  ],
+  "freePolicy": {
+    "commit": "0179971f72177c62800c951a3ae08202b186b21f",
+    "independentTargetedTests": 48,
+    "allPassed": true,
+    "originalBypassesRetested": 5,
+    "remainingBypasses": 0,
+    "implementerFullSuiteReceipt": "/tmp/anymodel-free-routing-full-final-20261009/report.json",
+    "implementerFullSuiteTests": 642,
+    "lineCoverage": 87.65,
+    "fullSuiteIndependentlyRead": true
+  },
+  "reviewedIntegrationCommit": "b7ae0b5dedb970bc1e7101121f1b8cbc60b81fe0",
+  "reviewedRuntimeFixCommit": "685fec6",
+  "reviewedDocumentationCommit": "b7ae0b5"
+}

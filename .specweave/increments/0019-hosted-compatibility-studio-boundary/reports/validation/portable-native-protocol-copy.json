@@ -1,0 +1,268 @@
+{
+  "scope": "Bounded native baseline and raw synthetic hosted protocol evidence",
+  "filesCopied": 49,
+  "files": [
+    {
+      "path": "native-pilot/native-dictionary/stderr.log",
+      "sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+      "bytes": 39
+    },
+    {
+      "path": "native-pilot/native-dictionary/report.json",
+      "sha256": "bd50d7b0909d7ed69c242b31701c3377d3c4f5a1a245801a516949aa49b5f687",
+      "bytes": 5993
+    },
+    {
+      "path": "native-pilot/native-dictionary/change.diff",
+      "sha256": "ad246a7a096dca91108e3aa969817886f4786d6fd684aeb6b5278af491d66969",
+      "bytes": 2915
+    },
+    {
+      "path": "native-pilot/native-dictionary/prompt.txt",
+      "sha256": "a27462637d2b3490c89b660d08a4e53c51b95c2266fce96b9c7fb658c4a6c8ee",
+      "bytes": 439
+    },
+    {
+      "path": "native-pilot/native-dictionary/started.json",
+      "sha256": "7b8383ad99de8782b795540a9f207e3ce78cab266aafa90b1a4f3900db230496",
+      "bytes": 368
+    },
+    {
+      "path": "native-pilot/native-dictionary/events.jsonl",
+      "sha256": "c0b5b92ddda9981deba831a41abf01b7bd20c0df07edfe39db02a91fcc39832f",
+      "bytes": 18858
+    },
+    {
+      "path": "native-pilot/native-dictionary/last-message.txt",
+      "sha256": "d534214334dc857573a4f6258cab35b792cce514a872e967cd72db849fc21ed6",
+      "bytes": 250
+    },
+    {
+      "path": "native-pilot/native-dictionary/target.mjs",
+      "sha256": "946c15261b9136cacd340f0fc54cd225438dba5cf2cdc293a2a015b452484607",
+      "bytes": 5326
+    },
+    {
+      "path": "native-pilot/native-worker-auth/stderr.log",
+      "sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+      "bytes": 39
+    },
+    {
+      "path": "native-pilot/native-worker-auth/report.json",
+      "sha256": "746ba2d70333ad3b660bb3eedc751d674bbd018519a3d8ef45a43bacdb1b143a",
+      "bytes": 2463
+    },
+    {
+      "path": "native-pilot/native-worker-auth/change.diff",
+      "sha256": "4d84e5ed3bcd6f23925cff587b89e7ba6ece3e971a04dc7a17f70c345cc27293",
+      "bytes": 2778
+    },
+    {
+      "path": "native-pilot/native-worker-auth/prompt.txt",
+      "sha256": "f849b51a36c2853dbaff4febe4eb8b62163df465a5c1debf769c8baf649fb0e9",
+      "bytes": 605
+    },
+    {
+      "path": "native-pilot/native-worker-auth/started.json",
+      "sha256": "7ea32c17924d72731cd8bd7136a9bd68174a43604420f4243cfb314faa2603dd",
+      "bytes": 369
+    },
+    {
+      "path": "native-pilot/native-worker-auth/events.jsonl",
+      "sha256": "58cda42b274c04f338a80ef098f099036670b16f14f4db662c91bb8dee10eccf",
+      "bytes": 20732
+    },
+    {
+      "path": "native-pilot/native-worker-auth/last-message.txt",
+      "sha256": "f0a77d95b51f04a6d99fa2bda0a75b2281cb6f43dcac67350438770244a59ac8",
+      "bytes": 279
+    },
+    {
+      "path": "native-pilot/native-worker-auth/target.mjs",
+      "sha256": "bbc2a693baf0220489a8a0ff09c80025d1c6e4600c7c9499627444e77ddd9207",
+      "bytes": 9103
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/stderr.log",
+      "sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+      "bytes": 39
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/report.json",
+      "sha256": "04d27b189378681fc54cc539dec19d8b6dd73d624216b27abae1da2646bfcc6f",
+      "bytes": 2713
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/change.diff",
+      "sha256": "0abfa62dafc5f62b00bdfbdc658d3ed3d6948af02a37198614842d53a7b1df5a",
+      "bytes": 2286
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/prompt.txt",
+      "sha256": "93c43360b5fe40e91af451f900f819ff1584a2b38b8ddcec45fe2bb96225d152",
+      "bytes": 938
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/started.json",
+      "sha256": "4b80f92e880a5138f0c152a500e78bf3b4f75c26f41c287ff8e99fe8f9370265",
+      "bytes": 374
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/events.jsonl",
+      "sha256": "4be2c216ea85cc7715aa7f5244af0f2cef22b9700f64cc90c1e5e75471b4b1b7",
+      "bytes": 48759
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/last-message.txt",
+      "sha256": "ba82bf9350d304a9faea0beb4c0566c17a29383b384f36981b13dd1dd35a50d6",
+      "bytes": 253
+    },
+    {
+      "path": "native-pilot/native-reasoning-budget/target.mjs",
+      "sha256": "ab22cdb04dcba38487e7cfc6b2f06bd95137e385120d1fe2a643c281315201ae",
+      "bytes": 41158
+    },
+    {
+      "path": "native-pilot/interrupted-dictionary/change.diff",
+      "sha256": "6d5c6e8fe4d5d3a0a96094e038535da1f19fe372171c3e6b14a35b8d5a10283d",
+      "bytes": 3067
+    },
+    {
+      "path": "native-pilot/interrupted-dictionary/prompt.txt",
+      "sha256": "a27462637d2b3490c89b660d08a4e53c51b95c2266fce96b9c7fb658c4a6c8ee",
+      "bytes": 439
+    },
+    {
+      "path": "native-pilot/interrupted-dictionary/target.mjs",
+      "sha256": "8234d1ff3e595b9371aaef84d83ca85adeaadf0d508c4823801e623a89876a82",
+      "bytes": 5093
+    },
+    {
+      "path": "hosted-protocol/10-invalid-key-chat-response.json",
+      "sha256": "a5c01dc568ef16f02c4e04e7a2919ffe2cbd02224b4c2ba8f5d053a5f5c0297d",
+      "bytes": 64
+    },
+    {
+      "path": "hosted-protocol/10-invalid-key-chat-request.json",
+      "sha256": "d335a0bbe6c146484067e4e96add66091d1716bcea3145de1d470d3082e7b7c5",
+      "bytes": 112
+    },
+    {
+      "path": "hosted-protocol/09-invalid-key-messages-request.json",
+      "sha256": "d335a0bbe6c146484067e4e96add66091d1716bcea3145de1d470d3082e7b7c5",
+      "bytes": 112
+    },
+    {
+      "path": "hosted-protocol/02-gpt-chat-result-response.sse",
+      "sha256": "fb10fef90138a991980c7b5444cedd93b43f27d5a80e3269b9a5bedc88e54320",
+      "bytes": 1348
+    },
+    {
+      "path": "hosted-protocol/catalog-selection.json",
+      "sha256": "16c8a91328183d900947e96884e1c01c36824f6dcffa009793fe7463fdd6344e",
+      "bytes": 1514
+    },
+    {
+      "path": "hosted-protocol/02-gpt-chat-result-request.json",
+      "sha256": "7767cca1bc94c78ca58bb9c782d88755424e434a8cd71af3645e2217fcbf26f5",
+      "bytes": 826
+    },
+    {
+      "path": "hosted-protocol/07-qwen-messages-tool-request.json",
+      "sha256": "98eb64c6dc4218d49d12b0af5a6b53553f1c3b4b5a3dc7641dbb16e9a60da5ac",
+      "bytes": 507
+    },
+    {
+      "path": "hosted-protocol/06-qwen-chat-result-response.sse",
+      "sha256": "fce53104c0a3f00cfdaa005dc523e42011fdc3afff1716c9bf4a916cf35e9b19",
+      "bytes": 1581
+    },
+    {
+      "path": "hosted-protocol/results.json",
+      "sha256": "9d7980ef215ccd49651708f52ec8cecee5d975d9edf13536c40e6d45428d4de5",
+      "bytes": 17014
+    },
+    {
+      "path": "hosted-protocol/07-qwen-messages-tool-response.sse",
+      "sha256": "9d031ccfee6e08629f6c497a611ce21992823b8bcd2a24b2aa79d956c328ca7e",
+      "bytes": 1893
+    },
+    {
+      "path": "hosted-protocol/06-qwen-chat-result-request.json",
+      "sha256": "2dd6e88da3977cefb2a3a29a4e42cea4884ccded796c22529b9c8c31c27b7124",
+      "bytes": 805
+    },
+    {
+      "path": "hosted-protocol/08-qwen-messages-direct-control-response.sse",
+      "sha256": "78de8b009f1eae4bcb6f0fe19faedd73e578beaf454d9a78b0f9b0236dc3ab08",
+      "bytes": 1893
+    },
+    {
+      "path": "hosted-protocol/05-qwen-chat-tool-response.sse",
+      "sha256": "5c2159d1c2a3164a6424f06380bded1930de692a034e93258ce82d3cbf002777",
+      "bytes": 2469
+    },
+    {
+      "path": "hosted-protocol/09-invalid-key-messages-response.json",
+      "sha256": "ce155be00a6ad8151c65112b75a2d24dfd2f528e90d7a6c8dc5886c13e53ef67",
+      "bytes": 152
+    },
+    {
+      "path": "hosted-protocol/01-gpt-chat-tool-response.sse",
+      "sha256": "d6d459dbc69346ef5330821225822bee4b0e5e643beb60d3ff78cdc582347183",
+      "bytes": 4754
+    },
+    {
+      "path": "hosted-protocol/05-qwen-chat-tool-request.json",
+      "sha256": "9ab19aa53dc3e983552e8e934964e750f492379a93f3034acdc4309066329f12",
+      "bytes": 593
+    },
+    {
+      "path": "hosted-protocol/08-qwen-messages-direct-control-request.json",
+      "sha256": "98eb64c6dc4218d49d12b0af5a6b53553f1c3b4b5a3dc7641dbb16e9a60da5ac",
+      "bytes": 507
+    },
+    {
+      "path": "hosted-protocol/01-gpt-chat-tool-request.json",
+      "sha256": "31b434697ace9e372f79c1f5bf886ba68b5fa146695d55ec7a9d13f900b5087e",
+      "bytes": 619
+    },
+    {
+      "path": "hosted-protocol/03-gpt-messages-tool-request.json",
+      "sha256": "a35c015d7ca7d97d3c4c4c21fc9a6bd0037806cae44bb4ba818106885d4922e4",
+      "bytes": 537
+    },
+    {
+      "path": "hosted-protocol/04-gpt-messages-result-request.json",
+      "sha256": "28833ade4a390bfceb3f770d4e372ac0d1d11cfc0c689f95111c390f0509d3a8",
+      "bytes": 790
+    },
+    {
+      "path": "hosted-protocol/03-gpt-messages-tool-response.sse",
+      "sha256": "5437e74ba09666850ad3075bfb2dbe6771cd059c18d306258d3632ce0dc61f88",
+      "bytes": 2655
+    },
+    {
+      "path": "hosted-protocol/04-gpt-messages-result-response.sse",
+      "sha256": "c4a11585170832dbfdc6573413a8283633b896c5a8fd602378d0cb2949f17f9d",
+      "bytes": 1517
+    }
+  ],
+  "secretScan": {
+    "exactConfiguredSecretsChecked": 9,
+    "patternFamilies": [
+      "provider_key",
+      "github_token",
+      "private_key",
+      "jwt"
+    ],
+    "hits": 0
+  },
+  "sourcePreserved": true,
+  "rawBytesPreserved": true,
+  "portableJsonReferencesAdjusted": [
+    "native-pilot/summary.json",
+    "native-pilot/independent-rescore.json",
+    "native-pilot/interrupted-dictionary/interrupted-run.json"
+  ]
+}

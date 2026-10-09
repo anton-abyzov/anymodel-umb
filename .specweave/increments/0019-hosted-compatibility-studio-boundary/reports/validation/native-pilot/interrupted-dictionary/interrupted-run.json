@@ -1,0 +1,69 @@
+{
+  "arm": "native",
+  "task": "dictionary",
+  "requestedModel": "gpt-6.1-sol",
+  "classification": "external-orchestrator-interruption",
+  "reason": "Parent task reports that unified execution was killed by an intentional turn interruption. No live pilot or codex exec remained at reassessment.",
+  "reassessedAt": "2026-10-09T08:47:54.144Z",
+  "sourceRevisionReportedByParent": "5891efc36bc34d5c62e35160a5854f3c3953b9cd",
+  "fixtureHash": "0a5f1412c06b3f3d5f036bef093f2119ef9bae674438ed2dc0dfba40ffa1e7af",
+  "scoring": {
+    "checks": [
+      {
+        "name": "root",
+        "passed": true
+      },
+      {
+        "name": "no-properties",
+        "passed": true
+      },
+      {
+        "name": "nested",
+        "passed": true
+      },
+      {
+        "name": "array",
+        "passed": true
+      },
+      {
+        "name": "alternative",
+        "passed": true
+      },
+      {
+        "name": "closed",
+        "passed": true
+      },
+      {
+        "name": "named-parameter-preserved",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "passedCount": 7,
+    "total": 7,
+    "scorerExitCode": 0,
+    "testHash": "3785d4824c9750b9629948846d8e2961ff1a41eea6e3fbb20fb1b5975e3400b2",
+    "artifactPassed": true
+  },
+  "artifactPassed": true,
+  "completionEvent": null,
+  "cleanCompletion": null,
+  "exitCode": null,
+  "modelFailure": false,
+  "status": "unknown-interrupted",
+  "knownApiCostUsd": null,
+  "interventions": 1,
+  "operationalRestartsPlanned": 1,
+  "evidence": [
+    "prompt.txt",
+    "target.mjs",
+    "change.diff"
+  ],
+  "missingEvidence": [
+    "events.jsonl",
+    "stderr.log",
+    "report.json",
+    "last-message.txt"
+  ],
+  "limitation": "Artifact tests can be observed after interruption; model final status and billing cannot be reconstructed. Replacement run is operational recovery, not a model-repair retry."
+}

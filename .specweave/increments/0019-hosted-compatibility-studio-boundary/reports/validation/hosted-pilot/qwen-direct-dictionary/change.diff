@@ -1,0 +1,43 @@
+diff --git a/target.mjs b/target.mjs
+index 8f64401..ac4c662 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -71,10 +71,10 @@ export function sanitizeBody(body, { keepCache = false } = {}) {
+       // Fix schemas that OpenAI/strict-mode parsers reject:
+       // 1. Missing input_schema entirely
+       // 2. Missing or empty properties
+-      // Use the standard JSON-Schema "empty object" form — {type:"object", properties:{}, additionalProperties:false}
++      // Use the standard JSON-Schema "empty object" form — {type:"object", properties:{}}
+       // This is accepted by OpenAI, Groq, Together, vLLM, LMStudio, Ollama, and real
+       // tool params named `_unused` are preserved end-to-end (US-004 fix, 1.12.0).
+-      const emptyObjectSchema = () => ({ type: 'object', properties: {}, additionalProperties: false });
++      const emptyObjectSchema = () => ({ type: 'object', properties: {} });
+       if (!rest.input_schema || typeof rest.input_schema !== 'object') {
+         rest.input_schema = emptyObjectSchema();
+       } else {
+@@ -85,7 +85,11 @@ export function sanitizeBody(body, { keepCache = false } = {}) {
+           const props = rest.input_schema.properties;
+           if (!props || (typeof props === 'object' && Object.keys(props).length === 0)) {
+             rest.input_schema.properties = {};
+-            rest.input_schema.additionalProperties = false;
++            // Only set additionalProperties: false if it was already explicitly specified
++            // Empty or absent named properties do not mean dynamic keys must be forbidden
++            if (!('additionalProperties' in rest.input_schema)) {
++              delete rest.input_schema.additionalProperties;
++            }
+             if (!Array.isArray(rest.input_schema.required)) rest.input_schema.required = [];
+           }
+         }
+@@ -102,7 +106,11 @@ export function sanitizeBody(body, { keepCache = false } = {}) {
+         if (schema.items) fixNested(schema.items);
+         if (schema.type === 'object' && schema.properties) {
+           if (Object.keys(schema.properties).length === 0) {
+-            schema.additionalProperties = false;
++            // Only set additionalProperties: false if it was already explicitly specified
++            // Empty or absent named properties do not mean dynamic keys must be forbidden
++            if (!('additionalProperties' in schema)) {
++              delete schema.additionalProperties;
++            }
+             if (!Array.isArray(schema.required)) schema.required = [];
+           }
+           for (const v of Object.values(schema.properties)) fixNested(v);

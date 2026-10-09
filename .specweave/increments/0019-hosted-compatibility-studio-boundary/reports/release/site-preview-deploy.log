@@ -1,0 +1,19 @@
+Retrieving project…
+Deploying anton-abyzovs-projects/anymodel
+Uploading [--------------------] (0.0B/381.5KB)
+Uploading [=====---------------] (107.5KB/381.5KB)
+Uploading [==========----------] (191.7KB/381.5KB)
+Uploading [===============-----] (287.3KB/381.5KB)
+Uploading [====================] (381.5KB/381.5KB)
+Inspect: https://vercel.com/anton-abyzovs-projects/anymodel/3b1omn5xFWBU8kJfwF7G5LxsrksN [5s]
+Preview: https://anymodel-oeawej4ak-anton-abyzovs-projects.vercel.app [5s]
+https://anymodel-oeawej4ak-anton-abyzovs-projects.vercel.appBuilding...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 128 deployment files...
+[2K[1A[2K[GPreview: https://anymodel-oeawej4ak-anton-abyzovs-projects.vercel.app [9s]
+Completing...
+To deploy to production (anymodel.dev +1), run `vercel --prod`

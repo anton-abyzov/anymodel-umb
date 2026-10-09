@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "verify_finish independent CodeReviewer",
+  "at": "2026-10-09T09:23:04.713062+00:00",
+  "scope": "Final umbrella release documentation, T05 wrapper, registry/install/deployment receipts and closure evidence only. Product source was unchanged from prior independent review.",
+  "reviewedProductCommit": "b7ae0b5dedb970bc1e7101121f1b8cbc60b81fe0",
+  "mergedProductCommit": "7a8b470c8525550de7f3bf0420a310d8f6b9d0b2",
+  "identicalProductTree": "a4ef908ac1424ff1abd002d00425d21a667e0a0d",
+  "findings": [],
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "total": 0
+  },
+  "verified": {
+    "sourceTreeIdentity": true,
+    "isolatedInstalls": [
+      {
+        "receipt": "isolated-install-receipt.json",
+        "independentlyHashedFiles": 27,
+        "allMatchCurrentSource": true,
+        "legacyBundleAbsent": true
+      },
+      {
+        "receipt": "registry-install-receipt.json",
+        "independentlyHashedFiles": 27,
+        "allMatchCurrentSource": true,
+        "legacyBundleAbsent": true
+      }
+    ],
+    "publicSiteSourceHashes": 4,
+    "siteUnchangedSinceDeployedSource6a35676": true,
+    "headlessViewportThemeCases": 6,
+    "publicSiteCasesPassed": 6,
+    "npmVersion": "2.0.0",
+    "npmPublishWorkflow": "37909733510",
+    "npmPublishSucceeded": true,
+    "releaseWrapperCommandsAndRecordedReceiptsConsistent": true,
+    "taskT05CommandExit": 0,
+    "specweaveVerify": {
+      "ok": true,
+      "tasksDone": 7,
+      "acsDone": 7,
+      "commandExitCodes": [
+        0,
+        0
+      ]
+    },
+    "incrementMetadataStatus": "completed",
+    "specweaveInstalledAndStablePreviouslyVerified": "3.0.6",
+    "knownPilotCostsAndCensoredClassificationsPreserved": true,
+    "newReleaseSecretPatternScan": {
+      "textFiles": 29,
+      "hits": []
+    }
+  },
+  "reviewBoundary": [
+    "No paid inference, local inference, local model discovery, browser launch, pickup, claim, product source changes or ledger changes were performed for this audit.",
+    "Public deployment claims refer to timestamped saved release receipts; independent audit verified source/file hash correspondence, not a new live deployment or paid request.",
+    "Node runtime aggregate coverage is 87.65%; separate unit/integration/E2E percentages are not asserted. SpecWeave generic coverage discovery warning does not replace the actual runtime coverage receipt.",
+    "Native Claude installation remains a separately owned pre-existing limitation; no successful real native Claude session is claimed.",
+    "A valid-token public FREE_ONLY request was not made; exact deployed code identity plus independent handler tests are disclosed as the available evidence."
+  ],
+  "preCommitConditions": [],
+  "reviewedFiles": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "eeedd9ca1256a020c22ef892e48ca70ca278dd939d25e9dcfdbee383b7c4bea8"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/spec.md",
+      "sha256": "2262c54a9fa03289101b1acb2429e204b609a3d4710f37ed39b53c36681fabe3"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/metadata.json",
+      "sha256": "c4d2635b2252da9fdb991370ca18dd0b68794410b0dc8ca4dfb683444d9bd7ce"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/verify.json",
+      "sha256": "4f9c7f1db85e3f1090424b1f5edc871158b9b2fc4cf082e3424daa278e2892ed"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/task-T-05.txt",
+      "sha256": "4eaa26d5eb15854523c98b8b3babe435cdacbe146ff968c7074995dc56a94991"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/code-review-report.json",
+      "sha256": "bea8bdaaeddf7aa0f428469f96088fa81c69e00b696fcc4c163f286a3ca7a17e"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/site-deployment-readback.json",
+      "sha256": "6c50f81fbaaa43456689b84d8ceddfd4389412379e6f75f78657476ddf6774c8"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/decision-and-evidence.md",
+      "sha256": "74bfeaa3c457dbed6183b4f1a1babed9e9eb0d1676a86a016a809df7c7e5175b"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/github-release.json",
+      "sha256": "f7adb91cff16ee67a701dcef90d24bb38d05bcbe182cf83176f97331ffcafd53"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/worker-final-deploy.log",
+      "sha256": "2ee16c3ea2646513131724b5507d54d08d4279aa327685f18121d3e64dcc00cb"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/site-promote.log",
+      "sha256": "6f765f79880bf02ff9dfa085e2e2d9cf621ee36568ed138773c04eedc2fc887d"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/registry-install-receipt.json",
+      "sha256": "f3fceb83360ff7fb9fa5e2b1519858ddc8b90de3fc325f40336560c7de89188e"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/headless-site-readback.json",
+      "sha256": "daa9e7867c7e9d00c8e9812eadff978d0fe431447e2999e002458467ff038bcc"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/public-site-check.cjs",
+      "sha256": "ee9ff2755e348497e6f2378294626417f2cd343bd9cddf382be1a054a7a5b86e"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/isolated-install-receipt.json",
+      "sha256": "385f47cf27cce10a2df88bc59eeda5f51cdf67663a3dae3f03712186f756857d"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/npm-registry.json",
+      "sha256": "ac7cb1ea678de8fd74142c33d53d2a7df660e4e1e2767f9726e1beb53fadfb1f"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/release-contracts.json",
+      "sha256": "91e2d73dbcb3dde361f38febcde0691ccef9ce689058cd1fcc897f0083527304"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/verify-release.mjs",
+      "sha256": "e846a1d38e8baefd1d69131b571ae70588322252c40485f8e66e61d60c3e53cc"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/site-promote-scoped.log",
+      "sha256": "5592132b06d956856c95e183f4cbdab2c6bb8322014260115e7d6d10d799d7f1"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/npm-publish-workflow.json",
+      "sha256": "c57558f551c8fcc323da0855ff7e7b8bc46b35278aa377843a884efe0258c78f"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/secret-scan.json",
+      "sha256": "cfa127d34b03e5650298ef5b8f2709a86c58c74e4ceac90cec951b0578dc10cb"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/release-prestate.json",
+      "sha256": "d417623c92fcadd13ccd57fdef5e375395f12cd368cf5ee096a1f2f57ad16d63"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/closure.json",
+      "sha256": "f6603e68d5d02cd9bae84be5eb18897568c01c7507c6c7d83e010f10546dd0f8"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/public-prestate.json",
+      "sha256": "7f9f9dc297d6cbda7d0156a092819d2c524ec4fd6e6fb7ce12029704788bfd36"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/release-receipt.json",
+      "sha256": "25381e8180a4e6dce611974a4986182699b8fcccafbd5aacf2aa819a50a12e5d"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/site-preview-deploy.log",
+      "sha256": "f52b49b1207074ccc5c6b05e99cd845896775cfa069038e33d05dcd2a5e32776"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/worker-initial-auth-readback.json",
+      "sha256": "d1ccb9c8e19dcf014c5e07c5cc48fefadef631e2d9262cc70a625b7bebecd9a6"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/site-assets-readback.json",
+      "sha256": "5e361feebeecd4c9a6be3ce076ba91ee76f983abfb384b2cac6e7a0b11d3f021"
+    },
+    {
+      "path": ".specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/public-site/report.json",
+      "sha256": "5caf27b3bc771454fd4d16a76e510c5cd90d429039c8c2453603ab56480ae4ee"
+    }
+  ]
+}

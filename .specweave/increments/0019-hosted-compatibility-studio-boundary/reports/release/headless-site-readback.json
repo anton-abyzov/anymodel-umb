@@ -1,0 +1,85 @@
+{
+  "headless": true,
+  "PWDEBUG": "0",
+  "PLAYWRIGHT_HTML_OPEN": "never",
+  "checks": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "overflow": false,
+      "themePersistence": true,
+      "copy": true,
+      "faq": true,
+      "anchors": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "overflow": false,
+      "themePersistence": true,
+      "copy": true,
+      "faq": true,
+      "anchors": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "theme": "dark",
+      "overflow": false,
+      "themePersistence": true,
+      "copy": true,
+      "faq": true,
+      "anchors": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "theme": "light",
+      "overflow": false,
+      "themePersistence": true,
+      "copy": true,
+      "faq": true,
+      "anchors": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "overflow": false,
+      "themePersistence": true,
+      "copy": true,
+      "faq": true,
+      "anchors": true,
+      "pageErrors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "overflow": false,
+      "themePersistence": true,
+      "copy": true,
+      "faq": true,
+      "anchors": true,
+      "pageErrors": []
+    }
+  ]
+}

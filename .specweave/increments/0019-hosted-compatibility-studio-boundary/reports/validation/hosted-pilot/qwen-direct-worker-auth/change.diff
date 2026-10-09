@@ -1,0 +1,50 @@
+diff --git a/target.mjs b/target.mjs
+index e97c48d..aeb94a1 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -156,15 +156,37 @@ export async function handleRequest(request, env) {
+     }
+   }
+ 
+-  // BYOK: Use the user's key from the request header, fall back to server key
++  // Gateway auth (ANYMODEL_TOKEN) takes precedence - requires valid gateway credentials
+   const headers = Object.fromEntries(request.headers.entries());
+-  const userKey = headers['x-api-key'] || headers['authorization']?.replace('Bearer ', '') || '';
+-  const effectiveKey = (userKey && userKey.startsWith('sk-or-')) ? userKey : apiKey;
+-
+-  if (!effectiveKey) {
+-    return new Response(JSON.stringify({
+-      error: { type: 'auth_error', message: 'OpenRouter API key required. Set ANTHROPIC_API_KEY to your OpenRouter key (starts with sk-or-).' }
+-    }), { status: 401, headers: { 'content-type': 'application/json' } });
++  
++  if (token) {
++    // ANYMODEL_TOKEN is configured: gateway credentials MUST be present and valid
++    const gatewayAuth = headers.authorization || headers['x-api-key'] || '';
++    const gatewayValid = gatewayAuth === `Bearer ${token}` || gatewayAuth === token;
++    if (!gatewayValid) {
++      return new Response(JSON.stringify({
++        error: { type: 'auth_error', message: 'Gateway authentication required. Provide valid Bearer token or x-api-key.' }
++      }), { status: 401, headers: { 'content-type': 'application/json' } });
++    }
++    // Gateway auth OK - BYOK via x-api-key header, server key via Authorization
++    const byokKey = headers['x-api-key'];
++    const effectiveKey = byokKey && byokKey.startsWith('sk-or-') ? byokKey : apiKey;
++    if (!effectiveKey) {
++      return new Response(JSON.stringify({
++        error: { type: 'auth_error', message: 'OpenRouter API key required. Provide BYOK via x-api-key or configure OPENROUTER_API_KEY.' }
++      }), { status: 401, headers: { 'content-type': 'application/json' } });
++    }
++    // Continue with effectiveKey
++  } else {
++    // ANYMODEL_TOKEN not configured: public route with BYOK support (no server fallback)
++    const userKey = headers['x-api-key'] || headers['authorization']?.replace('Bearer ', '') || '';
++    if (!userKey || !userKey.startsWith('sk-or-')) {
++      return new Response(JSON.stringify({
++        error: { type: 'auth_error', message: 'OpenRouter API key required. Provide BYOK via x-api-key or Authorization header (starts with sk-or-).' }
++      }), { status: 401, headers: { 'content-type': 'application/json' } });
++    }
++    const effectiveKey = userKey;
++    // Continue with effectiveKey
+   }
+ 
+   // Rate limit (using global state for Workers)

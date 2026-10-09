@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "at": "2026-10-09T09:14:25.641Z",
+  "base": "https://anymodel.dev",
+  "headless": true,
+  "PWDEBUG": "0",
+  "PLAYWRIGHT_HTML_OPEN": "never",
+  "checks": [
+    {
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "themePersistence": true,
+      "faq": true,
+      "copy": true,
+      "anchors": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "themePersistence": true,
+      "faq": true,
+      "copy": true,
+      "anchors": true,
+      "errors": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "themePersistence": true,
+      "faq": true,
+      "copy": true,
+      "anchors": true,
+      "errors": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "themePersistence": true,
+      "faq": true,
+      "copy": true,
+      "anchors": true,
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "themePersistence": true,
+      "faq": true,
+      "copy": true,
+      "anchors": true,
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "themePersistence": true,
+      "faq": true,
+      "copy": true,
+      "anchors": true,
+      "errors": []
+    }
+  ],
+  "historicalBenchmarkDisclosure": true
+}

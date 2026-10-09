@@ -1,0 +1,16 @@
+$ cd /Users/antonabyzov/Projects/github/anymodel-compatibility-20261009/repositories/antonoly/anymodel && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node scripts/verification/offline-tests.mjs
+# exit 0 — 2026-10-09T09:06:39.983Z
+
+{
+  "report": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/anymodel-offline-xBxysR/report.json",
+  "testsExitCode": 0,
+  "testFiles": 53,
+  "networkViolations": 0,
+  "coverage": {
+    "lines": 87.65,
+    "branches": 84.08,
+    "functions": 85.29
+  },
+  "unobservedSourceFiles": [],
+  "passed": true
+}

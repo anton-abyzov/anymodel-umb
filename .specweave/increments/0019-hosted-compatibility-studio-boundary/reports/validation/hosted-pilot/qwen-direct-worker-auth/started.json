@@ -1,0 +1,10 @@
+{
+  "arm": "qwen-direct",
+  "task": "worker-auth",
+  "requestedModel": "qwen/qwen3-coder-next",
+  "runtime": "1.14.33",
+  "sourceRevision": "f50f9ac15a0517fb8b1e9aa79a944f7542195b5b",
+  "fixtureHash": "95e8a1f410c0efedc0708d9d8cb2a00f3e6209452d3c915976e2ea4848433e7f",
+  "startedAt": "2026-10-09T09:03:06.835Z",
+  "status": "started; completion unknown until report.json"
+}

@@ -1,0 +1,312 @@
+{
+  "arm": "qwen-direct",
+  "task": "reasoning-budget",
+  "requestedModel": "qwen/qwen3-coder-next",
+  "observedModels": [
+    "qwen/qwen3-coder-next"
+  ],
+  "runtime": {
+    "path": "/Users/antonabyzov/.opencode/bin/opencode",
+    "version": "1.14.33"
+  },
+  "sourceRevision": "f50f9ac15a0517fb8b1e9aa79a944f7542195b5b",
+  "fixtureHash": "06e7b121064b5b7aacf33f394afb20e448c20556dd1ec2e01f509d8e23ba8d57",
+  "testHash": "fe9a0b39a00bf3ab0d9a64ded2150c1a6c4324ba2bd7b2af35e0f9fdcab823b9",
+  "startedAt": "2026-10-09T09:03:34.296Z",
+  "finishedAt": "2026-10-09T09:04:08.590Z",
+  "ms": 34234,
+  "exitCode": null,
+  "signal": "SIGTERM",
+  "timedOut": false,
+  "interrupted": false,
+  "outputOverflow": false,
+  "spawnError": null,
+  "completionEvent": false,
+  "cleanCompletion": false,
+  "artifactPassed": false,
+  "scoring": {
+    "checks": [
+      {
+        "name": "budget-o3",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\nundefined !== 123\n"
+      },
+      {
+        "name": "budget-gpt-5.4",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\nundefined !== 123\n"
+      },
+      {
+        "name": "budget-gpt-6.1-sol",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\nundefined !== 123\n"
+      },
+      {
+        "name": "effort-none",
+        "passed": true
+      },
+      {
+        "name": "effort-minimal",
+        "passed": true
+      },
+      {
+        "name": "effort-low",
+        "passed": true
+      },
+      {
+        "name": "effort-medium",
+        "passed": true
+      },
+      {
+        "name": "effort-high",
+        "passed": true
+      },
+      {
+        "name": "effort-xhigh",
+        "passed": true
+      },
+      {
+        "name": "effort-max",
+        "passed": true
+      },
+      {
+        "name": "fallback-budget",
+        "passed": true
+      },
+      {
+        "name": "legacy-budget",
+        "passed": true
+      },
+      {
+        "name": "effort-optout",
+        "passed": true
+      },
+      {
+        "name": "custom-default",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\nundefined !== 123\n"
+      }
+    ],
+    "passed": false,
+    "passedCount": 10,
+    "total": 14,
+    "scorerExitCode": 0,
+    "testHash": "fe9a0b39a00bf3ab0d9a64ded2150c1a6c4324ba2bd7b2af35e0f9fdcab823b9",
+    "artifactPassed": false
+  },
+  "forbiddenChanges": [],
+  "toolOrRuntimeErrors": [],
+  "runtimeErrorCount": 0,
+  "toolErrorCount": 0,
+  "toolErrorRecoveryObserved": false,
+  "providerRequests": [
+    {
+      "reservation": 42,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 654,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 702,
+        "completion_tokens": 13,
+        "total_tokens": 715,
+        "cost": 0.00009464,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00009464,
+          "upstream_inference_prompt_cost": 0.00008424,
+          "upstream_inference_completions_cost": 0.0000104
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00009464
+    },
+    {
+      "reservation": 43,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 1988,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 2441,
+        "completion_tokens": 99,
+        "total_tokens": 2540,
+        "cost": 0.00037212,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00037212,
+          "upstream_inference_prompt_cost": 0.00029292,
+          "upstream_inference_completions_cost": 0.0000792
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00037212
+    },
+    {
+      "reservation": 44,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 9159,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 16411,
+        "completion_tokens": 564,
+        "total_tokens": 16975,
+        "cost": 0.00231172,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00231172,
+          "upstream_inference_prompt_cost": 0.00186052,
+          "upstream_inference_completions_cost": 0.0004512
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00231172
+    },
+    {
+      "reservation": 45,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 8921,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 16991,
+        "completion_tokens": 543,
+        "total_tokens": 17534,
+        "cost": 0.00165732,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 16320,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00165732,
+          "upstream_inference_prompt_cost": 0.00122292,
+          "upstream_inference_completions_cost": 0.0004344
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00165732
+    },
+    {
+      "reservation": 46,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 8959,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 17550,
+        "completion_tokens": 542,
+        "total_tokens": 18092,
+        "cost": 0.0025396,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0025396,
+          "upstream_inference_prompt_cost": 0.002106,
+          "upstream_inference_completions_cost": 0.0004336
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0025396
+    },
+    {
+      "reservation": 47,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 2782,
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "usage": {
+        "prompt_tokens": 18108,
+        "completion_tokens": 117,
+        "total_tokens": 18225,
+        "cost": 0.00139616,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 17408,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00139616,
+          "upstream_inference_prompt_cost": 0.00130256,
+          "upstream_inference_completions_cost": 0.0000936
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.00139616
+    }
+  ],
+  "knownApiCostUsd": 0.00837156,
+  "billing": "OpenRouter API; absent provider cost is unknown; conservative shared reservations are not actual spend",
+  "interventions": 0,
+  "repetitions": 1,
+  "passed": false,
+  "limitations": [
+    "Three repair fixtures, one repetition per cell; not a quality ranking, parity proof, Studio session, or speed/cost benchmark.",
+    "Resume, long-context pressure and multi-agent Studio workflows are untested.",
+    "OpenCode has six steps, six provider requests, 2048 output tokens/request; shell/external access denied."
+  ]
+}

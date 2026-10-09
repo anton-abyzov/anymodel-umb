@@ -28,6 +28,7 @@ sw:sync-docs 0001
 
 - [FS-010: Local skill-fidelity: restore skill auto-trigger on local models](FS-010/FEATURE.md)
 - [FS-016: Project-scoped local skill index](FS-016/FEATURE.md)
+- [FS-019: 0019 AnyModel hosted compatibility and Studio boundary](FS-019/FEATURE.md)
 
 ---
 

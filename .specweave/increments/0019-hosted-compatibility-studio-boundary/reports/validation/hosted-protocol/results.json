@@ -1,0 +1,561 @@
+{
+  "sourceSha": "6a356766b6089209d786269a1af8ae269b343054",
+  "at": "2026-10-09T08:44:40.364Z",
+  "scope": "Synthetic hosted protocol/tool/stream smoke; no native-agent or repository-acceptance claim",
+  "node": "v22.20.0",
+  "spendCapUsd": 0.25,
+  "maxProviderCalls": 12,
+  "providerCalls": 10,
+  "reservedCostUpperBoundUsd": 0.10253775999999999,
+  "costScope": "Reservations include every actual upstream attempt, including proxy retries and invalid-key calls. Actual billed cost is known only where provider usage.cost is present.",
+  "observedCostUsd": 0.0015114000000000002,
+  "callsWithoutCostReceipt": [
+    "invalid-key-messages",
+    "invalid-key-chat"
+  ],
+  "transports": [
+    {
+      "number": 1,
+      "label": "gpt-chat-tool",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "model": "openai/gpt-6.1-sol",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 619,
+      "upperBoundUsd": 0.021932,
+      "cumulativeReservedUsd": 0.021932,
+      "at": "2026-10-09T08:44:31.037Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 2,
+      "label": "gpt-chat-result",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "model": "openai/gpt-6.1-sol",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 826,
+      "upperBoundUsd": 0.02276,
+      "cumulativeReservedUsd": 0.044691999999999996,
+      "at": "2026-10-09T08:44:32.610Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 3,
+      "label": "gpt-messages-tool",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "model": "openai/gpt-6.1-sol",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 537,
+      "upperBoundUsd": 0.021603999999999998,
+      "cumulativeReservedUsd": 0.066296,
+      "at": "2026-10-09T08:44:34.128Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 4,
+      "label": "gpt-messages-result",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "model": "openai/gpt-6.1-sol",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 790,
+      "upperBoundUsd": 0.022616,
+      "cumulativeReservedUsd": 0.08891199999999999,
+      "at": "2026-10-09T08:44:35.930Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 5,
+      "label": "qwen-chat-tool",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "model": "qwen/qwen3-coder-next",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 593,
+      "upperBoundUsd": 0.0010132399999999999,
+      "cumulativeReservedUsd": 0.08992523999999999,
+      "at": "2026-10-09T08:44:37.242Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 6,
+      "label": "qwen-chat-result",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "model": "qwen/qwen3-coder-next",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 805,
+      "upperBoundUsd": 0.00103868,
+      "cumulativeReservedUsd": 0.09096391999999999,
+      "at": "2026-10-09T08:44:38.029Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 7,
+      "label": "qwen-messages-tool",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "model": "qwen/qwen3-coder-next",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 507,
+      "upperBoundUsd": 0.00100292,
+      "cumulativeReservedUsd": 0.09196684,
+      "at": "2026-10-09T08:44:38.514Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 8,
+      "label": "qwen-messages-direct-control",
+      "route": "direct",
+      "wire": "/v1/messages",
+      "model": "qwen/qwen3-coder-next",
+      "maxOutputTokens": 1024,
+      "payloadBytes": 507,
+      "upperBoundUsd": 0.00100292,
+      "cumulativeReservedUsd": 0.09296976,
+      "at": "2026-10-09T08:44:39.529Z",
+      "credential": "authorized-openrouter-key"
+    },
+    {
+      "number": 9,
+      "label": "invalid-key-messages",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "model": "openai/gpt-6.1-sol",
+      "maxOutputTokens": 16,
+      "payloadBytes": 112,
+      "upperBoundUsd": 0.004783999999999999,
+      "cumulativeReservedUsd": 0.09775376,
+      "at": "2026-10-09T08:44:40.316Z",
+      "credential": "intentionally-invalid-test-key"
+    },
+    {
+      "number": 10,
+      "label": "invalid-key-chat",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "model": "openai/gpt-6.1-sol",
+      "maxOutputTokens": 16,
+      "payloadBytes": 112,
+      "upperBoundUsd": 0.004783999999999999,
+      "cumulativeReservedUsd": 0.10253775999999999,
+      "at": "2026-10-09T08:44:40.336Z",
+      "credential": "intentionally-invalid-test-key"
+    }
+  ],
+  "rows": [
+    {
+      "label": "gpt-chat-tool",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "tool_calls",
+      "ok": true,
+      "responseSha256": "d6d459dbc69346ef5330821225822bee4b0e5e643beb60d3ff78cdc582347183",
+      "requestId": null,
+      "observedModel": "openai/gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 73,
+        "completion_tokens": 22,
+        "total_tokens": 95,
+        "cost": 0.000366,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000366,
+          "upstream_inference_prompt_cost": 0.000146,
+          "upstream_inference_completions_cost": 0.00022
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "id": "gen-1791535471-D6t0QJxUYhkHXrAyy6sy",
+      "eventTypes": [
+        "chat.completion.chunk",
+        "done"
+      ],
+      "toolCount": 1,
+      "responseText": "",
+      "ms": 1578
+    },
+    {
+      "label": "gpt-chat-result",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "stop",
+      "ok": true,
+      "responseSha256": "fb10fef90138a991980c7b5444cedd93b43f27d5a80e3269b9a5bedc88e54320",
+      "requestId": null,
+      "observedModel": "openai/gpt-6.1-sol",
+      "usage": {
+        "prompt_tokens": 107,
+        "completion_tokens": 5,
+        "total_tokens": 112,
+        "cost": 0.000264,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000264,
+          "upstream_inference_prompt_cost": 0.000214,
+          "upstream_inference_completions_cost": 0.00005
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "id": "gen-1791535472-ShlQVZpA8dsYCLscFTSQ",
+      "eventTypes": [
+        "chat.completion.chunk",
+        "done"
+      ],
+      "toolCount": 0,
+      "responseText": "42",
+      "ms": 1517
+    },
+    {
+      "label": "gpt-messages-tool",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "tool_use",
+      "ok": true,
+      "responseSha256": "5437e74ba09666850ad3075bfb2dbe6771cd059c18d306258d3632ce0dc61f88",
+      "requestId": null,
+      "observedModel": "openai/gpt-6.1-sol",
+      "usage": {
+        "input_tokens": 73,
+        "output_tokens": 22,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_creation_input_tokens": null,
+        "cache_read_input_tokens": 0,
+        "cache_creation": null,
+        "inference_geo": null,
+        "server_tool_use": null,
+        "service_tier": "standard",
+        "speed": "standard",
+        "cost": 0.000366,
+        "is_byok": false,
+        "cost_details": {
+          "upstream_inference_cost": 0.000366,
+          "upstream_inference_prompt_cost": 0.000146,
+          "upstream_inference_completions_cost": 0.00022
+        }
+      },
+      "id": "gen-1791535474-Q3tYGnNOgH1vGa2KhlCy",
+      "eventTypes": [
+        "message_start",
+        "content_block_start",
+        "content_block_delta",
+        "content_block_stop",
+        "message_delta",
+        "message_stop",
+        "done"
+      ],
+      "toolCount": 1,
+      "responseText": "",
+      "ms": 1802
+    },
+    {
+      "label": "gpt-messages-result",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "end_turn",
+      "ok": true,
+      "responseSha256": "c4a11585170832dbfdc6573413a8283633b896c5a8fd602378d0cb2949f17f9d",
+      "requestId": null,
+      "observedModel": "openai/gpt-6.1-sol",
+      "usage": {
+        "input_tokens": 107,
+        "output_tokens": 5,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_creation_input_tokens": null,
+        "cache_read_input_tokens": 0,
+        "cache_creation": null,
+        "inference_geo": null,
+        "server_tool_use": null,
+        "service_tier": "standard",
+        "speed": "standard",
+        "cost": 0.000264,
+        "is_byok": false,
+        "cost_details": {
+          "upstream_inference_cost": 0.000264,
+          "upstream_inference_prompt_cost": 0.000214,
+          "upstream_inference_completions_cost": 0.00005
+        }
+      },
+      "id": "gen-1791535475-GOnTaDDyVqBcpPjiJmgn",
+      "eventTypes": [
+        "message_start",
+        "content_block_start",
+        "content_block_delta",
+        "content_block_stop",
+        "message_delta",
+        "message_stop",
+        "done"
+      ],
+      "toolCount": 0,
+      "responseText": "42",
+      "ms": 1310
+    },
+    {
+      "label": "qwen-chat-tool",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "tool_calls",
+      "ok": true,
+      "responseSha256": "5c2159d1c2a3164a6424f06380bded1930de692a034e93258ce82d3cbf002777",
+      "requestId": null,
+      "observedModel": "qwen/qwen3-coder-next",
+      "usage": {
+        "prompt_tokens": 347,
+        "completion_tokens": 32,
+        "total_tokens": 379,
+        "cost": 0.00006724,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00006724,
+          "upstream_inference_prompt_cost": 0.00004164,
+          "upstream_inference_completions_cost": 0.0000256
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "id": "gen-1791535477-sY6444jsIXE16T7D9d18",
+      "eventTypes": [
+        "chat.completion.chunk",
+        "done"
+      ],
+      "toolCount": 1,
+      "responseText": "",
+      "ms": 787
+    },
+    {
+      "label": "qwen-chat-result",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "stop",
+      "ok": true,
+      "responseSha256": "fce53104c0a3f00cfdaa005dc523e42011fdc3afff1716c9bf4a916cf35e9b19",
+      "requestId": null,
+      "observedModel": "qwen/qwen3-coder-next",
+      "usage": {
+        "prompt_tokens": 394,
+        "completion_tokens": 3,
+        "total_tokens": 397,
+        "cost": 0.00004968,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00004968,
+          "upstream_inference_prompt_cost": 0.00004728,
+          "upstream_inference_completions_cost": 0.0000024
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "id": "gen-1791535478-bM3kiGQbdzXWbCMf6m7I",
+      "eventTypes": [
+        "chat.completion.chunk",
+        "done"
+      ],
+      "toolCount": 0,
+      "responseText": "42",
+      "ms": 485
+    },
+    {
+      "label": "qwen-messages-tool",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "end_turn",
+      "ok": false,
+      "responseSha256": "9d031ccfee6e08629f6c497a611ce21992823b8bcd2a24b2aa79d956c328ca7e",
+      "requestId": null,
+      "observedModel": "qwen/qwen3-coder-next",
+      "usage": {
+        "input_tokens": 347,
+        "output_tokens": 32,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_creation_input_tokens": null,
+        "cache_read_input_tokens": 0,
+        "cache_creation": null,
+        "inference_geo": null,
+        "server_tool_use": null,
+        "service_tier": null,
+        "speed": "standard",
+        "cost": 0.00006724,
+        "is_byok": false,
+        "cost_details": {
+          "upstream_inference_cost": 0.00006724,
+          "upstream_inference_prompt_cost": 0.00004164,
+          "upstream_inference_completions_cost": 0.0000256
+        }
+      },
+      "id": "gen-1791535478-8toJtoy6fe8vTFlt1zQz",
+      "eventTypes": [
+        "message_start",
+        "content_block_start",
+        "content_block_delta",
+        "content_block_stop",
+        "message_delta",
+        "message_stop",
+        "done"
+      ],
+      "toolCount": 1,
+      "responseText": "",
+      "ms": 1012,
+      "error": "Tool response must stop with tool_use, observed end_turn",
+      "directControl": {
+        "ok": false,
+        "status": 200,
+        "stopReason": "end_turn",
+        "error": "Tool response must stop with tool_use, observed end_turn"
+      },
+      "classification": "reproduced on direct provider; upstream protocol compatibility boundary"
+    },
+    {
+      "label": "qwen-messages-direct-control",
+      "route": "direct",
+      "wire": "/v1/messages",
+      "requestedModel": "qwen/qwen3-coder-next",
+      "stream": true,
+      "expectAuthFailure": false,
+      "status": 200,
+      "stopReason": "end_turn",
+      "ok": false,
+      "responseSha256": "78de8b009f1eae4bcb6f0fe19faedd73e578beaf454d9a78b0f9b0236dc3ab08",
+      "requestId": null,
+      "observedModel": "qwen/qwen3-coder-next",
+      "usage": {
+        "input_tokens": 347,
+        "output_tokens": 32,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "cache_creation_input_tokens": null,
+        "cache_read_input_tokens": 0,
+        "cache_creation": null,
+        "inference_geo": null,
+        "server_tool_use": null,
+        "service_tier": null,
+        "speed": "standard",
+        "cost": 0.00006724,
+        "is_byok": false,
+        "cost_details": {
+          "upstream_inference_cost": 0.00006724,
+          "upstream_inference_prompt_cost": 0.00004164,
+          "upstream_inference_completions_cost": 0.0000256
+        }
+      },
+      "id": "gen-1791535479-8nl0GWezQ6TfsKhgr34R",
+      "eventTypes": [
+        "message_start",
+        "content_block_start",
+        "content_block_delta",
+        "content_block_stop",
+        "message_delta",
+        "message_stop",
+        "done"
+      ],
+      "toolCount": 1,
+      "responseText": "",
+      "ms": 782,
+      "error": "Tool response must stop with tool_use, observed end_turn"
+    },
+    {
+      "label": "invalid-key-messages",
+      "route": "anymodel",
+      "wire": "/v1/messages",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "stream": false,
+      "expectAuthFailure": true,
+      "status": 401,
+      "stopReason": null,
+      "ok": true,
+      "responseSha256": "ce155be00a6ad8151c65112b75a2d24dfd2f528e90d7a6c8dc5886c13e53ef67",
+      "requestId": null,
+      "errorType": "authentication_error",
+      "ms": 18
+    },
+    {
+      "label": "invalid-key-chat",
+      "route": "anymodel",
+      "wire": "/v1/chat/completions",
+      "requestedModel": "openai/gpt-6.1-sol",
+      "stream": false,
+      "expectAuthFailure": true,
+      "status": 401,
+      "stopReason": null,
+      "ok": true,
+      "responseSha256": "a5c01dc568ef16f02c4e04e7a2919ffe2cbd02224b4c2ba8f5d053a5f5c0297d",
+      "requestId": null,
+      "errorType": 401,
+      "ms": 27
+    }
+  ]
+}

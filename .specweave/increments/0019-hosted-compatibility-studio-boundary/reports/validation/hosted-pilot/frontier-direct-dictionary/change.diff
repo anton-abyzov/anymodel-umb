@@ -1,0 +1,73 @@
+diff --git a/target.mjs b/target.mjs
+index 8f64401..a90401d 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -70,43 +70,52 @@ export function sanitizeBody(body, { keepCache = false } = {}) {
+ 
+       // Fix schemas that OpenAI/strict-mode parsers reject:
+       // 1. Missing input_schema entirely
+-      // 2. Missing or empty properties
++      // 2. Missing or empty properties, without discarding dictionary constraints
+       // Use the standard JSON-Schema "empty object" form — {type:"object", properties:{}, additionalProperties:false}
+       // This is accepted by OpenAI, Groq, Together, vLLM, LMStudio, Ollama, and real
+       // tool params named `_unused` are preserved end-to-end (US-004 fix, 1.12.0).
+       const emptyObjectSchema = () => ({ type: 'object', properties: {}, additionalProperties: false });
++      const fixEmptyObject = (schema) => {
++        if (schema.type !== 'object') return;
++        const props = schema.properties;
++        if (!props || (typeof props === 'object' && Object.keys(props).length === 0)) {
++          schema.properties = {};
++          // Empty named properties do not imply an empty object: dynamic keys
++          // can be allowed by additionalProperties, patterns, or alternatives.
++          const hasPatterns = schema.patternProperties && Object.keys(schema.patternProperties).length > 0;
++          const hasAlternatives = ['anyOf', 'oneOf', 'allOf'].some(key => Array.isArray(schema[key]));
++          if (schema.additionalProperties === undefined && !hasPatterns && !hasAlternatives) {
++            schema.additionalProperties = false;
++          }
++          if (!Array.isArray(schema.required)) schema.required = [];
++        }
++      };
+       if (!rest.input_schema || typeof rest.input_schema !== 'object') {
+         rest.input_schema = emptyObjectSchema();
+       } else {
+         if (!rest.input_schema.type) {
+           rest.input_schema.type = 'object';
+         }
+-        if (rest.input_schema.type === 'object') {
+-          const props = rest.input_schema.properties;
+-          if (!props || (typeof props === 'object' && Object.keys(props).length === 0)) {
+-            rest.input_schema.properties = {};
+-            rest.input_schema.additionalProperties = false;
+-            if (!Array.isArray(rest.input_schema.required)) rest.input_schema.required = [];
+-          }
+-        }
+       }
+ 
+-      // Recursively fix nested schemas (anyOf, oneOf, allOf, items)
++      // Apply the same normalization at every schema level, including dictionaries.
+       const fixNested = (schema) => {
+         if (!schema || typeof schema !== 'object') return;
++        fixEmptyObject(schema);
+         for (const key of ['anyOf', 'oneOf', 'allOf']) {
+           if (Array.isArray(schema[key])) {
+             schema[key].forEach(fixNested);
+           }
+         }
+-        if (schema.items) fixNested(schema.items);
+-        if (schema.type === 'object' && schema.properties) {
+-          if (Object.keys(schema.properties).length === 0) {
+-            schema.additionalProperties = false;
+-            if (!Array.isArray(schema.required)) schema.required = [];
++        if (Array.isArray(schema.items)) schema.items.forEach(fixNested);
++        else if (schema.items) fixNested(schema.items);
++        if (Array.isArray(schema.prefixItems)) schema.prefixItems.forEach(fixNested);
++        for (const key of ['properties', 'patternProperties']) {
++          if (schema[key] && typeof schema[key] === 'object') {
++            Object.values(schema[key]).forEach(fixNested);
+           }
+-          for (const v of Object.values(schema.properties)) fixNested(v);
+         }
++        fixNested(schema.additionalProperties);
+       };
+       fixNested(rest.input_schema);
+ 

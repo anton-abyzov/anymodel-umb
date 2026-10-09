@@ -1,0 +1,163 @@
+{
+  "resultsSha256": "9d7980ef215ccd49651708f52ec8cecee5d975d9edf13536c40e6d45428d4de5",
+  "allResponseHashesMatch": true,
+  "responses": [
+    {
+      "label": "gpt-chat-tool",
+      "hashMatches": true,
+      "bytes": 4754
+    },
+    {
+      "label": "gpt-chat-result",
+      "hashMatches": true,
+      "bytes": 1348
+    },
+    {
+      "label": "gpt-messages-tool",
+      "hashMatches": true,
+      "bytes": 2655
+    },
+    {
+      "label": "gpt-messages-result",
+      "hashMatches": true,
+      "bytes": 1517
+    },
+    {
+      "label": "qwen-chat-tool",
+      "hashMatches": true,
+      "bytes": 2469
+    },
+    {
+      "label": "qwen-chat-result",
+      "hashMatches": true,
+      "bytes": 1581
+    },
+    {
+      "label": "qwen-messages-tool",
+      "hashMatches": true,
+      "bytes": 1893
+    },
+    {
+      "label": "qwen-messages-direct-control",
+      "hashMatches": true,
+      "bytes": 1893
+    },
+    {
+      "label": "invalid-key-messages",
+      "hashMatches": true,
+      "bytes": 152
+    },
+    {
+      "label": "invalid-key-chat",
+      "hashMatches": true,
+      "bytes": 64
+    }
+  ],
+  "expectedPasses": 8,
+  "upstreamCompatibilityBoundaryCount": 2,
+  "reportedApiCostUsd": 0.0015114000000000002,
+  "costUnobserved": [
+    "invalid-key-messages",
+    "invalid-key-chat"
+  ],
+  "independentProtocolParse": [
+    {
+      "label": "gpt-chat-tool",
+      "observedStop": "tool_calls",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": true,
+      "toolArguments": {
+        "a": 19,
+        "b": 23
+      },
+      "text": ""
+    },
+    {
+      "label": "gpt-chat-result",
+      "observedStop": "stop",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": false,
+      "toolArguments": null,
+      "text": "42"
+    },
+    {
+      "label": "gpt-messages-tool",
+      "observedStop": "tool_use",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": true,
+      "toolArguments": {
+        "a": 19,
+        "b": 23
+      },
+      "text": ""
+    },
+    {
+      "label": "gpt-messages-result",
+      "observedStop": "end_turn",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": false,
+      "toolArguments": null,
+      "text": "42"
+    },
+    {
+      "label": "qwen-chat-tool",
+      "observedStop": "tool_calls",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": true,
+      "toolArguments": {
+        "a": 19,
+        "b": 23
+      },
+      "text": ""
+    },
+    {
+      "label": "qwen-chat-result",
+      "observedStop": "stop",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": false,
+      "toolArguments": null,
+      "text": "42"
+    },
+    {
+      "label": "qwen-messages-tool",
+      "observedStop": "end_turn",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": true,
+      "toolArguments": {
+        "a": 19,
+        "b": 23
+      },
+      "text": ""
+    },
+    {
+      "label": "qwen-messages-direct-control",
+      "observedStop": "end_turn",
+      "matchesRecordedStop": true,
+      "completionFramePresent": true,
+      "toolBearing": true,
+      "toolArguments": {
+        "a": 19,
+        "b": 23
+      },
+      "text": ""
+    },
+    {
+      "label": "invalid-key-messages",
+      "errorPayloadPresent": true,
+      "recordedHttpStatus": 401
+    },
+    {
+      "label": "invalid-key-chat",
+      "errorPayloadPresent": true,
+      "recordedHttpStatus": 401
+    }
+  ],
+  "allRecordedStopsMatchRaw": true
+}

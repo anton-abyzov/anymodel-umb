@@ -1,0 +1,1 @@
+Updated `target.mjs`: all seven effort levels are preserved; GPT-5/GPT-6 and o-series use `max_completion_tokens`, including through gateways. Legacy budgets, custom-endpoint effort opt-in, and explicit opt-outs remain intact. Translation checks passed.

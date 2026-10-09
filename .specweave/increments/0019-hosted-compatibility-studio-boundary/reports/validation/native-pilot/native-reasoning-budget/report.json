@@ -1,0 +1,107 @@
+{
+  "arm": "native",
+  "task": "reasoning-budget",
+  "requestedModel": "gpt-6.1-sol",
+  "observedModels": [],
+  "runtime": {
+    "path": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/codex",
+    "version": "codex-cli 0.161.0"
+  },
+  "sourceRevision": "91b1611dc85d098059a8babb24713061c1ef5804",
+  "fixtureHash": "06e7b121064b5b7aacf33f394afb20e448c20556dd1ec2e01f509d8e23ba8d57",
+  "testHash": "fe9a0b39a00bf3ab0d9a64ded2150c1a6c4324ba2bd7b2af35e0f9fdcab823b9",
+  "startedAt": "2026-10-09T08:52:54.535Z",
+  "finishedAt": "2026-10-09T08:53:39.470Z",
+  "ms": 44854,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "interrupted": false,
+  "outputOverflow": false,
+  "spawnError": null,
+  "completionEvent": true,
+  "cleanCompletion": true,
+  "artifactPassed": true,
+  "scoring": {
+    "checks": [
+      {
+        "name": "budget-o3",
+        "passed": true
+      },
+      {
+        "name": "budget-gpt-5.4",
+        "passed": true
+      },
+      {
+        "name": "budget-gpt-6.1-sol",
+        "passed": true
+      },
+      {
+        "name": "effort-none",
+        "passed": true
+      },
+      {
+        "name": "effort-minimal",
+        "passed": true
+      },
+      {
+        "name": "effort-low",
+        "passed": true
+      },
+      {
+        "name": "effort-medium",
+        "passed": true
+      },
+      {
+        "name": "effort-high",
+        "passed": true
+      },
+      {
+        "name": "effort-xhigh",
+        "passed": true
+      },
+      {
+        "name": "effort-max",
+        "passed": true
+      },
+      {
+        "name": "fallback-budget",
+        "passed": true
+      },
+      {
+        "name": "legacy-budget",
+        "passed": true
+      },
+      {
+        "name": "effort-optout",
+        "passed": true
+      },
+      {
+        "name": "custom-default",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "passedCount": 14,
+    "total": 14,
+    "scorerExitCode": 0,
+    "testHash": "fe9a0b39a00bf3ab0d9a64ded2150c1a6c4324ba2bd7b2af35e0f9fdcab823b9",
+    "artifactPassed": true
+  },
+  "forbiddenChanges": [],
+  "toolOrRuntimeErrors": [],
+  "runtimeErrorCount": 0,
+  "toolErrorCount": 0,
+  "toolErrorRecoveryObserved": false,
+  "providerRequests": [],
+  "knownApiCostUsd": null,
+  "billing": "existing native subscription/authentication; monetary cost unavailable",
+  "interventions": 0,
+  "repetitions": 1,
+  "passed": true,
+  "limitations": [
+    "Three repair fixtures, one repetition per cell; not a quality ranking, parity proof, Studio session, or speed/cost benchmark.",
+    "Resume, long-context pressure and multi-agent Studio workflows are untested.",
+    "Native Codex CLI has six-minute timeout; no enforced six-step or API output-token limit."
+  ]
+}

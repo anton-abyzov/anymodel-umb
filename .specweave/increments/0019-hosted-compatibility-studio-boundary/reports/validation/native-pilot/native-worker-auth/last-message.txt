@@ -1,0 +1,3 @@
+Fixed `target.mjs`. Configured auth now gates all upstream routes; `/health` stays public. BYOK works in either header alongside the gateway token. Server-funded fallback requires configured, valid gateway auth.
+
+Mocked-fetch authentication checks passed. Exported API preserved.

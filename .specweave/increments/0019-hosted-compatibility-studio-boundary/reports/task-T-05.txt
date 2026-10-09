@@ -1,0 +1,24 @@
+$ node .specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/verify-release.mjs
+# exit 0 — 2026-10-09T09:18:18.227Z
+
+{
+  "passed": true,
+  "at": "2026-10-09T09:18:18.223Z",
+  "version": "2.0.0",
+  "gitHead": "7a8b470c8525550de7f3bf0420a310d8f6b9d0b2",
+  "registryRechecked": true,
+  "registryIntegrity": "sha512-NgYWvRYvaHYOhEMaGqVhrGDJW5dHUv/9wpkhfJ/xUvLpDpIqFndXXiKyYnMuOCTAkp+2yjQxA/uQU/QEK3zOXQ==",
+  "deploymentEvidence": "Recorded at release; timestamps are retained in individual receipts.",
+  "checks": [
+    "registry artifact and SHA-512",
+    "isolated CLI",
+    "registry installation",
+    "publish workflow",
+    "worker bundle and public auth",
+    "site asset hashes",
+    "production alias",
+    "six headless viewport/theme checks",
+    "independent review"
+  ],
+  "localInference": false
+}

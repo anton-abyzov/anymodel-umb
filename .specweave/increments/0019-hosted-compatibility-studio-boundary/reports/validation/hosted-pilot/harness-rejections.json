@@ -1,0 +1,70 @@
+{
+  "classification": "invalid harness-precondition attempts, excluded from model outcome pilot",
+  "ledgerAbsentAtClassification": true,
+  "providerCostReceipt": "none; no upstream requests were attempted",
+  "attempts": [
+    {
+      "arm": "frontier-direct",
+      "task": "dictionary",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/frontier-direct-dictionary-1791535892986/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "frontier-direct",
+      "task": "worker-auth",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/frontier-direct-worker-auth-1791535897453/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "frontier-direct",
+      "task": "reasoning-budget",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/frontier-direct-reasoning-budget-1791535902436/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "frontier-proxy",
+      "task": "dictionary",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/frontier-proxy-dictionary-1791535907794/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "frontier-proxy",
+      "task": "worker-auth",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/frontier-proxy-worker-auth-1791535912153/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "frontier-proxy",
+      "task": "reasoning-budget",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/frontier-proxy-reasoning-budget-1791535916043/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "qwen-direct",
+      "task": "dictionary",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/qwen-direct-dictionary-1791535919106/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "qwen-direct",
+      "task": "worker-auth",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/qwen-direct-worker-auth-1791535920932/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    },
+    {
+      "arm": "qwen-direct",
+      "task": "reasoning-budget",
+      "report": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/implementation-pilot/qwen-direct-reasoning-budget-1791535924055/report.json",
+      "providerRequests": 0,
+      "reason": "Evaluation gate rejected unregistered OpenCode transport options before upstream request; no model outcome."
+    }
+  ]
+}

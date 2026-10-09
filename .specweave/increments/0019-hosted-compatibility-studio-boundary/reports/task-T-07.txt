@@ -1,0 +1,450 @@
+$ cd /Users/antonabyzov/Projects/github/anymodel-0019-free-policy && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node --import ./scripts/verification/offline-guard.mjs --test test/free-routing-policy.test.mjs worker/test/handler-policy.test.mjs
+# exit 0 — 2026-10-09T09:04:28.342Z
+
+TAP version 13
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+# [31m[FREE-ONLY][0m Blocked paid model: fixture/model:online:free
+# [31m[FREE-ONLY][0m Blocked paid model: fixture/model@preset/paid:free
+# [31m[FREE-ONLY][0m Blocked paid model: @preset/paid:free
+# Subtest: /v1/messages: free primary model never authorizes billable routing or server tools
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 1 - /v1/messages: free primary model never authorizes billable routing or server tools
+  ---
+  duration_ms: 20.255375
+  type: 'test'
+  ...
+# [36m[OPENROUTER][0m POST /v1/messages model=fixture/model:free tools=1 (0.4 KB, 1 msgs)
+# [32m[OPENROUTER][0m 200 ← response (attempt 1, 0.0s)
+# Subtest: /v1/messages: caller tools and dictionaries survive under the zero-price ceiling
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 2 - /v1/messages: caller tools and dictionaries survive under the zero-price ceiling
+  ---
+  duration_ms: 2.75175
+  type: 'test'
+  ...
+# [36m[OPENROUTER][0m POST /v1/messages model=fixture/model:free tools=1 (0.3 KB, 1 msgs)
+# [32m[OPENROUTER][0m 200 ← response (attempt 1, 0.0s)
+# Subtest: /v1/messages: paid mode retains explicit provider features unchanged
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 3 - /v1/messages: paid mode retains explicit provider features unchanged
+  ---
+  duration_ms: 2.080917
+  type: 'test'
+  ...
+# [31m[FREE-ONLY][0m Blocked paid model: fixture/model:online:free
+# [31m[FREE-ONLY][0m Blocked paid model: fixture/model@preset/paid:free
+# [31m[FREE-ONLY][0m Blocked paid model: @preset/paid:free
+# Subtest: /v1/messages/count_tokens: free primary model never authorizes billable routing or server tools
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 4 - /v1/messages/count_tokens: free primary model never authorizes billable routing or server tools
+  ---
+  duration_ms: 3.546375
+  type: 'test'
+  ...
+# [36m[OPENROUTER][0m POST /v1/messages/count_tokens model=fixture/model:free tools=1 (0.4 KB, 1 msgs)
+# [32m[OPENROUTER][0m 200 ← response (attempt 1, 0.0s)
+# Subtest: /v1/messages/count_tokens: caller tools and dictionaries survive under the zero-price ceiling
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 5 - /v1/messages/count_tokens: caller tools and dictionaries survive under the zero-price ceiling
+  ---
+  duration_ms: 1.86675
+  type: 'test'
+  ...
+# [36m[OPENROUTER][0m POST /v1/messages/count_tokens model=fixture/model:free tools=1 (0.3 KB, 1 msgs)
+# [32m[OPENROUTER][0m 200 ← response (attempt 1, 0.0s)
+# Subtest: /v1/messages/count_tokens: paid mode retains explicit provider features unchanged
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 6 - /v1/messages/count_tokens: paid mode retains explicit provider features unchanged
+  ---
+  duration_ms: 1.685792
+  type: 'test'
+  ...
+# Subtest: /v1/chat/completions: free primary model never authorizes billable routing or server tools
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 7 - /v1/chat/completions: free primary model never authorizes billable routing or server tools
+  ---
+  duration_ms: 4.528792
+  type: 'test'
+  ...
+# Subtest: /v1/chat/completions: caller tools and dictionaries survive under the zero-price ceiling
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 8 - /v1/chat/completions: caller tools and dictionaries survive under the zero-price ceiling
+  ---
+  duration_ms: 1.605833
+  type: 'test'
+  ...
+# Subtest: /v1/chat/completions: paid mode retains explicit provider features unchanged
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 9 - /v1/chat/completions: paid mode retains explicit provider features unchanged
+  ---
+  duration_ms: 1.215333
+  type: 'test'
+  ...
+# Subtest: /v1/responses: free primary model never authorizes billable routing or server tools
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 10 - /v1/responses: free primary model never authorizes billable routing or server tools
+  ---
+  duration_ms: 3.801875
+  type: 'test'
+  ...
+# Subtest: /v1/responses: caller tools and dictionaries survive under the zero-price ceiling
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 11 - /v1/responses: caller tools and dictionaries survive under the zero-price ceiling
+  ---
+  duration_ms: 1.13125
+  type: 'test'
+  ...
+# Subtest: /v1/responses: paid mode retains explicit provider features unchanged
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (fixture/model:free)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      Model override: [36mfixture/model:free[0m
+#      [32m✓[0m Free models only (no charges)
+#      [32m✓[0m Rate limit: 1000 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 12 - /v1/responses: paid mode retains explicit provider features unchanged
+  ---
+  duration_ms: 1.035042
+  type: 'test'
+  ...
+# Subtest: configured free primary still rejects request-provided routing overrides
+ok 13 - configured free primary still rejects request-provided routing overrides
+  ---
+  duration_ms: 0.696291
+  type: 'test'
+  ...
+# Subtest: free policy rejects malformed or unsupported costs and never mutates rejected input
+ok 14 - free policy rejects malformed or unsupported costs and never mutates rejected input
+  ---
+  duration_ms: 0.334417
+  type: 'test'
+  ...
+# Subtest: Worker real-handler funding policies
+    # Subtest: rejects missing/wrong gateway token without using any provider key: {}
+    ok 1 - rejects missing/wrong gateway token without using any provider key: {}
+      ---
+      duration_ms: 2.594959
+      type: 'test'
+      ...
+    # Subtest: rejects missing/wrong gateway token without using any provider key: {"authorization":"Bearer wrong"}
+    ok 2 - rejects missing/wrong gateway token without using any provider key: {"authorization":"Bearer wrong"}
+      ---
+      duration_ms: 0.40625
+      type: 'test'
+      ...
+    # Subtest: rejects missing/wrong gateway token without using any provider key: {"x-api-key":"sk-or-fixture-caller"}
+    ok 3 - rejects missing/wrong gateway token without using any provider key: {"x-api-key":"sk-or-fixture-caller"}
+      ---
+      duration_ms: 0.378417
+      type: 'test'
+      ...
+    # Subtest: uses the server key only after gateway authentication: authorization
+    ok 4 - uses the server key only after gateway authentication: authorization
+      ---
+      duration_ms: 1.678833
+      type: 'test'
+      ...
+    # Subtest: uses the server key only after gateway authentication: x-api-key
+    ok 5 - uses the server key only after gateway authentication: x-api-key
+      ---
+      duration_ms: 0.821084
+      type: 'test'
+      ...
+    # Subtest: allows caller-funded BYOK without any configured gateway token or server key
+    ok 6 - allows caller-funded BYOK without any configured gateway token or server key
+      ---
+      duration_ms: 0.452583
+      type: 'test'
+      ...
+    # Subtest: never falls back to an unprotected configured server key
+    ok 7 - never falls back to an unprotected configured server key
+      ---
+      duration_ms: 0.335709
+      type: 'test'
+      ...
+    # Subtest: separates gateway token and caller key in both header arrangements: Bearer fixture-gateway-token
+    ok 8 - separates gateway token and caller key in both header arrangements: Bearer fixture-gateway-token
+      ---
+      duration_ms: 0.460666
+      type: 'test'
+      ...
+    # Subtest: separates gateway token and caller key in both header arrangements: Bearer sk-or-fixture-caller
+    ok 9 - separates gateway token and caller key in both header arrangements: Bearer sk-or-fixture-caller
+      ---
+      duration_ms: 0.469542
+      type: 'test'
+      ...
+    # Subtest: requires a caller key when gateway auth succeeds but no server key exists
+    ok 10 - requires a caller key when gateway auth succeeds but no server key exists
+      ---
+      duration_ms: 0.205791
+      type: 'test'
+      ...
+    1..10
+ok 15 - Worker real-handler funding policies
+  ---
+  duration_ms: 8.414667
+  type: 'suite'
+  ...
+# Subtest: Worker route, resource and model policies
+    # Subtest: rejects /v1/messages-evil instead of forwarding to Anthropic
+    ok 1 - rejects /v1/messages-evil instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.220916
+      type: 'test'
+      ...
+    # Subtest: rejects /v1/messages/unknown instead of forwarding to Anthropic
+    ok 2 - rejects /v1/messages/unknown instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.264084
+      type: 'test'
+      ...
+    # Subtest: rejects /v1/responses instead of forwarding to Anthropic
+    ok 3 - rejects /v1/responses instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.593292
+      type: 'test'
+      ...
+    # Subtest: rejects /v1/chat/completions instead of forwarding to Anthropic
+    ok 4 - rejects /v1/chat/completions instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.147167
+      type: 'test'
+      ...
+    # Subtest: rejects /api/auth instead of forwarding to Anthropic
+    ok 5 - rejects /api/auth instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.110791
+      type: 'test'
+      ...
+    # Subtest: rejects /unrecognized instead of forwarding to Anthropic
+    ok 6 - rejects /unrecognized instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.142916
+      type: 'test'
+      ...
+    # Subtest: allows unauthenticated health and supported CORS preflight without upstream traffic
+    ok 7 - allows unauthenticated health and supported CORS preflight without upstream traffic
+      ---
+      duration_ms: 0.738416
+      type: 'test'
+      ...
+    # Subtest: returns 405 for unsupported methods on a known route
+    ok 8 - returns 405 for unsupported methods on a known route
+      ---
+      duration_ms: 0.220375
+      type: 'test'
+      ...
+    # Subtest: forwards only the exact count_tokens route and retains query parameters
+    ok 9 - forwards only the exact count_tokens route and retains query parameters
+      ---
+      duration_ms: 0.310791
+      type: 'test'
+      ...
+    # Subtest: rejects a declared body larger than the configured cap
+    ok 10 - rejects a declared body larger than the configured cap
+      ---
+      duration_ms: 0.192542
+      type: 'test'
+      ...
+    # Subtest: enforces the streamed byte count without Content-Length
+    ok 11 - enforces the streamed byte count without Content-Length
+      ---
+      duration_ms: 0.161667
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request {broken
+    ok 12 - rejects invalid request {broken
+      ---
+      duration_ms: 0.2015
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request null
+    ok 13 - rejects invalid request null
+      ---
+      duration_ms: 0.131875
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request []
+    ok 14 - rejects invalid request []
+      ---
+      duration_ms: 0.099542
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request {}
+    ok 15 - rejects invalid request {}
+      ---
+      duration_ms: 0.087625
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request {"model":13,"messages":[]}
+    ok 16 - rejects invalid request {"model":13,"messages":[]}
+      ---
+      duration_ms: 0.086542
+      type: 'test'
+      ...
+    # Subtest: does not let X-Forwarded-For reset a Cloudflare client rate limit
+    ok 17 - does not let X-Forwarded-For reset a Cloudflare client rate limit
+      ---
+      duration_ms: 0.318916
+      type: 'test'
+      ...
+    # Subtest: ignores X-Forwarded-For even when no Cloudflare client header is supplied
+    ok 18 - ignores X-Forwarded-For even when no Cloudflare client header is supplied
+      ---
+      duration_ms: 0.272333
+      type: 'test'
+      ...
+    # Subtest: rejects paid models under free-only policy without silently replacing them
+    ok 19 - rejects paid models under free-only policy without silently replacing them
+      ---
+      duration_ms: 0.123625
+      type: 'test'
+      ...
+    # Subtest: requires explicit FREE_ONLY=false to allow paid model requests
+    ok 20 - requires explicit FREE_ONLY=false to allow paid model requests
+      ---
+      duration_ms: 0.323292
+      type: 'test'
+      ...
+    # Subtest: preserves native Messages reasoning effort and dictionary tool schemas
+    ok 21 - preserves native Messages reasoning effort and dictionary tool schemas
+      ---
+      duration_ms: 0.567958
+      type: 'test'
+      ...
+    1..21
+ok 16 - Worker route, resource and model policies
+  ---
+  duration_ms: 5.573
+  type: 'suite'
+  ...
+# Subtest: Worker free-only whole-request policy
+    # Subtest: /v1/messages: rejects alternate spend before any server-funded or BYOK fetch
+    ok 1 - /v1/messages: rejects alternate spend before any server-funded or BYOK fetch
+      ---
+      duration_ms: 2.997042
+      type: 'test'
+      ...
+    # Subtest: /v1/messages/count_tokens: rejects alternate spend before any server-funded or BYOK fetch
+    ok 2 - /v1/messages/count_tokens: rejects alternate spend before any server-funded or BYOK fetch
+      ---
+      duration_ms: 1.974
+      type: 'test'
+      ...
+    # Subtest: preserves paid routing options when the operator explicitly disables free-only
+    ok 3 - preserves paid routing options when the operator explicitly disables free-only
+      ---
+      duration_ms: 0.212959
+      type: 'test'
+      ...
+    1..3
+ok 17 - Worker free-only whole-request policy
+  ---
+  duration_ms: 5.249667
+  type: 'suite'
+  ...
+1..17
+# tests 48
+# suites 3
+# pass 48
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 94.755875

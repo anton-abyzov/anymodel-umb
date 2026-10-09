@@ -1,0 +1,163 @@
+$ cd /Users/antonabyzov/Projects/github/anymodel-0019-product && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node --test test/release-stream-errors.test.mjs
+# exit 0 — 2026-10-09T08:39:59.428Z
+
+TAP version 13
+# [SSE PARSE] Dropped chunk: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenai[0m (OpenAI-compatible)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 60 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+# Subtest: hosted SSE preserves failure: colon without space
+ok 1 - hosted SSE preserves failure: colon without space
+  ---
+  duration_ms: 0.742709
+  type: 'test'
+  ...
+# Subtest: hosted SSE preserves failure: fragmented CRLF error event
+ok 2 - hosted SSE preserves failure: fragmented CRLF error event
+  ---
+  duration_ms: 0.153958
+  type: 'test'
+  ...
+# Subtest: hosted SSE preserves failure: CR-delimited error event
+ok 3 - hosted SSE preserves failure: CR-delimited error event
+  ---
+  duration_ms: 0.0615
+  type: 'test'
+  ...
+# Subtest: hosted SSE preserves failure: multiline event
+ok 4 - hosted SSE preserves failure: multiline event
+  ---
+  duration_ms: 0.078667
+  type: 'test'
+  ...
+# Subtest: hosted SSE preserves failure: named error event
+ok 5 - hosted SSE preserves failure: named error event
+  ---
+  duration_ms: 0.295375
+  type: 'test'
+  ...
+# Subtest: hosted SSE preserves failure: malformed hosted event
+ok 6 - hosted SSE preserves failure: malformed hosted event
+  ---
+  duration_ms: 0.349708
+  type: 'test'
+  ...
+# Subtest: hosted EOF cannot fabricate completion: empty EOF
+ok 7 - hosted EOF cannot fabricate completion: empty EOF
+  ---
+  duration_ms: 0.11875
+  type: 'test'
+  ...
+# Subtest: hosted EOF cannot fabricate completion: partial content EOF
+ok 8 - hosted EOF cannot fabricate completion: partial content EOF
+  ---
+  duration_ms: 0.068375
+  type: 'test'
+  ...
+# Subtest: hosted EOF cannot fabricate completion: incomplete JSON at EOF
+ok 9 - hosted EOF cannot fabricate completion: incomplete JSON at EOF
+  ---
+  duration_ms: 0.238917
+  type: 'test'
+  ...
+# Subtest: hosted EOF cannot fabricate completion: unterminated SSE event
+ok 10 - hosted EOF cannot fabricate completion: unterminated SSE event
+  ---
+  duration_ms: 0.258208
+  type: 'test'
+  ...
+# Subtest: complete hosted streams retain text, usage and one terminal event
+ok 11 - complete hosted streams retain text, usage and one terminal event
+  ---
+  duration_ms: 0.209125
+  type: 'test'
+  ...
+# Subtest: explicit local compatibility retains EOF finalization without hosted terminal signals
+ok 12 - explicit local compatibility retains EOF finalization without hosted terminal signals
+  ---
+  duration_ms: 0.185791
+  type: 'test'
+  ...
+# [36m[OPENAI][0m POST /v1/messages model=fixture stream=true (0.1 KB, 1 msgs)
+# [32m[OPENAI][0m 200 ← response (attempt 1, 0.0s)
+# Subtest: real Messages conversion sends an error for hosted partial EOF
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenai[0m (OpenAI-compatible)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 60 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 13 - real Messages conversion sends an error for hosted partial EOF
+  ---
+  duration_ms: 14.54125
+  type: 'test'
+  ...
+# [36m[OPENAI][0m POST /v1/messages model=fixture stream=true (0.1 KB, 1 msgs)
+# [32m[OPENAI][0m 200 ← response (attempt 1, 0.0s)
+# Subtest: real Messages conversion accepts a no-space error without turning it into success
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 60 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 14 - real Messages conversion accepts a no-space error without turning it into success
+  ---
+  duration_ms: 2.263625
+  type: 'test'
+  ...
+# [36m[OPENROUTER][0m POST /v1/messages model=fixture stream=true (0.1 KB, 1 msgs)
+# [32m[OPENROUTER][0m 200 ← response (attempt 1, 0.0s)
+# [31m[STREAM][0m Upstream error: aborted
+# Subtest: raw OpenRouter /v1/messages propagates a reset as aborted transport
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 60 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 15 - raw OpenRouter /v1/messages propagates a reset as aborted transport
+  ---
+  duration_ms: 1.983875
+  type: 'test'
+  ...
+# Subtest: raw OpenRouter /v1/responses propagates a reset as aborted transport
+# [35m  anymodel v2.0.0[0m
+#   [36m↔[0m  Proxy on :0
+#      /v1/messages → [1mopenrouter[0m (passthrough model)
+#      unsupported routes → explicit errors
+#      Retries: 3 with exponential backoff
+#      [32m✓[0m Rate limit: 60 req/min
+#   [32mNext step — run in another terminal:[0m
+#   [1mnpx anymodel --port 0[0m
+ok 16 - raw OpenRouter /v1/responses propagates a reset as aborted transport
+  ---
+  duration_ms: 1.530958
+  type: 'test'
+  ...
+# Subtest: raw OpenRouter /v1/chat/completions propagates a reset as aborted transport
+ok 17 - raw OpenRouter /v1/chat/completions propagates a reset as aborted transport
+  ---
+  duration_ms: 2.190667
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 73.739875

@@ -1,0 +1,70 @@
+diff --git a/target.mjs b/target.mjs
+index 8f64401..6a332fe 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -70,7 +70,7 @@ export function sanitizeBody(body, { keepCache = false } = {}) {
+ 
+       // Fix schemas that OpenAI/strict-mode parsers reject:
+       // 1. Missing input_schema entirely
+-      // 2. Missing or empty properties
++      // 2. Missing or empty properties on otherwise unspecified objects
+       // Use the standard JSON-Schema "empty object" form — {type:"object", properties:{}, additionalProperties:false}
+       // This is accepted by OpenAI, Groq, Together, vLLM, LMStudio, Ollama, and real
+       // tool params named `_unused` are preserved end-to-end (US-004 fix, 1.12.0).
+@@ -81,32 +81,41 @@ export function sanitizeBody(body, { keepCache = false } = {}) {
+         if (!rest.input_schema.type) {
+           rest.input_schema.type = 'object';
+         }
+-        if (rest.input_schema.type === 'object') {
+-          const props = rest.input_schema.properties;
+-          if (!props || (typeof props === 'object' && Object.keys(props).length === 0)) {
+-            rest.input_schema.properties = {};
+-            rest.input_schema.additionalProperties = false;
+-            if (!Array.isArray(rest.input_schema.required)) rest.input_schema.required = [];
+-          }
+-        }
+       }
+ 
+-      // Recursively fix nested schemas (anyOf, oneOf, allOf, items)
++      // Empty named properties do not imply an empty object: dictionaries may
++      // explicitly allow arbitrary keys or describe keys with patternProperties.
++      // Alternatives can also supply the object's shape, so do not close their
++      // wrapper. Apply the legacy fallback only to otherwise unspecified objects.
+       const fixNested = (schema) => {
+         if (!schema || typeof schema !== 'object') return;
++        if (schema.type === 'object') {
++          const props = schema.properties;
++          if (!props || (typeof props === 'object' && Object.keys(props).length === 0)) {
++            schema.properties = {};
++            const hasPatterns = schema.patternProperties && Object.keys(schema.patternProperties).length > 0;
++            const hasAlternatives = ['anyOf', 'oneOf', 'allOf'].some(key => Array.isArray(schema[key]) && schema[key].length > 0);
++            if (schema.additionalProperties === undefined && !hasPatterns && !hasAlternatives && schema.unevaluatedProperties === undefined) {
++              schema.additionalProperties = false;
++            }
++            if (!Array.isArray(schema.required)) schema.required = [];
++          }
++        }
+         for (const key of ['anyOf', 'oneOf', 'allOf']) {
+           if (Array.isArray(schema[key])) {
+             schema[key].forEach(fixNested);
+           }
+         }
+-        if (schema.items) fixNested(schema.items);
+-        if (schema.type === 'object' && schema.properties) {
+-          if (Object.keys(schema.properties).length === 0) {
+-            schema.additionalProperties = false;
+-            if (!Array.isArray(schema.required)) schema.required = [];
++        if (Array.isArray(schema.items)) schema.items.forEach(fixNested);
++        else if (schema.items) fixNested(schema.items);
++        if (Array.isArray(schema.prefixItems)) schema.prefixItems.forEach(fixNested);
++        for (const key of ['properties', 'patternProperties']) {
++          if (schema[key] && typeof schema[key] === 'object') {
++            Object.values(schema[key]).forEach(fixNested);
+           }
+-          for (const v of Object.values(schema.properties)) fixNested(v);
+         }
++        fixNested(schema.additionalProperties);
++        fixNested(schema.unevaluatedProperties);
+       };
+       fixNested(rest.input_schema);
+ 
