@@ -1,0 +1,10 @@
+data: {"id":"gen-1791535478-bM3kiGQbdzXWbCMf6m7I","object":"chat.completion.chunk","created":1791535478,"model":"qwen/qwen3-coder-next","provider":"Parasail","choices":[{"index":0,"delta":{"content":"4","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+data: {"id":"gen-1791535478-bM3kiGQbdzXWbCMf6m7I","object":"chat.completion.chunk","created":1791535478,"model":"qwen/qwen3-coder-next","provider":"Parasail","choices":[{"index":0,"delta":{"content":"2","role":"assistant"},"finish_reason":null,"native_finish_reason":null}]}
+
+data: {"id":"gen-1791535478-bM3kiGQbdzXWbCMf6m7I","object":"chat.completion.chunk","created":1791535478,"model":"qwen/qwen3-coder-next","provider":"Parasail","choices":[{"index":0,"delta":{"content":"","role":"assistant"},"finish_reason":"stop","native_finish_reason":"stop"}]}
+
+data: {"id":"gen-1791535478-bM3kiGQbdzXWbCMf6m7I","object":"chat.completion.chunk","created":1791535478,"model":"qwen/qwen3-coder-next","provider":"Parasail","service_tier":null,"choices":[{"index":0,"delta":{"content":"","role":"assistant"},"finish_reason":"stop","native_finish_reason":"stop"}],"usage":{"prompt_tokens":394,"completion_tokens":3,"total_tokens":397,"cost":0.00004968,"is_byok":false,"prompt_tokens_details":{"cached_tokens":0,"cache_write_tokens":0,"audio_tokens":0,"video_tokens":0},"cost_details":{"upstream_inference_cost":0.00004968,"upstream_inference_prompt_cost":0.00004728,"upstream_inference_completions_cost":0.0000024},"completion_tokens_details":{"reasoning_tokens":0,"image_tokens":0,"audio_tokens":0}}}
+
+data: [DONE]
+

@@ -1,0 +1,1 @@
+Updated only `target.mjs`. Dynamic dictionary keys survive at root and through properties, array items, and schema alternatives. Explicit closed objects, named-property schemas, and exported API remain intact. Dictionary and regression checks passed.

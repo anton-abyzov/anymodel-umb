@@ -1,0 +1,56 @@
+diff --git a/target.mjs b/target.mjs
+index 5bd99ac..3cf9a83 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -9,8 +9,8 @@ export const INTERNAL_EFFORT_FIELD = '__anymodel_effort';
+ export function normalizeReasoningEffort(effort) {
+   if (typeof effort !== 'string') return null;
+   const normalized = effort.toLowerCase();
+-  if (normalized === 'low' || normalized === 'medium' || normalized === 'high') return normalized;
+-  if (normalized === 'max') return 'high';
++  // Accept: none, minimal, low, medium, high, xhigh, max
++  if (['none', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max'].includes(normalized)) return normalized;
+   return null;
+ }
+ 
+@@ -22,6 +22,8 @@ export function shouldForwardReasoningEffort(model, {
+   if (['1', 'true', 'on', 'yes'].includes(mode)) return true;
+   if (['0', 'false', 'off', 'no'].includes(mode)) return false;
+ 
++  // Default: only forward effort for native OpenAI endpoints (gateway compatibility)
++  // Native reasoning models retain modern token-budget field; generic custom models retain max_tokens.
+   try {
+     const host = new URL(baseUrl).hostname;
+     if (!/(^|\.)api\.openai\.com$/i.test(host)) return false;
+@@ -30,7 +32,9 @@ export function shouldForwardReasoningEffort(model, {
+   }
+ 
+   const m = String(model || '').toLowerCase();
+-  return /(^|[/_-])(gpt-5|o[1-9])/.test(m) || m.includes('codex');
++  // Native reasoning models: GPT-5/GPT-6 and o-series (o1, o2, etc.)
++  // These support reasoning_effort and max_completion_tokens budget field.
++  return /(^|[/_-])(gpt-5|gpt-6|o[1-9])/.test(m) || m.includes('codex');
+ }
+ 
+ // P1.2: resolve an Anthropic image block to an OpenAI `image_url` data/URL string.
+@@ -155,11 +159,20 @@ export function translateRequest(anthropicBody, { visionCapable = true, effortCa
+     // sanitizeBody clamps each to >=16 independently but never bridges the two, so
+     // a client sending only `max_output_tokens` would otherwise get `max_tokens:
+     // undefined` and over-generate.
++    // For native reasoning models (GPT-5/GPT-6, o-series), use max_completion_tokens as the budget field.
++    // For legacy/custom servers, retain max_tokens (max_tokens is a client-side fallback budget).
+     max_tokens: anthropicBody.max_tokens ?? anthropicBody.max_output_tokens,
+     stream: anthropicBody.stream || false,
+     messages: [],
+   };
+ 
++  // P1.6: native reasoning models get max_completion_tokens budget; others keep max_tokens.
++  const m = String(anthropicBody.model || '').toLowerCase();
++  const isNativeReasoning = /(^|[/_-])(gpt-5|gpt-6|o[1-9])/.test(m) || m.includes('codex');
++  if (isNativeReasoning && anthropicBody.max_output_tokens !== undefined) {
++    openaiBody.max_completion_tokens = anthropicBody.max_output_tokens;
++  }
++
+   // System messages: Anthropic array → OpenAI system message
+   if (anthropicBody.system) {
+     const systemText = Array.isArray(anthropicBody.system)

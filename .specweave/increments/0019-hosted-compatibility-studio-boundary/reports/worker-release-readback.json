@@ -1,0 +1,141 @@
+{
+  "at": "2026-10-09T09:08:02.572409+00:00",
+  "sourceCommit": "685fec6",
+  "rollbackVersion": "8227d76b-39be-4a22-9ed0-45db1f03e4d6",
+  "deployment": {
+    "id": "2facd162-e04f-4ad9-8a1b-f04e4231664b",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "annotations": {
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "ad43917d-8b9f-4f7b-bbdd-a684da0c3df5",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-09T09:05:59.771766Z"
+  },
+  "bindings": [
+    {
+      "name": "ANYMODEL_MAX_BODY_BYTES",
+      "type": "plain_text",
+      "text": "4194304"
+    },
+    {
+      "name": "ANYMODEL_TOKEN",
+      "type": "secret_text"
+    },
+    {
+      "name": "DEFAULT_FREE_MODEL",
+      "type": "plain_text",
+      "text": "nvidia/nemotron-3-super-120b-a12b:free"
+    },
+    {
+      "name": "FREE_ONLY",
+      "type": "plain_text",
+      "text": "true"
+    },
+    {
+      "name": "OPENROUTER_API_KEY",
+      "type": "secret_text"
+    },
+    {
+      "name": "RPM",
+      "type": "plain_text",
+      "text": "60"
+    }
+  ],
+  "bundle": {
+    "localSha256": "3237b7377b68ef7b6891be1cb8214f39d137c1a57a54ce04d5d703a0b954761d",
+    "modules": [
+      {
+        "name": "index.js",
+        "sha256": "3237b7377b68ef7b6891be1cb8214f39d137c1a57a54ce04d5d703a0b954761d"
+      }
+    ],
+    "exactMatch": true
+  },
+  "public": [
+    {
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "case": "health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "provider": "openrouter",
+        "model": null,
+        "freeOnly": true,
+        "fundingPolicy": "authenticated",
+        "timestamp": "2026-10-09T09:08:04.091Z"
+      }
+    },
+    {
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "case": "missing-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    },
+    {
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "case": "wrong-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    },
+    {
+      "host": "api.anymodel.dev",
+      "case": "health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "provider": "openrouter",
+        "model": null,
+        "freeOnly": true,
+        "fundingPolicy": "authenticated",
+        "timestamp": "2026-10-09T09:08:04.313Z"
+      }
+    },
+    {
+      "host": "api.anymodel.dev",
+      "case": "missing-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    },
+    {
+      "host": "api.anymodel.dev",
+      "case": "wrong-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Wrangler activates uploaded code, then fails route-management due token scope; existing routes retained and public readback verified.",
+    "Authenticated free-only rejection is proven by exact deployed-code hash plus independent handler tests; existing gateway secret is not readable or rotated."
+  ],
+  "passed": true
+}

@@ -326,3 +326,17 @@ See **AGENTS.md** for Cursor, Copilot, Windsurf, Aider instructions.
 
 **Command format note**: This file uses `/sw:do` (Codex slash-command format). AGENTS.md uses `sw:do` (tool-agnostic format). Both refer to the same commands.
 <!-- SW:END:non-Codex -->
+
+## Current AnyModel commands and verification (2.0, 2026-10-09)
+
+These repository-specific instructions supersede the older generated framework examples above. Use the current stable SpecWeave 3 CLI: task claims and completion live in `ledger.jsonl`; acceptance criteria are derived, never ticked by hand. A read-only audit must not run pickup or take another owner's work.
+
+| Action | Command from umbrella root |
+|---|---|
+| Runtime tests and coverage | `npm --prefix repositories/antonoly/anymodel test` |
+| Package candidate | `npm --prefix repositories/antonoly/anymodel pack --ignore-scripts` |
+| Release 2.0 artifact/evidence verification | `node .specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/verify-release.mjs` |
+
+Use Node 22+. This JavaScript package has no compilation step and no configured lint command. Its tests use Node's test runner, fixture-only networking and combined runtime coverage; do not claim separate unit/integration/E2E coverage from the aggregate number or run an invented Vitest gate. Keep the configured coverage targets unchanged. For closure, use `specweave verify --cmd "npm --prefix repositories/antonoly/anymodel test" --cmd "node .specweave/increments/0019-hosted-compatibility-studio-boundary/reports/release/verify-release.mjs"`, fresh-context review and `specweave complete`.
+
+Browser verification must be explicitly headless, with `PWDEBUG=0` and `PLAYWRIGHT_HTML_OPEN=never`. The release's public-site check requires the documented local Playwright/browser paths and saves screenshots and a receipt. It is separate from runtime coverage. No local model inference, discovery or warmup is authorized for increment 0019. Never stop unrelated processes or modify shared installations.

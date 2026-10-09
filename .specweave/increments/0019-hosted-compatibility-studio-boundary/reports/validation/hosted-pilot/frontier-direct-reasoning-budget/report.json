@@ -1,0 +1,275 @@
+{
+  "arm": "frontier-direct",
+  "task": "reasoning-budget",
+  "requestedModel": "openai/gpt-6.1-sol",
+  "observedModels": [
+    "openai/gpt-6.1-sol"
+  ],
+  "runtime": {
+    "path": "/Users/antonabyzov/.opencode/bin/opencode",
+    "version": "1.14.33"
+  },
+  "sourceRevision": "91b1611dc85d098059a8babb24713061c1ef5804",
+  "fixtureHash": "06e7b121064b5b7aacf33f394afb20e448c20556dd1ec2e01f509d8e23ba8d57",
+  "testHash": "fe9a0b39a00bf3ab0d9a64ded2150c1a6c4324ba2bd7b2af35e0f9fdcab823b9",
+  "startedAt": "2026-10-09T08:56:26.905Z",
+  "finishedAt": "2026-10-09T08:56:51.811Z",
+  "ms": 24845,
+  "exitCode": 0,
+  "signal": null,
+  "timedOut": false,
+  "interrupted": false,
+  "outputOverflow": false,
+  "spawnError": null,
+  "completionEvent": true,
+  "cleanCompletion": true,
+  "artifactPassed": true,
+  "scoring": {
+    "checks": [
+      {
+        "name": "budget-o3",
+        "passed": true
+      },
+      {
+        "name": "budget-gpt-5.4",
+        "passed": true
+      },
+      {
+        "name": "budget-gpt-6.1-sol",
+        "passed": true
+      },
+      {
+        "name": "effort-none",
+        "passed": true
+      },
+      {
+        "name": "effort-minimal",
+        "passed": true
+      },
+      {
+        "name": "effort-low",
+        "passed": true
+      },
+      {
+        "name": "effort-medium",
+        "passed": true
+      },
+      {
+        "name": "effort-high",
+        "passed": true
+      },
+      {
+        "name": "effort-xhigh",
+        "passed": true
+      },
+      {
+        "name": "effort-max",
+        "passed": true
+      },
+      {
+        "name": "fallback-budget",
+        "passed": true
+      },
+      {
+        "name": "legacy-budget",
+        "passed": true
+      },
+      {
+        "name": "effort-optout",
+        "passed": true
+      },
+      {
+        "name": "custom-default",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "passedCount": 14,
+    "total": 14,
+    "scorerExitCode": 0,
+    "testHash": "fe9a0b39a00bf3ab0d9a64ded2150c1a6c4324ba2bd7b2af35e0f9fdcab823b9",
+    "artifactPassed": true
+  },
+  "forbiddenChanges": [],
+  "toolOrRuntimeErrors": [],
+  "runtimeErrorCount": 0,
+  "toolErrorCount": 0,
+  "toolErrorRecoveryObserved": false,
+  "providerRequests": [
+    {
+      "reservation": 12,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 2746,
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "usage": {
+        "prompt_tokens": 1492,
+        "completion_tokens": 73,
+        "total_tokens": 1565,
+        "cost": 0.0044585,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 1489,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0044585,
+          "upstream_inference_prompt_cost": 0.0037285,
+          "upstream_inference_completions_cost": 0.00073
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0044585
+    },
+    {
+      "reservation": 11,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 3958,
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "usage": {
+        "prompt_tokens": 693,
+        "completion_tokens": 109,
+        "total_tokens": 802,
+        "cost": 0.002476,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002476,
+          "upstream_inference_prompt_cost": 0.001386,
+          "upstream_inference_completions_cost": 0.00109
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 95,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.002476
+    },
+    {
+      "reservation": 13,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 12245,
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "usage": {
+        "prompt_tokens": 13694,
+        "completion_tokens": 714,
+        "total_tokens": 14408,
+        "cost": 0.0377999,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 1489,
+          "cache_write_tokens": 12202,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0377999,
+          "upstream_inference_prompt_cost": 0.0306599,
+          "upstream_inference_completions_cost": 0.00714
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 139,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0377999
+    },
+    {
+      "reservation": 14,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 4052,
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "usage": {
+        "prompt_tokens": 14430,
+        "completion_tokens": 110,
+        "total_tokens": 14540,
+        "cost": 0.0043151,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 13691,
+          "cache_write_tokens": 736,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0043151,
+          "upstream_inference_prompt_cost": 0.0032151,
+          "upstream_inference_completions_cost": 0.0011
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 36,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0043151
+    },
+    {
+      "reservation": 15,
+      "path": "/api/v1/chat/completions",
+      "status": 200,
+      "ms": 3873,
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "usage": {
+        "prompt_tokens": 17213,
+        "completion_tokens": 105,
+        "total_tokens": 17318,
+        "cost": 0.0094562,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 14427,
+          "cache_write_tokens": 2783,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0094562,
+          "upstream_inference_prompt_cost": 0.0084062,
+          "upstream_inference_completions_cost": 0.00105
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "costUsd": 0.0094562
+    }
+  ],
+  "knownApiCostUsd": 0.058505699999999994,
+  "billing": "OpenRouter API; absent provider cost is unknown; conservative shared reservations are not actual spend",
+  "interventions": 0,
+  "repetitions": 1,
+  "passed": true,
+  "limitations": [
+    "Three repair fixtures, one repetition per cell; not a quality ranking, parity proof, Studio session, or speed/cost benchmark.",
+    "Resume, long-context pressure and multi-agent Studio workflows are untested.",
+    "OpenCode has six steps, six provider requests, 2048 output tokens/request; shell/external access denied."
+  ]
+}

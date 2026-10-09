@@ -1,0 +1,87 @@
+{
+  "bin": {
+    "anymodel": "cli.mjs"
+  },
+  "bugs": {
+    "url": "https://github.com/anton-abyzov/anymodel/issues"
+  },
+  "dist": {
+    "shasum": "c4fe627ee227a170ae0610ba05b1ed2e283d3aef",
+    "tarball": "https://registry.npmjs.org/anymodel/-/anymodel-2.0.0.tgz",
+    "fileCount": 27,
+    "integrity": "sha512-NgYWvRYvaHYOhEMaGqVhrGDJW5dHUv/9wpkhfJ/xUvLpDpIqFndXXiKyYnMuOCTAkp+2yjQxA/uQU/QEK3zOXQ==",
+    "signatures": [
+      {
+        "sig": "MEYCIQCxzKFy3NydUufshg/Zy5rswyMAWSJZs2fM2uMJu4NjBQIhAJ6tMiWjY9Sz9/o27ccAwCH3HsqVDJ0VI2ZCdRw8bRxg",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEQCIDR9v1F7Fh7EDrgV8fl/jHZ9VXOWo7lB6CEXeXAKWIZjAiAsMa2DIW/6pu07BlWSeT5SEGuf8CQWHkhZkbnS8OxRjg==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/anymodel@2.0.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 281607
+  },
+  "main": "proxy.mjs",
+  "name": "anymodel",
+  "type": "module",
+  "author": {
+    "name": "antonoly"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "gitHead": "7a8b470c8525550de7f3bf0420a310d8f6b9d0b2",
+  "license": "MIT",
+  "scripts": {
+    "test": "node scripts/verification/offline-tests.mjs",
+    "start": "node cli.mjs"
+  },
+  "_npmUser": {
+    "name": "GitHub Actions",
+    "email": "npm-oidc-no-reply@github.com",
+    "trustedPublisher": {
+      "id": "github",
+      "oidcConfigId": "065678a4-aa58-4e4b-9458-9b362d6bf36e"
+    }
+  },
+  "homepage": "https://anymodel.dev",
+  "keywords": [
+    "openrouter",
+    "ollama",
+    "lmstudio",
+    "llama.cpp",
+    "llm",
+    "proxy",
+    "ai",
+    "cli",
+    "model-router"
+  ],
+  "repository": {
+    "url": "git+https://github.com/anton-abyzov/anymodel.git",
+    "type": "git"
+  },
+  "_npmVersion": "12.2.0",
+  "description": "Optional API compatibility adapter for maintained coding agents, with explicit hosted model selection",
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "aabyzov",
+      "email": "anton.abyzov@gmail.com"
+    }
+  ],
+  "_nodeVersion": "22.23.3",
+  "_hasShrinkwrap": false,
+  "_npmOperationalInternal": {
+    "tmp": "tmp/anymodel_2.0.0_1791537221456_0.7946508868023838",
+    "host": "s3://npm-registry-packages-npm-production"
+  },
+  "_id": "anymodel@2.0.0",
+  "version": "2.0.0"
+}

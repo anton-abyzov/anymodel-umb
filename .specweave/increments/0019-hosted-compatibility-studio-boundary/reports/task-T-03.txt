@@ -1,0 +1,97 @@
+$ cd /Users/antonabyzov/Projects/github/anymodel-0019-product && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node --test catalog-test/*.test.mjs
+# exit 0 — 2026-10-09T08:31:59.368Z
+
+TAP version 13
+# Subtest: public discovery sends no credentials, local probes or model requests
+ok 1 - public discovery sends no credentials, local probes or model requests
+  ---
+  duration_ms: 3.3155
+  type: 'test'
+  ...
+# Subtest: legacy free aliases retain exact IDs and fail when unavailable
+ok 2 - legacy free aliases retain exact IDs and fail when unavailable
+  ---
+  duration_ms: 0.284375
+  type: 'test'
+  ...
+# Subtest: preflight rejects unavailable IDs before any inference can happen
+ok 3 - preflight rejects unavailable IDs before any inference can happen
+  ---
+  duration_ms: 0.27275
+  type: 'test'
+  ...
+# Subtest: catalog outage and invalid payload are unknown, not available
+ok 4 - catalog outage and invalid payload are unknown, not available
+  ---
+  duration_ms: 0.289333
+  type: 'test'
+  ...
+# Subtest: free checks reject paid, unknown and newly priced free IDs
+ok 5 - free checks reject paid, unknown and newly priced free IDs
+  ---
+  duration_ms: 0.206291
+  type: 'test'
+  ...
+# Subtest: catalog filters include only advertised capabilities and observed zero prices
+ok 6 - catalog filters include only advertised capabilities and observed zero prices
+  ---
+  duration_ms: 0.080166
+  type: 'test'
+  ...
+# Subtest: catalog JSON retains observation scope and exact selected model
+ok 7 - catalog JSON retains observation scope and exact selected model
+  ---
+  duration_ms: 0.263917
+  type: 'test'
+  ...
+# Subtest: catalog body is bounded
+ok 8 - catalog body is bounded
+  ---
+  duration_ms: 1.74875
+  type: 'test'
+  ...
+# Subtest: native client wins and automatic bundle/cwd lookup is absent
+ok 9 - native client wins and automatic bundle/cwd lookup is absent
+  ---
+  duration_ms: 0.266625
+  type: 'test'
+  ...
+# Subtest: explicit client is honored; missing explicit client fails without fallback
+ok 10 - explicit client is honored; missing explicit client fails without fallback
+  ---
+  duration_ms: 0.302542
+  type: 'test'
+  ...
+# Subtest: proxy client uses only the proxy auth and exact backend model
+ok 11 - proxy client uses only the proxy auth and exact backend model
+  ---
+  duration_ms: 0.104166
+  type: 'test'
+  ...
+# Subtest: CLI help describes adapter scope without loading a client or using inference
+ok 12 - CLI help describes adapter scope without loading a client or using inference
+  ---
+  duration_ms: 34.760459
+  type: 'test'
+  ...
+# Subtest: live CLI stale-preset failure exits before binding proxy
+ok 13 - live CLI stale-preset failure exits before binding proxy
+  ---
+  duration_ms: 45.259917
+  type: 'test'
+  ...
+# Subtest: CLI version is package metadata and never connects to a proxy
+ok 14 - CLI version is package metadata and never connects to a proxy
+  ---
+  duration_ms: 35.3575
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 176.631042

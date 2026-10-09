@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-09T09:22:25.020330+00:00",
+  "command": "specweave complete 0019",
+  "exitCode": 0,
+  "status": "completed",
+  "verifiedAcs": 7,
+  "verifiedTasks": 7,
+  "cliVersion": "3.0.6",
+  "warnings": [
+    "The CLI did not discover the Node combined-coverage receipt and reported missing coverage as 0.0%; actual final receipt is87.65% aggregate line coverage, not separate category coverage.",
+    "The CLI expected reports/review.md; the independent CodeReviewer JSON already existed, and its original Markdown report was copied to that path after closure."
+  ],
+  "restoredUnrelatedGeneratedTrackedFiles": [
+    ".specweave/config.json",
+    ".specweave/increments/0009-streaming-toolcall-recovery/metadata.json",
+    ".specweave/increments/0012-adaptive-branding-and-universal-skills/metadata.json",
+    ".specweave/increments/0013-local-agentic-hardening/metadata.json",
+    ".specweave/increments/0014-universal-skill-loader/metadata.json",
+    ".specweave/state/active-increment.json"
+  ],
+  "untrackedGeneratedFilesPreservedExternally": [
+    ".specweave/increments/0018-anymodel-vs-opencode-benchmark/metadata.json",
+    ".specweave/state/config-migration-2.json"
+  ],
+  "backup": "/Users/antonabyzov/Projects/research/anymodel-studio-review-2026-10-09/closure-generated-backup",
+  "configMigrationCommitted": false
+}

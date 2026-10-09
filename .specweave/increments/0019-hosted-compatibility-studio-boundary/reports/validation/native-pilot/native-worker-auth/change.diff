@@ -1,0 +1,58 @@
+diff --git a/target.mjs b/target.mjs
+index e97c48d..c8e2b5d 100644
+--- a/target.mjs
++++ b/target.mjs
+@@ -6,10 +6,9 @@ export const DEFAULT_FREE_MODEL = 'nvidia/nemotron-3-super-120b-a12b:free';
+ 
+ export function checkAuth(headers, token) {
+   if (!token) return true;
+-  const auth = headers.authorization || headers['x-api-key'] || '';
+-  // Exact token match (x-api-key or Bearer prefix)
+-  if (auth === `Bearer ${token}` || auth === token) return true;
+-  return false;
++  const normalized = new Headers(headers);
++  return normalized.get('authorization') === `Bearer ${token}` ||
++    normalized.get('x-api-key') === token;
+ }
+ 
+ export function isFreeTierModel(modelId, freeOnly) {
+@@ -131,10 +130,22 @@ export async function handleRequest(request, env) {
+     }), { headers: { 'content-type': 'application/json' } });
+   }
+ 
++  // Authenticate every upstream route before selecting credentials or fetching.
++  const headers = Object.fromEntries(request.headers.entries());
++  if (!checkAuth(request.headers, token)) {
++    return new Response(JSON.stringify({
++      error: { type: 'auth_error', message: 'Valid gateway credentials required.' }
++    }), { status: 401, headers: { 'content-type': 'application/json' } });
++  }
++
+   // Passthrough non-message requests to api.anthropic.com (auth, bootstrap, feature flags)
+   if (!url.pathname.startsWith('/v1/messages')) {
+     const anthropicUrl = `https://api.anthropic.com${url.pathname}${url.search}`;
+     const passthroughHeaders = new Headers(request.headers);
++    if (token) {
++      if (passthroughHeaders.get('authorization') === `Bearer ${token}`) passthroughHeaders.delete('authorization');
++      if (passthroughHeaders.get('x-api-key') === token) passthroughHeaders.delete('x-api-key');
++    }
+     passthroughHeaders.set('host', 'api.anthropic.com');
+     passthroughHeaders.delete('cf-connecting-ip');
+     passthroughHeaders.delete('cf-ray');
+@@ -156,10 +167,12 @@ export async function handleRequest(request, env) {
+     }
+   }
+ 
+-  // BYOK: Use the user's key from the request header, fall back to server key
+-  const headers = Object.fromEntries(request.headers.entries());
+-  const userKey = headers['x-api-key'] || headers['authorization']?.replace('Bearer ', '') || '';
+-  const effectiveKey = (userKey && userKey.startsWith('sk-or-')) ? userKey : apiKey;
++  // Gateway and caller-funded credentials can occupy either separate header.
++  const bearerKey = headers.authorization?.startsWith('Bearer ')
++    ? headers.authorization.slice(7) : '';
++  const userKey = [headers['x-api-key'], bearerKey].find(key =>
++    key && key !== token && key.startsWith('sk-or-')) || '';
++  const effectiveKey = userKey || (token ? apiKey : '');
+ 
+   if (!effectiveKey) {
+     return new Response(JSON.stringify({

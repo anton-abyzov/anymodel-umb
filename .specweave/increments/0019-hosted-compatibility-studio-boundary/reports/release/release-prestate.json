@@ -1,0 +1,44 @@
+{
+  "worker": {
+    "exists": true,
+    "compatibility_date": "2024-12-01",
+    "bindings": [
+      {
+        "name": "ANYMODEL_TOKEN",
+        "type": "secret_text",
+        "value": null
+      },
+      {
+        "name": "DEFAULT_FREE_MODEL",
+        "type": "plain_text",
+        "value": "nvidia/nemotron-3-super-120b-a12b:free"
+      },
+      {
+        "name": "FREE_ONLY",
+        "type": "plain_text",
+        "value": "true"
+      },
+      {
+        "name": "OPENROUTER_API_KEY",
+        "type": "secret_text",
+        "value": null
+      },
+      {
+        "name": "RPM",
+        "type": "plain_text",
+        "value": "60"
+      }
+    ]
+  },
+  "vercel": {
+    "id": "prj_G3VjaYpdOE9eHED378K6aNoBna94",
+    "name": "anymodel",
+    "httpStatus": null,
+    "productionDeployment": {
+      "id": "dpl_4DncYmxUhGTodTqpPZ27ai38C663",
+      "url": "anymodel-n2tmz5lqk-anton-abyzovs-projects.vercel.app",
+      "readyState": "READY",
+      "createdAt": 1781146131338
+    }
+  }
+}

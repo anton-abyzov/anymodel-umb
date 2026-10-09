@@ -1,0 +1,10 @@
+{
+  "arm": "frontier-proxy",
+  "task": "dictionary",
+  "requestedModel": "openai/gpt-6.1-sol",
+  "runtime": "1.14.33",
+  "sourceRevision": "f50f9ac15a0517fb8b1e9aa79a944f7542195b5b",
+  "fixtureHash": "0a5f1412c06b3f3d5f036bef093f2119ef9bae674438ed2dc0dfba40ffa1e7af",
+  "startedAt": "2026-10-09T08:56:53.041Z",
+  "status": "started; completion unknown until report.json"
+}

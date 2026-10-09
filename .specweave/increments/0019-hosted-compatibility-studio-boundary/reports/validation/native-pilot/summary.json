@@ -1,0 +1,32 @@
+{
+  "arm": "native",
+  "model": "gpt-6.1-sol",
+  "results": [
+    {
+      "task": "dictionary",
+      "report": "native-dictionary/report.json",
+      "passed": true,
+      "artifactPassed": true,
+      "cleanCompletion": true
+    },
+    {
+      "task": "worker-auth",
+      "report": "native-worker-auth/report.json",
+      "passed": true,
+      "artifactPassed": true,
+      "cleanCompletion": true
+    },
+    {
+      "task": "reasoning-budget",
+      "report": "native-reasoning-budget/report.json",
+      "passed": true,
+      "artifactPassed": true,
+      "cleanCompletion": true
+    }
+  ],
+  "limitations": [
+    "Native Codex CLI baseline, not a live Studio session.",
+    "Requested model pinned; no server model identity or monetary cost receipt.",
+    "Interrupted earlier dictionary run retained separately; replacement is operational recovery, not best-of model selection."
+  ]
+}

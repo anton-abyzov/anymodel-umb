@@ -1,0 +1,10 @@
+{
+  "arm": "native",
+  "task": "reasoning-budget",
+  "requestedModel": "gpt-6.1-sol",
+  "runtime": "codex-cli 0.161.0",
+  "sourceRevision": "91b1611dc85d098059a8babb24713061c1ef5804",
+  "fixtureHash": "06e7b121064b5b7aacf33f394afb20e448c20556dd1ec2e01f509d8e23ba8d57",
+  "startedAt": "2026-10-09T08:52:54.535Z",
+  "status": "started; completion unknown until report.json"
+}

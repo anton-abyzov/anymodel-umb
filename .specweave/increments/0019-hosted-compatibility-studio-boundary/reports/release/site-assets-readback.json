@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "at": "2026-10-09T09:16:10.154Z",
+  "checks": [
+    {
+      "file": "index.html",
+      "url": "https://anymodel.dev/",
+      "status": 200,
+      "sourceSha256": "23f3dd40aaa7125d26d420ac89d66a91f78735b2e3eecc20e8a49b9952dd9dd0",
+      "publicSha256": "23f3dd40aaa7125d26d420ac89d66a91f78735b2e3eecc20e8a49b9952dd9dd0",
+      "match": true
+    },
+    {
+      "file": "styles.css",
+      "url": "https://anymodel.dev/styles.css",
+      "status": 200,
+      "sourceSha256": "1d71a80bd8d2d2e0a8ee22ce6c78e47c496a6afde01a02022b4533dc7a4685c4",
+      "publicSha256": "1d71a80bd8d2d2e0a8ee22ce6c78e47c496a6afde01a02022b4533dc7a4685c4",
+      "match": true
+    },
+    {
+      "file": "script.js",
+      "url": "https://anymodel.dev/script.js",
+      "status": 200,
+      "sourceSha256": "b5771a13f4a602c54242e74a16602b7dee3dd219673d41222c01f6cac7b65304",
+      "publicSha256": "b5771a13f4a602c54242e74a16602b7dee3dd219673d41222c01f6cac7b65304",
+      "match": true
+    },
+    {
+      "file": "bench/index.html",
+      "url": "https://anymodel.dev/bench",
+      "status": 200,
+      "sourceSha256": "abde06cd91f509e760ba2404d2d453f173301f136a61ad16829c790707b600a4",
+      "publicSha256": "abde06cd91f509e760ba2404d2d453f173301f136a61ad16829c790707b600a4",
+      "match": true
+    }
+  ]
+}

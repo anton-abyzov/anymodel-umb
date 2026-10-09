@@ -1,0 +1,374 @@
+$ cd /Users/antonabyzov/Projects/github/anymodel-0019-worker && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node --test worker/test/*.test.mjs
+# exit 0 — 2026-10-09T08:23:31.161Z
+
+TAP version 13
+# Subtest: Worker real-handler funding policies
+    # Subtest: rejects missing/wrong gateway token without using any provider key: {}
+    ok 1 - rejects missing/wrong gateway token without using any provider key: {}
+      ---
+      duration_ms: 19.432958
+      type: 'test'
+      ...
+    # Subtest: rejects missing/wrong gateway token without using any provider key: {"authorization":"Bearer wrong"}
+    ok 2 - rejects missing/wrong gateway token without using any provider key: {"authorization":"Bearer wrong"}
+      ---
+      duration_ms: 0.619375
+      type: 'test'
+      ...
+    # Subtest: rejects missing/wrong gateway token without using any provider key: {"x-api-key":"sk-or-fixture-caller"}
+    ok 3 - rejects missing/wrong gateway token without using any provider key: {"x-api-key":"sk-or-fixture-caller"}
+      ---
+      duration_ms: 0.487583
+      type: 'test'
+      ...
+    # Subtest: uses the server key only after gateway authentication: authorization
+    ok 4 - uses the server key only after gateway authentication: authorization
+      ---
+      duration_ms: 2.457917
+      type: 'test'
+      ...
+    # Subtest: uses the server key only after gateway authentication: x-api-key
+    ok 5 - uses the server key only after gateway authentication: x-api-key
+      ---
+      duration_ms: 1.0695
+      type: 'test'
+      ...
+    # Subtest: allows caller-funded BYOK without any configured gateway token or server key
+    ok 6 - allows caller-funded BYOK without any configured gateway token or server key
+      ---
+      duration_ms: 0.687833
+      type: 'test'
+      ...
+    # Subtest: never falls back to an unprotected configured server key
+    ok 7 - never falls back to an unprotected configured server key
+      ---
+      duration_ms: 0.527792
+      type: 'test'
+      ...
+    # Subtest: separates gateway token and caller key in both header arrangements: Bearer fixture-gateway-token
+    ok 8 - separates gateway token and caller key in both header arrangements: Bearer fixture-gateway-token
+      ---
+      duration_ms: 0.715083
+      type: 'test'
+      ...
+    # Subtest: separates gateway token and caller key in both header arrangements: Bearer sk-or-fixture-caller
+    ok 9 - separates gateway token and caller key in both header arrangements: Bearer sk-or-fixture-caller
+      ---
+      duration_ms: 0.766458
+      type: 'test'
+      ...
+    # Subtest: requires a caller key when gateway auth succeeds but no server key exists
+    ok 10 - requires a caller key when gateway auth succeeds but no server key exists
+      ---
+      duration_ms: 0.345333
+      type: 'test'
+      ...
+    1..10
+ok 1 - Worker real-handler funding policies
+  ---
+  duration_ms: 28.060959
+  type: 'suite'
+  ...
+# Subtest: Worker route, resource and model policies
+    # Subtest: rejects /v1/messages-evil instead of forwarding to Anthropic
+    ok 1 - rejects /v1/messages-evil instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.388459
+      type: 'test'
+      ...
+    # Subtest: rejects /v1/messages/unknown instead of forwarding to Anthropic
+    ok 2 - rejects /v1/messages/unknown instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.536833
+      type: 'test'
+      ...
+    # Subtest: rejects /v1/responses instead of forwarding to Anthropic
+    ok 3 - rejects /v1/responses instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.209333
+      type: 'test'
+      ...
+    # Subtest: rejects /v1/chat/completions instead of forwarding to Anthropic
+    ok 4 - rejects /v1/chat/completions instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.180792
+      type: 'test'
+      ...
+    # Subtest: rejects /api/auth instead of forwarding to Anthropic
+    ok 5 - rejects /api/auth instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.177916
+      type: 'test'
+      ...
+    # Subtest: rejects /unrecognized instead of forwarding to Anthropic
+    ok 6 - rejects /unrecognized instead of forwarding to Anthropic
+      ---
+      duration_ms: 0.176417
+      type: 'test'
+      ...
+    # Subtest: allows unauthenticated health and supported CORS preflight without upstream traffic
+    ok 7 - allows unauthenticated health and supported CORS preflight without upstream traffic
+      ---
+      duration_ms: 2.330416
+      type: 'test'
+      ...
+    # Subtest: returns 405 for unsupported methods on a known route
+    ok 8 - returns 405 for unsupported methods on a known route
+      ---
+      duration_ms: 0.45625
+      type: 'test'
+      ...
+    # Subtest: forwards only the exact count_tokens route and retains query parameters
+    ok 9 - forwards only the exact count_tokens route and retains query parameters
+      ---
+      duration_ms: 0.576791
+      type: 'test'
+      ...
+    # Subtest: rejects a declared body larger than the configured cap
+    ok 10 - rejects a declared body larger than the configured cap
+      ---
+      duration_ms: 0.489625
+      type: 'test'
+      ...
+    # Subtest: enforces the streamed byte count without Content-Length
+    ok 11 - enforces the streamed byte count without Content-Length
+      ---
+      duration_ms: 1.383042
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request {broken
+    ok 12 - rejects invalid request {broken
+      ---
+      duration_ms: 0.511208
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request null
+    ok 13 - rejects invalid request null
+      ---
+      duration_ms: 0.312666
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request []
+    ok 14 - rejects invalid request []
+      ---
+      duration_ms: 0.347042
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request {}
+    ok 15 - rejects invalid request {}
+      ---
+      duration_ms: 0.230208
+      type: 'test'
+      ...
+    # Subtest: rejects invalid request {"model":13,"messages":[]}
+    ok 16 - rejects invalid request {"model":13,"messages":[]}
+      ---
+      duration_ms: 0.164042
+      type: 'test'
+      ...
+    # Subtest: does not let X-Forwarded-For reset a Cloudflare client rate limit
+    ok 17 - does not let X-Forwarded-For reset a Cloudflare client rate limit
+      ---
+      duration_ms: 2.120708
+      type: 'test'
+      ...
+    # Subtest: ignores X-Forwarded-For even when no Cloudflare client header is supplied
+    ok 18 - ignores X-Forwarded-For even when no Cloudflare client header is supplied
+      ---
+      duration_ms: 0.429833
+      type: 'test'
+      ...
+    # Subtest: rejects paid models under free-only policy without silently replacing them
+    ok 19 - rejects paid models under free-only policy without silently replacing them
+      ---
+      duration_ms: 0.207625
+      type: 'test'
+      ...
+    # Subtest: requires explicit FREE_ONLY=false to allow paid model requests
+    ok 20 - requires explicit FREE_ONLY=false to allow paid model requests
+      ---
+      duration_ms: 0.957083
+      type: 'test'
+      ...
+    # Subtest: preserves native Messages reasoning effort and dictionary tool schemas
+    ok 21 - preserves native Messages reasoning effort and dictionary tool schemas
+      ---
+      duration_ms: 0.755625
+      type: 'test'
+      ...
+    1..21
+ok 2 - Worker route, resource and model policies
+  ---
+  duration_ms: 13.405
+  type: 'suite'
+  ...
+# Subtest: local adapter streams through the body cap and returns HTTP 413
+ok 3 - local adapter streams through the body cap and returns HTTP 413
+  ---
+  duration_ms: 21.58725
+  type: 'test'
+  ...
+# Subtest: local adapter uses socket identity instead of forged Cloudflare or forwarded headers
+ok 4 - local adapter uses socket identity instead of forged Cloudflare or forwarded headers
+  ---
+  duration_ms: 14.109792
+  type: 'test'
+  ...
+# Subtest: Worker Auth
+    # Subtest: rejects requests without token when token is set
+    ok 1 - rejects requests without token when token is set
+      ---
+      duration_ms: 0.624917
+      type: 'test'
+      ...
+    # Subtest: accepts Bearer token
+    ok 2 - accepts Bearer token
+      ---
+      duration_ms: 0.147875
+      type: 'test'
+      ...
+    # Subtest: accepts x-api-key token
+    ok 3 - accepts x-api-key token
+      ---
+      duration_ms: 0.075084
+      type: 'test'
+      ...
+    # Subtest: allows all requests when no token configured
+    ok 4 - allows all requests when no token configured
+      ---
+      duration_ms: 0.161167
+      type: 'test'
+      ...
+    # Subtest: rejects wrong token
+    ok 5 - rejects wrong token
+      ---
+      duration_ms: 0.127542
+      type: 'test'
+      ...
+    1..5
+ok 5 - Worker Auth
+  ---
+  duration_ms: 2.050666
+  type: 'suite'
+  ...
+# Subtest: Free Model Enforcement
+    # Subtest: allows :free suffix models
+    ok 1 - allows :free suffix models
+      ---
+      duration_ms: 0.222875
+      type: 'test'
+      ...
+    # Subtest: allows openrouter/free auto-router
+    ok 2 - allows openrouter/free auto-router
+      ---
+      duration_ms: 0.25225
+      type: 'test'
+      ...
+    # Subtest: does not require a hardcoded free-model allowlist
+    ok 3 - does not require a hardcoded free-model allowlist
+      ---
+      duration_ms: 0.29525
+      type: 'test'
+      ...
+    # Subtest: blocks paid models when freeOnly is true
+    ok 4 - blocks paid models when freeOnly is true
+      ---
+      duration_ms: 0.30675
+      type: 'test'
+      ...
+    # Subtest: allows any model when freeOnly is false
+    ok 5 - allows any model when freeOnly is false
+      ---
+      duration_ms: 0.241584
+      type: 'test'
+      ...
+    # Subtest: blocks model without :free suffix
+    ok 6 - blocks model without :free suffix
+      ---
+      duration_ms: 0.060584
+      type: 'test'
+      ...
+    1..6
+ok 6 - Free Model Enforcement
+  ---
+  duration_ms: 1.685291
+  type: 'suite'
+  ...
+# Subtest: Rate Limiting
+    # Subtest: allows requests under limit
+    ok 1 - allows requests under limit
+      ---
+      duration_ms: 0.241959
+      type: 'test'
+      ...
+    # Subtest: blocks after exceeding limit
+    ok 2 - blocks after exceeding limit
+      ---
+      duration_ms: 0.682208
+      type: 'test'
+      ...
+    # Subtest: tracks different IPs separately
+    ok 3 - tracks different IPs separately
+      ---
+      duration_ms: 0.140709
+      type: 'test'
+      ...
+    1..3
+ok 7 - Rate Limiting
+  ---
+  duration_ms: 1.146916
+  type: 'suite'
+  ...
+# Subtest: OpenRouter Request Building
+    # Subtest: builds correct request with model override
+    ok 1 - builds correct request with model override
+      ---
+      duration_ms: 0.122375
+      type: 'test'
+      ...
+    # Subtest: includes http-referer and x-title
+    ok 2 - includes http-referer and x-title
+      ---
+      duration_ms: 0.04275
+      type: 'test'
+      ...
+    1..2
+ok 8 - OpenRouter Request Building
+  ---
+  duration_ms: 0.209917
+  type: 'suite'
+  ...
+# Subtest: Sanitize Body (shared)
+    # Subtest: strips Anthropic-specific fields
+    ok 1 - strips Anthropic-specific fields
+      ---
+      duration_ms: 0.589667
+      type: 'test'
+      ...
+    # Subtest: normalizes tool_choice string to object
+    ok 2 - normalizes tool_choice string to object
+      ---
+      duration_ms: 0.131833
+      type: 'test'
+      ...
+    # Subtest: strips cache_control from tools
+    ok 3 - strips cache_control from tools
+      ---
+      duration_ms: 0.075792
+      type: 'test'
+      ...
+    1..3
+ok 9 - Sanitize Body (shared)
+  ---
+  duration_ms: 0.867959
+  type: 'suite'
+  ...
+1..9
+# tests 52
+# suites 7
+# pass 52
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 115.611208

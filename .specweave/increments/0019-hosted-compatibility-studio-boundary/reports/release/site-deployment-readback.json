@@ -1,0 +1,31 @@
+{
+  "id": "dpl_J6k6hahKdKH1RjdoKt7FmuEBB1RQ",
+  "name": "anymodel",
+  "url": "anymodel-1agmrg3w5-anton-abyzovs-projects.vercel.app",
+  "ownerId": "team_Eb1Mm6NMuAuTA0FgqWaipXCR",
+  "readyState": "READY",
+  "target": "production",
+  "alias": [
+    "anymodel.dev",
+    "anymodel-eight.vercel.app",
+    "www.anymodel.dev",
+    "anymodel-anton-abyzovs-projects.vercel.app"
+  ],
+  "projectId": "prj_G3VjaYpdOE9eHED378K6aNoBna94",
+  "meta": {
+    "gitCommitAuthorName": "Anton Abyzov",
+    "gitCommitAuthorEmail": "anton.abyzov@easychamp.com",
+    "gitCommitMessage": "0019: preserve hosted stream failures through EOF and SSE framing",
+    "gitCommitRef": "codex/0019-anymodel-compatibility",
+    "gitCommitSha": "6a356766b6089209d786269a1af8ae269b343054",
+    "action": "promote",
+    "originalDeploymentId": "dpl_3b1omn5xFWBU8kJfwF7G5LxsrksN"
+  },
+  "createdAt": 1791537221625,
+  "ready": 1791537225486,
+  "at": "2026-10-09T09:14:38.312481+00:00",
+  "rollbackDeployment": "dpl_4DncYmxUhGTodTqpPZ27ai38C663",
+  "validatedPreview": "dpl_3b1omn5xFWBU8kJfwF7G5LxsrksN",
+  "sourceCommit": "6a35676",
+  "siteUnchangedThroughReviewedCommit": "b7ae0b5"
+}

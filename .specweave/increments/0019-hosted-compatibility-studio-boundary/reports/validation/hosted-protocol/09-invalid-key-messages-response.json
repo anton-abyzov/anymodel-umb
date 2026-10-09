@@ -1,0 +1,1 @@
+{"type":"error","error":{"type":"authentication_error","message":"[anymodel] Openrouter API key is invalid or expired. Check your OPENROUTER_API_KEY."}}

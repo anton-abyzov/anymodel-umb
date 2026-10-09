@@ -1,0 +1,213 @@
+{
+  "at": "2026-10-09T08:28:31.265283+00:00",
+  "sourceCommit": "1c0308e",
+  "rollbackVersion": "6bbc51d1-6e67-4d96-a15c-771db5a407c8",
+  "deployments": [
+    {
+      "id": "b1ddfb07-520d-4c39-9643-f5d5141cb160",
+      "source": "wrangler",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/triggered_by": "deployment"
+      },
+      "versions": [
+        {
+          "version_id": "8227d76b-39be-4a22-9ed0-45db1f03e4d6",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-10-09T08:27:52.723845Z"
+    },
+    {
+      "id": "1b06f865-e2f5-47b1-9122-96c6d4a2213c",
+      "source": "wrangler",
+      "strategy": "percentage",
+      "annotations": {
+        "workers/triggered_by": "deployment"
+      },
+      "versions": [
+        {
+          "version_id": "6bbc51d1-6e67-4d96-a15c-771db5a407c8",
+          "percentage": 100
+        }
+      ],
+      "created_on": "2026-06-04T06:11:27.395007Z"
+    }
+  ],
+  "settings": {
+    "bindings": [
+      {
+        "name": "ANYMODEL_MAX_BODY_BYTES",
+        "type": "plain_text",
+        "text": "4194304"
+      },
+      {
+        "name": "ANYMODEL_TOKEN",
+        "type": "secret_text"
+      },
+      {
+        "name": "DEFAULT_FREE_MODEL",
+        "type": "plain_text",
+        "text": "nvidia/nemotron-3-super-120b-a12b:free"
+      },
+      {
+        "name": "FREE_ONLY",
+        "type": "plain_text",
+        "text": "true"
+      },
+      {
+        "name": "OPENROUTER_API_KEY",
+        "type": "secret_text"
+      },
+      {
+        "name": "RPM",
+        "type": "plain_text",
+        "text": "60"
+      }
+    ]
+  },
+  "publicUrllib": [
+    {
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "method": "GET",
+      "path": "/health",
+      "tokenSupplied": false,
+      "status": 403,
+      "body": "error code: 1010\n"
+    },
+    {
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "method": "POST",
+      "path": "/v1/messages",
+      "tokenSupplied": false,
+      "status": 403,
+      "body": "error code: 1010\n"
+    },
+    {
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "method": "POST",
+      "path": "/v1/messages",
+      "tokenSupplied": true,
+      "status": 403,
+      "body": "error code: 1010\n"
+    },
+    {
+      "host": "api.anymodel.dev",
+      "method": "GET",
+      "path": "/health",
+      "tokenSupplied": false,
+      "status": 403,
+      "body": "error code: 1010\n"
+    },
+    {
+      "host": "api.anymodel.dev",
+      "method": "POST",
+      "path": "/v1/messages",
+      "tokenSupplied": false,
+      "status": 403,
+      "body": "error code: 1010\n"
+    },
+    {
+      "host": "api.anymodel.dev",
+      "method": "POST",
+      "path": "/v1/messages",
+      "tokenSupplied": true,
+      "status": 403,
+      "body": "error code: 1010\n"
+    }
+  ],
+  "public": [
+    {
+      "client": "curl default",
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "case": "health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "provider": "openrouter",
+        "model": null,
+        "freeOnly": true,
+        "fundingPolicy": "authenticated",
+        "timestamp": "2026-10-09T08:29:42.722Z"
+      }
+    },
+    {
+      "client": "curl default",
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "case": "missing-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    },
+    {
+      "client": "curl default",
+      "host": "anymodel-proxy.anton-abyzov.workers.dev",
+      "case": "wrong-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    },
+    {
+      "client": "curl default",
+      "host": "api.anymodel.dev",
+      "case": "health",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "provider": "openrouter",
+        "model": null,
+        "freeOnly": true,
+        "fundingPolicy": "authenticated",
+        "timestamp": "2026-10-09T08:29:42.895Z"
+      }
+    },
+    {
+      "client": "curl default",
+      "host": "api.anymodel.dev",
+      "case": "missing-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    },
+    {
+      "client": "curl default",
+      "host": "api.anymodel.dev",
+      "case": "wrong-token",
+      "status": 401,
+      "body": {
+        "type": "error",
+        "error": {
+          "type": "authentication_error",
+          "message": "Invalid or missing AnyModel gateway token."
+        }
+      }
+    }
+  ],
+  "deploymentNote": "Wrangler uploaded and activated version, then exited1 because token lacks route-management scope. Existing routes preserved; deployment API shows new version100%; custom-domain and workers.dev auth readbacks pass. urllib default client receives Cloudflare1010; curl default client succeeds without header overrides.",
+  "bundle": {
+    "localSha256": "d73f13acadaf0d9e96d934dd91365a5e2c3fae9f1f8cd37b141cdfb6d3a0cecd",
+    "contentType": "multipart/form-data; boundary=2e11c06f235890d87f0d94cf956dc7016f343e81d8234c4807f67969ece1",
+    "downloadSha256": "60afb28b73f12db15a5d5432d158b5f465bf7fcf0044ae331a1807fb9fa7239a",
+    "modules": [
+      {
+        "name": "index.js",
+        "sha256": "d73f13acadaf0d9e96d934dd91365a5e2c3fae9f1f8cd37b141cdfb6d3a0cecd"
+      }
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "constraint": "one valid hosted attempt per arm/task, same client controls; no task repair retry",
+  "cells": [
+    {
+      "arm": "frontier-direct",
+      "task": "dictionary",
+      "model": "openai/gpt-6.1-sol",
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "disposition": "accepted",
+      "artifactPassed": true,
+      "cleanCompletion": true,
+      "checksPassed": 7,
+      "checksTotal": 7,
+      "providerResponses": 5,
+      "knownApiCostUsd": 0.0306494,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "frontier-direct-dictionary/report.json"
+    },
+    {
+      "arm": "frontier-direct",
+      "task": "worker-auth",
+      "model": "openai/gpt-6.1-sol",
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "disposition": "accepted",
+      "artifactPassed": true,
+      "cleanCompletion": true,
+      "checksPassed": 10,
+      "checksTotal": 10,
+      "providerResponses": 5,
+      "knownApiCostUsd": 0.034221,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "frontier-direct-worker-auth/report.json"
+    },
+    {
+      "arm": "frontier-direct",
+      "task": "reasoning-budget",
+      "model": "openai/gpt-6.1-sol",
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "disposition": "accepted",
+      "artifactPassed": true,
+      "cleanCompletion": true,
+      "checksPassed": 14,
+      "checksTotal": 14,
+      "providerResponses": 5,
+      "knownApiCostUsd": 0.058505699999999994,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "frontier-direct-reasoning-budget/report.json"
+    },
+    {
+      "arm": "frontier-proxy",
+      "task": "dictionary",
+      "model": "openai/gpt-6.1-sol",
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "disposition": "accepted",
+      "artifactPassed": true,
+      "cleanCompletion": true,
+      "checksPassed": 7,
+      "checksTotal": 7,
+      "providerResponses": 6,
+      "knownApiCostUsd": 0.033881800000000004,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "frontier-proxy-dictionary/report.json"
+    },
+    {
+      "arm": "frontier-proxy",
+      "task": "worker-auth",
+      "model": "openai/gpt-6.1-sol",
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "disposition": "accepted",
+      "artifactPassed": true,
+      "cleanCompletion": true,
+      "checksPassed": 10,
+      "checksTotal": 10,
+      "providerResponses": 5,
+      "knownApiCostUsd": 0.031220799999999996,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "frontier-proxy-worker-auth/report.json"
+    },
+    {
+      "arm": "frontier-proxy",
+      "task": "reasoning-budget",
+      "model": "openai/gpt-6.1-sol",
+      "observedModels": [
+        "openai/gpt-6.1-sol"
+      ],
+      "disposition": "budget-censored",
+      "artifactPassed": true,
+      "cleanCompletion": false,
+      "checksPassed": 14,
+      "checksTotal": 14,
+      "providerResponses": 3,
+      "knownApiCostUsd": 0.0450946,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "frontier-proxy-reasoning-budget/report.json"
+    },
+    {
+      "arm": "qwen-direct",
+      "task": "dictionary",
+      "model": "qwen/qwen3-coder-next",
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "disposition": "request-censored",
+      "artifactPassed": true,
+      "cleanCompletion": false,
+      "checksPassed": 7,
+      "checksTotal": 7,
+      "providerResponses": 6,
+      "knownApiCostUsd": 0.00325472,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 1,
+      "report": "qwen-direct-dictionary/report.json"
+    },
+    {
+      "arm": "qwen-direct",
+      "task": "worker-auth",
+      "model": "qwen/qwen3-coder-next",
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "disposition": "artifact-failed",
+      "artifactPassed": false,
+      "cleanCompletion": true,
+      "checksPassed": 5,
+      "checksTotal": 10,
+      "providerResponses": 6,
+      "knownApiCostUsd": 0.00450764,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 0,
+      "report": "qwen-direct-worker-auth/report.json"
+    },
+    {
+      "arm": "qwen-direct",
+      "task": "reasoning-budget",
+      "model": "qwen/qwen3-coder-next",
+      "observedModels": [
+        "qwen/qwen3-coder-next"
+      ],
+      "disposition": "request-censored",
+      "artifactPassed": false,
+      "cleanCompletion": false,
+      "checksPassed": 10,
+      "checksTotal": 14,
+      "providerResponses": 6,
+      "knownApiCostUsd": 0.00837156,
+      "modelRepairInterventions": 0,
+      "administrativeStops": 1,
+      "report": "qwen-direct-reasoning-budget/report.json"
+    }
+  ],
+  "acceptedCells": 5,
+  "artifactPassedCells": 7,
+  "budgetCensoredCells": 1,
+  "requestCensoredCells": 2,
+  "artifactFailedAfterCleanCompletion": 1,
+  "providerAttemptsReserved": 47,
+  "providerResponseReceipts": 47,
+  "knownApiCostUsd": 0.24970722000000004,
+  "responseReceiptsWithoutCost": 0,
+  "reservedUsd": 4.689592800000003,
+  "reservationCapUsd": 4.75,
+  "limitations": [
+    "Three small source-repair fixtures with one attempt; not a model-quality ranking or parity claim.",
+    "Native Codex uses different tools and subscription billing; no causal speed or cost comparison.",
+    "OpenCode auxiliary requests consume the six-request cap. Resource-censored cells are not model failures.",
+    "Nine earlier strict-gate harness rejections reached no upstream; retained separately and excluded from model outcomes.",
+    "No local model requests or local inference processes.",
+    "Cost totals use provider receipts; conservative nonrefunded reservations are not actual cost."
+  ],
+  "decision": "Keep native frontier Studio agents as default. Optional hosted delegates need task-specific tests and escalation; this pilot does not justify automatic downgrade."
+}

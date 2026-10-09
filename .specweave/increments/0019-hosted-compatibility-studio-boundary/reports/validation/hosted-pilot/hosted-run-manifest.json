@@ -1,0 +1,15 @@
+{
+  "harnessCommit": "0d52eb03f96eb6508f27ca5253fae1106a057f99",
+  "fileSha256": {
+    "evaluation/run-pilot.mjs": "0a5dc38ef2ac8266a10739cc952ab9c4ec7d8bc9d27d63060e30991baa632108",
+    "evaluation/budget-gateway.mjs": "9e304544aeffe667bb6f0529c7035bea139d84dd52d1c517dc5ee13565546bf7",
+    "evaluation/durable-output.mjs": "48b52600c9566719bf481f4755df42670d2ce8e09d9f16be7acdd7a116244cd7",
+    "evaluation/scoring.mjs": "0bd4c56aad3a33dce8ca207be96eb3daf6a870a0e410457a09b920a9c392240f",
+    "evaluation/tasks.mjs": "3457531e0f2c30718479e080a52aa86098806f06184a9c81c155df14ec2731f4"
+  },
+  "budgetFile": "hosted-budget.json",
+  "gateReviewedBeforeCalls": true,
+  "mockPreflight": "../pilot-preflight/accepted",
+  "rejectedAttempts": "harness-rejections.json",
+  "constraint": "One valid model attempt per hosted arm/task; no repair retries."
+}

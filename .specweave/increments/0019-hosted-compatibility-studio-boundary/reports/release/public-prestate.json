@@ -1,0 +1,12 @@
+{
+  "https://api.anymodel.dev/health": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "https://anymodel.dev/": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "body": {
+      "bytes": 57829
+    }
+  }
+}

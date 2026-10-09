@@ -1,0 +1,618 @@
+{
+  "version": 1,
+  "capUsd": 4.75,
+  "reservedUsd": 4.689592800000003,
+  "requests": [
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:55:24.948Z",
+      "inputTokenUpperBound": 7132,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.06638000000000001
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:55:25.095Z",
+      "inputTokenUpperBound": 11248,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.08696000000000001
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:55:27.718Z",
+      "inputTokenUpperBound": 17273,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.11708500000000001
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:55:51.500Z",
+      "inputTokenUpperBound": 26189,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.161665
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:55:55.836Z",
+      "inputTokenUpperBound": 39385,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.22764500000000001
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:55:59.950Z",
+      "inputTokenUpperBound": 7298,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.06721
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:00.386Z",
+      "inputTokenUpperBound": 11416,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.0878
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:02.749Z",
+      "inputTokenUpperBound": 21941,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.14042500000000002
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:19.874Z",
+      "inputTokenUpperBound": 27696,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.16920000000000002
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:22.453Z",
+      "inputTokenUpperBound": 38319,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.222315
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:27.794Z",
+      "inputTokenUpperBound": 7631,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.068875
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:28.261Z",
+      "inputTokenUpperBound": 11759,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.08951500000000001
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:31.197Z",
+      "inputTokenUpperBound": 59068,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.32606000000000007
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:43.601Z",
+      "inputTokenUpperBound": 63762,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.34953000000000006
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:47.785Z",
+      "inputTokenUpperBound": 81944,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.44044000000000005
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:54.079Z",
+      "inputTokenUpperBound": 7132,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.06638000000000001
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:54.565Z",
+      "inputTokenUpperBound": 11246,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.08695
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:56:56.824Z",
+      "inputTokenUpperBound": 17269,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.117065
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:57:14.878Z",
+      "inputTokenUpperBound": 24700,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.15422000000000002
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:57:21.585Z",
+      "inputTokenUpperBound": 31518,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.18831
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:57:30.060Z",
+      "inputTokenUpperBound": 35379,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.20761500000000002
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:57:34.602Z",
+      "inputTokenUpperBound": 7298,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.06721
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:57:35.058Z",
+      "inputTokenUpperBound": 11414,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.08779
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:57:37.768Z",
+      "inputTokenUpperBound": 21937,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.140405
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:00.601Z",
+      "inputTokenUpperBound": 27857,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.17000500000000002
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:04.340Z",
+      "inputTokenUpperBound": 34749,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.204465
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:10.440Z",
+      "inputTokenUpperBound": 7631,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.068875
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:11.083Z",
+      "inputTokenUpperBound": 11757,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.089505
+    },
+    {
+      "model": "openai/gpt-6.1-sol",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:14.361Z",
+      "inputTokenUpperBound": 59064,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 0.000005,
+        "output": 0.000015,
+        "request": 0
+      },
+      "reservedUsd": 0.32604000000000005
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:29.593Z",
+      "inputTokenUpperBound": 7164,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0024980799999999997
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:30.183Z",
+      "inputTokenUpperBound": 12826,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0031775199999999997
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:31.873Z",
+      "inputTokenUpperBound": 18817,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0038964399999999997
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:42.563Z",
+      "inputTokenUpperBound": 22417,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.004328439999999999
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:47.055Z",
+      "inputTokenUpperBound": 23847,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00450004
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T08:58:53.537Z",
+      "inputTokenUpperBound": 25386,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00468472
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:07.754Z",
+      "inputTokenUpperBound": 7330,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.002518
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:07.843Z",
+      "inputTokenUpperBound": 12994,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0031976799999999996
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:09.883Z",
+      "inputTokenUpperBound": 23485,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0044566
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:23.971Z",
+      "inputTokenUpperBound": 27522,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00494104
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:26.842Z",
+      "inputTokenUpperBound": 31474,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00541528
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:28.812Z",
+      "inputTokenUpperBound": 43414,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0068480799999999994
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:35.216Z",
+      "inputTokenUpperBound": 7663,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0025579599999999997
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:35.793Z",
+      "inputTokenUpperBound": 13337,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.0032388399999999998
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:37.920Z",
+      "inputTokenUpperBound": 60738,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00892696
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:47.258Z",
+      "inputTokenUpperBound": 63213,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00922396
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:03:56.328Z",
+      "inputTokenUpperBound": 65367,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.00948244
+    },
+    {
+      "model": "qwen/qwen3-coder-next",
+      "path": "/api/v1/chat/completions",
+      "at": "2026-10-09T09:04:05.442Z",
+      "inputTokenUpperBound": 67686,
+      "maxOutputTokens": 2048,
+      "rates": {
+        "input": 1.2e-7,
+        "output": 8e-7,
+        "request": 0
+      },
+      "reservedUsd": 0.009760719999999999
+    }
+  ]
+}

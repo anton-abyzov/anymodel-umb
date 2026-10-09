@@ -1,0 +1,10 @@
+{
+  "arm": "qwen-direct",
+  "task": "reasoning-budget",
+  "requestedModel": "qwen/qwen3-coder-next",
+  "runtime": "1.14.33",
+  "sourceRevision": "f50f9ac15a0517fb8b1e9aa79a944f7542195b5b",
+  "fixtureHash": "06e7b121064b5b7aacf33f394afb20e448c20556dd1ec2e01f509d8e23ba8d57",
+  "startedAt": "2026-10-09T09:03:34.296Z",
+  "status": "started; completion unknown until report.json"
+}

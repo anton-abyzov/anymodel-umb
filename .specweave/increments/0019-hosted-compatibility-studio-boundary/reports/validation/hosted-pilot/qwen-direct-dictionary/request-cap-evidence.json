@@ -1,0 +1,10 @@
+{
+  "classification": "client retried local evaluation gateway after six permitted provider requests",
+  "logs": [
+    {
+      "log": "state/data/opencode/log/2026-10-09T085829.log",
+      "sha256": "1dcccb6ffbf1fa94d66c02973ad88a384299c2f5a575cf22da4d55d908ccce3b",
+      "requestCapMessageOccurrences": 14
+    }
+  ]
+}
